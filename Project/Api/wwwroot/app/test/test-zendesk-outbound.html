@@ -1,0 +1,27 @@
+<section class="pageContainer" ng-controller="testZendeskOutboundController as vm">
+    <div class="abovePagePanels"><h1>Test of Zendesk Outbound</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+
+    <p>&nbsp;</p>
+
+    <h4 > Click to trigger different event
+    </h4>
+    <p>&nbsp;</p>
+
+
+    <mtk-form>
+
+
+
+        <button ng-repeat="event in vm.events" class="btn btn-default  mgr-6"
+                type="button"
+                ng-click="vm.newEvent(event)">
+            <i class="icon  icon-envelope-alt "></i>
+            {{event}}
+        </button>
+    </mtk-form>
+
+    <div style="width:90%;display: flex;margin: 2em; min-height: 60%;" ng-if="vm.bankData">
+        <pre>{{vm.bankData | json}}</pre>
+    </div>
+
+</div></div></section>

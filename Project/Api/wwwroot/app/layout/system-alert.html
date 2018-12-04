@@ -1,0 +1,32 @@
+<div  class="system-alert-container" ng-controller="systemAlertController as vm">
+    <div ng-if="vm.systemAlert" class="alert system-alert alert-{{vm.systemAlert.State | lowercase}}">
+        <a href="" ng-if="vm.systemAlert.Dismissable" ng-click="vm.dismiss('systemAlert')" class="close"><i class="icon-remove"></i></a>
+        <i class="icon-2x icon-alert-{{vm.systemAlert.State | lowercase}} center-vertical mgr-6"></i>
+        <strong>{{vm.systemAlert.Title}}</strong>
+        <span class="mgl-6 alert-detail " ng-bind-html="vm.systemAlert.Detail"></span>
+        <a class="mgl-6 alert-link disp-ib"
+           ng-if="vm.systemAlert.LinkUrl && vm.systemAlert.LinkLabel"
+           ng-href="{{vm.systemAlert.LinkUrl}}"
+           target="{{vm.systemAlert.target}}" >
+            {{vm.systemAlert.LinkLabel}}<i class="icon-vf-tiny-arrow-right"></i>
+        </a>
+    </div>
+    <div ng-if="vm.subscriptionAlert" class="alert system-alert alert-{{vm.subscriptionAlert.State | lowercase}}">
+        <a href="" ng-if="vm.subscriptionAlert.Dismissable" ng-click="vm.dismiss('subscriptionAlert')" class="close"><i class="icon-remove"></i></a>
+        <i class="icon-2x icon-alert-{{vm.subscriptionAlert.State | lowercase}} center-vertical mgr-6"></i>
+        <strong>{{vm.subscriptionAlert.Title}}</strong>
+        <span class="mgl-6 alert-detail">{{vm.subscriptionAlert.Detail}}</span>
+        <a class="mgl-6 alert-link disp-ib"
+           ng-if="vm.subscriptionAlert.LinkUrl && vm.subscriptionAlert.LinkLabel"
+           href="#/subscriber/edit"
+           target="{{vm.subscriptionAlert.target}}" >
+            {{vm.subscriptionAlert.LinkLabel}}<i class="icon-vf-tiny-arrow-right"></i>
+        </a>
+    </div>
+    <div ng-if="vm.showGuestAccessAlert" class="alert system-alert alert-info">
+        <a href="" ng-click="vm.dismiss('showGuestAccessAlert')" class="close"><i class="icon-remove"></i></a>
+        <i class="icon-2x icon-alert-info center-vertical mgr-6"></i>
+        <strong>Guest mode</strong>
+        <span class="mgl-6">You are viewing this property portfolio as a guest. Your access is read-only.</span>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="dashboard-insights-widget">
+    <div class="position-r">
+        <a class="hidden-wrapper-link" href="{{widget.href}}"></a>
+        <div class="widget-icon" xxng-show="!!widget.icon" ng-class="{'navy': !widget.compliment}">
+            <i class="{{widget.icon}} " ng-class="{'icon-large': widget.isBig}"></i>
+        </div>
+        <div class="widget-title">
+            {{widget.title}}
+        </div>
+
+        <div class="content-container clearfix  padding-hbase ">
+            <div class="text-center block-center">
+                <div class="featureNumber">
+                    {{widget.featureNumber | shortNumber: 0}}<span ng-show="widget.isPercent" class="smaller">%</span>
+                </div>
+            </div>
+            <mtk-dashboard-insights-widget selected-member-id="vm.selectedMemberId" is-showing-details="vm.isShowingDetails"></mtk-dashboard-insights-widget>
+        </div>
+    </div>
+    <p class="text-center">
+        <a class="btn btn-link btn-sm" href="#/insights/rent-arrears"><i class="icon-vf-chart-line"></i> Insights</a>
+    </p>
+</div>

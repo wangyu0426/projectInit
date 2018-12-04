@@ -1,0 +1,39 @@
+<div class="clearfix">
+    <div class="pull-right text-right">
+        <span class="file-drop-indicator"><i class="icon-cloud-upload icon-2x "></i></span>
+        <button class="btn btn-default" type="button" mtk-file-select="vm.uploadImage($files)" mtk-file-select-accept="image/jpeg,image/jpg">
+            <i class="icon-paper-clip icon-flip-horizontal icon-large"> </i>
+        </button>
+    </div>
+</div>
+<div class="position-r border-solid mgt-4">
+    <div class="file-drop-target "
+         uploader="vm.uploader" nv-file-drop="" nv-file-over="" over-class="file-over"
+         options="{formData: vm.getUploadInfo()}">
+        <div class="file-over-message center-vertical-container">
+            <div class="center-vertical">
+                <div class=" disp-ib ">
+                    <i class="icon-cloud-upload icon-3x Navy"></i>
+                    <div class="bigger-150 font-spaced">Upload profile image</div>
+                </div>
+            </div>
+        </div>
+        <div class="non-hover-content z0" >
+            <div ng-if="vm.previewFile">
+                <div class=" border-solid position-r"
+                     style="overflow:hidden; height: 100%; width:100%; background-color: #fdfdfd;">
+                    <div class="position-a text-right" style="bottom:4px; right: 4px;">
+                        <a href="" class="btn btn-sm btn-default" ng-click="vm.deleteImage()"  ng-if="vm.documentExists"><i class='icon-trash'></i> Delete</a>
+                    </div>
+                    <img ng-src="{{vm.previewFile}}"
+                         style="float:left; height: auto; width: auto; max-width: 460px; min-height: 70px;"/>
+                </div>
+            </div>
+            <div ng-if="!vm.previewFile " class="text-center block-center text-muted">
+                <p class="v-space-24"></p>
+                <p>Drag your {{vm.title}} image here.</p>
+                <p class="v-space-24"></p>
+            </div>
+        </div>
+    </div>
+</div>

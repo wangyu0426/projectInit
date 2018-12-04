@@ -1,0 +1,175 @@
+<section class="pageContainer" ng-controller="testFileUpload as vm" xmlns="http://www.w3.org/1999/html">
+    <div class="abovePagePanels"><h1>File Upload</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+    <mtk-form ng-if="vm.uploader">
+        <div nv-file-drop="" uploader="vm.uploader">
+            <mtk-form-row>
+                <h3>Small in place</h3>
+            </mtk-form-row>
+            <mtk-form-row label="Select files">
+
+                <button mtk-file-select="vm.onFileSelect($files)" multiple>Upload</button>
+
+                <br/><br/>
+                <div class="pull-left" ng-show="vm.uploader.queue.length == 0">
+                    <div class="file-upload-container ">
+                        <div class="old-school-file-upload">
+                            <input type="file" nv-file-select="" uploader="vm.uploader" name="old-file-input" multiple />
+                        </div>
+                        <div class="file-drag-drop-container" nv-file-over="" over-class="file-over"
+                             uploader="vm.uploader">
+                            <p class="bigger-125 font-light font-spaced headline" style="padding-top:3px;"
+                               nv-file-over="" uploader="vm.uploader">
+                                Drop your files here </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pull-left" ng-show="vm.uploader.queue.length > 0">
+                    <div class=" file-upload-small-queue-container ">
+                        <div class="clearfix">
+                            <div class="pull-left" style="width:65%" ng-show="vm.uploader.isUploading">
+                                <div class="progress " style="height: 9px; margin-bottom:2px;">
+                                    <div class="progress-bar" role="progressbar"
+                                         ng-style="{ 'width': vm.uploader.progress + '%' }"></div>
+                                </div>
+                                <div class="italic small">
+                                    Uploading {{ vm.uploader.queue.length }} file{{ vm.uploader.queue.length == 1? '' : 's'}}
+                                </div>
+                            </div>
+                            <div class="pull-right text-right" ng-show="vm.uploader.isUploading">
+                                <button type="button" class=" btn btn-default btn-xs"
+                                        ng-click="vm.uploader.cancelAll()">
+                                    <i class="icon-pause"></i>
+                                    Pause
+                                </button>
+                            </div>
+                            <div ng-show="!vm.uploader.isUploading" class="bold mgt-4">
+                                <button type="button" class="btn btn-primary btn-sm pull-right bold"
+                                        ng-click="vm.uploader.uploadAll()"
+                                        ng-disabled="!vm.uploader.getNotUploadedItems().length">
+                                    <span class="icon-ok"></span>
+                                    Upload {{ vm.uploader.queue.length }} file{{ vm.uploader.queue.length == 1? '' : 's'}}
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm pull-left"
+                                        ng-click="vm.uploader.clearQueue()">
+                                    <span class="icon-remove icon-danger "></span>
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                        <ul class="unstyled file-upload-small-queue mgt-4">
+                            <li class="file-upload-small-queue-file clearfix pull-left"
+                                ng-repeat="item in vm.uploader.queue">
+                                <div class="pull-left" style="width:20px; margin:0 3px 0 0;">
+                                    <object ng-if="item.file.type.contains('pdf')" style="width:16px; height:16px; "
+                                            data="/app/content/svg/icon-pdf.svg" type="image/svg+xml"></object>
+                                    <i ng-if="!item.file.type.contains('pdf')" class=" icon-file icon-2x" ng-class="{
+                                           ' icon-file-text-alt ' : item.file.type.contains('text'),
+                                          ' icon-picture' : item.file.type.contains('image')
+                                    }"></i>
+                                </div>
+
+                            <span class="text-light" ng-class="{'text-danger' : item.isError,
+                                            'text-success' : item.isSuccess,
+                                            'text-muted':item.isCancel
+                                    }">{{ item.file.name | spaceFileName: 14 }}
+                            </span>
+                                <small class="text-info" ng-show="vm.uploader.isHTML5" nowrap>
+                                    {{ item.file.size/1024|number:0 }}k
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mtk-form-row>
+            <mtk-form-row>
+                <h3>Large upload queue</h3>
+
+                <p>Queue length: {{ vm.uploader.queue.length }}</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Name</th>
+                            <th ng-show=" vm.uploader.isHTML5">Size</th>
+                            <th ng-show=" vm.uploader.isHTML5">Progress</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in vm.uploader.queue">
+                            <td><strong>{{ item.file.name }}</strong></td>
+                            <td ng-show="vm.uploader.isHTML5" nowrap>{{ item.file.size/1024|number:2 }} kB</td>
+                            <td ng-show="vm.uploader.isHTML5">
+                                <div class="progress" style="margin-bottom: 0;">
+                                    <div class="progress-bar" role="progressbar"
+                                         ng-style="{ 'width': item.progress + '%' }"></div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                            </td>
+                            <td nowrap>
+                                <!--<button type="button" class="btn btn-primary btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">-->
+                                <!--<span class="icon-ok"></span> Upload--><!--</button>-->
+                                <button type="button" class="btn btn-danger btn-xs" style="width:6em;"
+                                        ng-click="item.cancel()" ng-hide="!item.isUploading">
+                                    Cancel
+                                </button>
+                                <button type="button" class="btn btn-light btn-round" ng-click="item.remove()"
+                                        ng-hide="item.isUploading">
+                                    <span class="icon-remove text-danger"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    Queue progress:
+                    <div class="progress no-margin-bottom" style="">
+                        <div class="progress-bar" role="progressbar"
+                             ng-style="{ 'width': vm.uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+            </mtk-form-row>
+            <mtk-form-row>
+                <div class="text-right">
+                    <button type="button" class="btn btn-default" ng-click="vm.uploader.clearQueue()"
+                            ng-hide="!vm.uploader.queue.length || vm.uploader.isUploading">
+                        <span class="icon-remove  "></span>
+                        Remove all
+                    </button>
+                    <button type="button" class=" btn btn-danger" ng-click="vm.uploader.cancelAll()"
+                            ng-hide="!vm.uploader.isUploading">
+                        Cancel Uploads
+                    </button>
+                    <button type="button" class="btn btn-primary " ng-click="vm.uploader.uploadAll()"
+                            ng-hide="vm.uploader.isUploading" ng-disabled="!vm.uploader.getNotUploadedItems().length">
+                        <span class="icon-ok"></span>
+                        Upload all
+                    </button>
+                </div>
+            </mtk-form-row>
+            <mtk-form-row >
+                <h3>Preview in IMG for .JPG and .PNG</h3>
+                <div ng-if="vm.previewPhotos.length > 0">
+                    <span ng-repeat="fileUrl in vm.previewPhotos">
+                        <img ng-src="{{fileUrl}}" style="max-width: 400px" />
+                    </span>
+                </div>
+
+            </mtk-form-row>
+            <mtk-form-row >
+                <h3>Preview in frames for .PDF</h3>
+                <div ng-if="vm.previewPdfs.length > 0">
+                    <div ng-repeat="fileUrl in vm.previewPdfs">
+                        <iframe ng-src="{{vm.trustSrc(fileUrl)}}" style="max-width: 500px" ></iframe>
+                    </div>
+                </div>
+            </mtk-form-row>
+        </div>
+    </mtk-form>
+</div></div></section>

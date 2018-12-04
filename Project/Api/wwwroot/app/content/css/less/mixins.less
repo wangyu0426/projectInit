@@ -1,0 +1,266 @@
+
+//Replacement Bootstrap Mixins
+//These overwrite the bootstrap ones
+
+//still need to write the whole mixin
+//*** means a different value from the original
+.button-variant(@color; @background; @border) {
+	color: @color;
+	background-color: @background;
+
+	//we will only use the border color for hover etc
+	border-color: @background;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open > .dropdown-toggle & {
+		color: @color;
+		background-color: darken(@background, 10%);
+		border-color: @border; //***
+	}
+	&:active,
+	&.active,
+	.open > .dropdown-toggle & {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+          //bootstrap uses 65% opacity - but that only looks good on white backgrounds
+			background-color: mix(@background, white,65%);
+			border-color: mix(@border, white,65%);
+            color: fade(@color, 80%);
+           opacity: 1; //override bootstrap
+		}
+	}
+
+	.badge {
+		color: @background;
+		background-color: @color;
+		border: 2px @background solid;
+	}
+	[class*="icon-contact"] {
+		&:after {
+			color: @background; //same as background colour, for contrast
+		}
+	}
+}
+// Button sizes
+// Includes border-width variable nto used in Bootstrap
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius; @border-width) {
+	padding: @padding-vertical @padding-horizontal;
+	font-size: @font-size;
+	line-height: @line-height;
+	border-radius: @border-radius;
+	border-width: @border-width;//***
+}
+
+
+// Placeholder text
+.inside-placeholder(){
+	font-style:italic;
+	color: @color;
+	font-size: @font-size-base;
+}
+.placeholder(@color: @input-color-placeholder) {
+	&::-moz-placeholder  {
+		   // Firefox
+		.inside-placeholder();
+		opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+	&:-ms-input-placeholder {     // Internet Explorer 10+
+
+		.inside-placeholder();
+	}
+	&::-webkit-input-placeholder {  // Safari and Chrome
+
+		.inside-placeholder();
+	}
+}
+
+// Alerts
+
+.alert-variant(@background; @border; @text-color) {
+	background-color: @background;
+	border-color: @border;
+	color: @text-color;
+
+	hr {
+		border-top-color: darken(@border, 5%);
+	}
+	.alert-link {
+		color: darken(@text-color, 10%);
+	}
+	.hover-border:hover {
+		border-color: darken(@border, 5%);
+	}
+}
+
+
+
+///////////////
+//End of replacement Bootstrap mixins
+
+
+//Ace Mixins
+
+
+
+//end of Ace mixins
+
+
+
+
+.gradient (@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+}
+.gradient-horizontal (@startColor: #eee, @endColor: white) {
+	background-color: @startColor;
+	background: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	background: -webkit-linear-gradient(left, @startColor, @endColor);
+	background: -moz-linear-gradient(left, @startColor, @endColor);
+	background: -ms-linear-gradient(left, @startColor, @endColor);
+	background: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+
+//Angular Transition Mixin
+.angularTransition(@time: 0.5s; @hiddenState){
+  //animate during angular transitions
+  transition: @time ease all;
+
+  &.ng-hide-add, &.ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: inherit !important; /* yes, important */
+    overflow:hidden;
+  }
+  &.ng-hide {
+    @hiddenState();
+  }
+}
+
+.finishedDiagonalStripeBackground() {
+  background-image: webkit-linear-gradient(45deg,rgba(0,0,0,0.05) 25%,transparent 25%,transparent 50%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0.05) 75%,transparent 75%,transparent);
+  background-image:
+  linear-gradient(to bottom left,rgba(0,0,0,0.05) 25%,transparent 25%,transparent 50%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0.05) 75%,transparent 75%,transparent);
+  background-size: 32px 32px;
+}
+
+.permissionDeniedDiagonalStripeBackground() {
+	background-image: webkit-linear-gradient(135deg,rgba(0,0,0,0.1) 25%,transparent 25%,transparent 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1) 75%,transparent 75%,transparent);
+	background-image:
+	linear-gradient(to bottom right,rgba(0,0,0,0.1) 25%,transparent 25%,transparent 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1) 75%,transparent 75%,transparent);
+	background-size: 32px 32px;
+}
+
+.mtkPanel() {
+	background:  @VF-LightGrey-MuchLighter;
+	padding: 8px 12px;
+	border: 1px darken(@VF-LightGrey-lighter,1%) dotted;
+	border-radius: @border-radius-base + 2;
+	box-shadow:  0px 2px 4px -2px fade(@VF-DarkGrey,50%);
+}
+
+
+
+//embossed icon mixins
+.embossed-backgroundMixin() {
+	&.orange, &.warning {
+		background-color: @VF-Orange;
+		border-color: darken(@VF-Orange, 20%);
+		color: white !important;
+	}
+	&.orange-faded {
+		background-color: fade(@VF-Orange, 25%);
+		border-color: @VF-Orange;
+		color: white !important;
+	}
+	&.blue {
+		background-color: @VF-Primary;
+		border-color: darken(@VF-Primary, 20%);
+		color: white !important;
+	}
+	&.grey {
+		background-color: @VF-DarkGrey;
+		color: white !important;
+		border-color: #111;
+	}
+	&.muted {
+		background-color: fade(@VF-LightGrey,40%);
+		color: white !important;
+		border-color: @VF-DarkGrey-lighter;
+	}
+	&.red, &.error, &.danger {
+		background-color: @VF-Red;
+		color: white !important;
+		border-color: darken(@VF-Red, 20%);
+	}
+	&.red-faded {
+		background-color: @alert-danger-bg;
+		color: @alert-danger-text !important;
+		border-color: @alert-danger-border;
+	}
+	&.navy {
+		background-color: @VF-Navy;
+		color: white !important;
+		border-color: darken(@VF-Navy, 20%);
+	}
+	&.green, &.success {
+		background-color: @VF-Green;
+		color: white !important;
+		border-color: fade(darken(@VF-Green, 10%), 50%);
+	}
+	&.green-faded {
+		background-color: fade(@VF-Green, 50%);
+		color: white !important;
+		border-color: white;
+	}
+	&.purple {
+		background-color: @VF-Purple;
+		color: white !important;
+		border-color: darken(@VF-Purple, 20%);
+	}
+}
+
+.embossed-shadowsMixin() {
+	&.muted, &.text-muted {
+		text-shadow: 1px 1px 1px fade(@VF-DarkGrey, 25%);
+		box-shadow: none;
+
+	}
+	&.orange, &.warning {
+		text-shadow: 1px 1px 1px darken(@VF-Orange, 30%);
+		box-shadow: 1px 1px 1px fade(darken(@VF-Orange, 30%), 70%);
+	}
+	&.red, &.danger {
+		text-shadow: 1px 1px 1px darken(@VF-Red, 30%);
+		box-shadow: 1px 1px 1px fade(darken(@VF-Red, 30%), 70%);
+	}
+	&.blue {
+		text-shadow: 1px 1px 1px darken(@VF-Primary, 30%);
+		box-shadow: 1px 1px 1px fade(darken(@VF-Primary, 30%), 70%);
+	}
+	&.grey {
+		text-shadow: 1px 1px 1px darken(@VF-DarkGrey, 30%);
+		box-shadow: 1px 1px 1px fade(darken(@VF-DarkGrey, 30%), 70%);
+	}
+	&.navy, &.purple {
+		text-shadow: 1px 1px 1px darken(@VF-DarkGrey, 20%);
+		box-shadow: 1px 1px 1px fade(@VF-DarkGrey, 50%);
+	}
+	&.green, &.green-faded, &.success {
+		text-shadow: 1px 1px 1px darken(@VF-Green, 30%);
+		box-shadow: 1px 1px 1px fade(darken(@VF-Green, 30%), 70%);
+	}
+}

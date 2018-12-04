@@ -1,0 +1,66 @@
+<section class="pageContainer" ng-controller="testEmailLookupController as vm">
+    <div class="abovePagePanels"><h1>Test of lookup (select) controls</h1></div>
+
+    <div class="pagePanelContainer">
+        <div class="pagePanel">
+            <p>
+                The value of each property modified by a control is shown like this
+                <span class="label label-info bigger-125  ">model value</span>
+            </p>
+            <mtk-form>
+                <mtk-form-row label="Email Lookup 1">
+                    <h3>Array of objects with single property binding</h3>
+                    <!--<mtk-select-lookup source="vm.source" model="vm.selected1" placeholder="this is placeholder"></mtk-select-lookup>-->
+                    <br>
+                    <span class="label label-info bigger-125">{{vm.selected1}}</span><br><br>
+
+                    <ui-select multiple
+                               ng-model="vm.selected1"
+                               theme="app/lib/ui/angular-ui-select/bootstrap"
+                               ng-disabled="vm.isDisabled" close-on-select="false" style="width: 800px;" title="Choose a person">
+
+                        <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                        <ui-select-choices repeat="person.email as person in vm.source | propsFilter: {name: $select.search, age: $select.search}">
+                            <div ng-bind-html="person.name | highlight: $select.search"></div>
+                            <small>
+                                email: {{person.email}}
+                                age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                    </ui-select>
+                    <br>
+                    <pre style="width: 830px;">&lt;mtk-select-lookup source=&quot;vm.source&quot; model=&quot;vm.selected1&quot; placeholder=&quot;this is placeholder&quot;&gt;&lt;/mtk-select-lookup&gt;</pre>
+                    <!-- <p>Selected: {{multipleDemo.selectedPeopleSimple}}</p> -->
+
+
+                </mtk-form-row>
+
+                <mtk-form-row label="Email Lookup 2">
+                    <h3> Loading Async Email data from server </h3>
+                    <!--<mtk-select-lookup source="vm.source" model="vm.selected2" placeholder="this is placeholder"></mtk-select-lookup>-->
+                    <br>
+                    <span class="label label-info bigger-125">{{vm.selected2}}</span><br><br>
+
+                    <ui-select multiple
+                               ng-model="vm.selected2"
+                               theme="app/lib/ui/angular-ui-select/bootstrap"
+                               ng-disabled="vm.isDisabled" close-on-select="false" style="width: 800px;" title="Choose a person">
+
+                        <ui-select-match placeholder="Select person...">{{$item.EmailAddress}}</ui-select-match>
+                        <ui-select-choices repeat="person.Email as person in vm.response | propsFilter: {Id: $select.search, ContactId: $select.search}">
+                            <div ng-bind-html="person.FirstName | highlight: $select.search"></div>
+                            <small>
+                                email: {{person.Email}} </span>
+                            </small>
+                        </ui-select-choices>
+                    </ui-select>
+
+                    <br>
+                    <pre style="width: 830px;">&lt;mtk-select-lookup source=&quot;vm.source&quot; model=&quot;vm.selected1&quot; placeholder=&quot;this is placeholder&quot;&gt;&lt;/mtk-select-lookup&gt;</pre>
+                    <!-- <p>Selected: {{multipleDemo.selectedPeopleSimple}}</p> -->
+
+
+                </mtk-form-row>
+
+            </mtk-form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="mtk-colour-picker">
+    <button class="btn btn-default toggle"
+            ng-style="getStyle()"
+            ng-click="toggle()">{{buttonText || 'Pick Colour'}}</button>
+    <div class="init-hidden" ng-show="isShow">
+        <color-picker ng-model="model" class="picker"></color-picker>
+        <div class="row">
+            <div class="col-xs-8">
+                <input class="form-control" ng-model="model" />
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-default closePicker" ng-click="toggle()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

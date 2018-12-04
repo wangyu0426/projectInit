@@ -1,0 +1,44 @@
+<a ng-href="{{widget.href}}" class="hidden-wrapper-link"></a>
+<div class="widget-icon" xxng-show="!!widget.icon" ng-class="{'navy': !widget.compliment}">
+    <i class="{{widget.icon}} " ng-class="{'icon-large': widget.isBig}"></i>
+</div>
+<div class="widget-title">
+    {{widget.title}}
+</div>
+<div>
+    <div>
+        <mtk-gauge value="widget.featureNumber" max="10" min="0"
+                  title=""></mtk-gauge>
+        <div class="small text-muted text-center " style="margin:-18px 0 24px 0" ng-show="vm.isShowingDetails">
+            {{ widget.gaugeTitle}}
+        </div>
+    </div>
+    <div class="content-container clearfix" ng-if="!widget.compliment && vm.isShowingDetails">
+        <table class="percent-table">
+            <tr class="small">
+                <td></td>
+                <td class="text-right ">
+                    <small>%</small>
+                </td>
+                <td class="text-right ">
+                    <small><i class="icon-home"></i></small>
+                </td>
+            </tr>
+            <tr ng-repeat="value in widget.Values" class="">
+                <td class=" text-left">
+                    <span class="text-{{value.AlertLevel}}">{{value.Label}}&nbsp;&nbsp;</span>
+                </td>
+                <td class="  text-right ">
+                    <span class="bold text-{{value.AlertLevel}}">{{value.Percent}}</span>
+                </td>
+
+                <td class=" text-right text-{{value.AlertLevel}}">
+                    {{value.Quantity}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+

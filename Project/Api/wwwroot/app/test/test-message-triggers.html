@@ -1,0 +1,19 @@
+<section class="pageContainer" ng-controller="testMessageTriggersController as vm">
+    <div class="abovePagePanels"><h1>mtk-message-triggers</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+    <mtk-form>
+        <p>Message triggers directive. Does not show until it is bound with valid triggers.</p>
+
+        <h2>Example</h2>
+        <mtk-form-row label="Select a property">
+            <mtk-lookup model="vm.propertyId" source="vm.properties"></mtk-lookup>
+            <strong>vm.selected is: {{vm.propertyId}}</strong>
+        </mtk-form-row>
+
+        <mtk-form-row label="Feed">
+            <mtk-message-triggers from="FromProperty" entity-ids="vm.ids"/>
+        </mtk-form-row>
+
+        <h4>Syntax:</h4>
+        <pre>&lt;mtk-message-triggers from="FromProperty" entity-ids="vm.ids"/&gt;</pre>
+    </mtk-form>
+</div></div></section>

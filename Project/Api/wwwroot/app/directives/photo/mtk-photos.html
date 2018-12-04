@@ -1,0 +1,22 @@
+<div class=" position-r photo-list-container">
+    <div ng-if="isEmpty" class="position-a z0 mgt-4 mgl-6 width-100">
+        <p class="v-space-24"></p>
+        <div class="block-center text-center text-muted"> {{emptyText}}
+        </div>
+    </div>
+    <div ng-if="!isEmpty" class="position-a z0 text-center small"
+         style="top:50%; width: 160px; left: 50%; margin-left: -80px; margin-top: -8px;">
+        <i class="icon-spin icon-refresh"></i>
+    </div>
+    <div ng-if="mainPhoto" class="main-photo-container cursor-pointer border-solid photo-background"
+         ng-click="lightbox()" style="background-image: url('{{getLittleSrc(mainPhoto)}}');"></div>
+    <div ng-if="!mainPhoto" class="main-photo-container border-solid photo-background center-vertical-container">
+        <i class="icon-picture icon-3x muted center-vertical"></i>
+    </div>
+    <div ng-if="prevPhoto" ng-click="prev()" class="prev-photo-container  text-center">
+        <i class="icon-angle-left icon-3x"></i>
+    </div>
+    <div ng-if="nextPhoto" ng-click="next()" class="next-photo-container  text-center">
+        <i class="icon-angle-right icon-3x"></i>
+    </div>
+</div>

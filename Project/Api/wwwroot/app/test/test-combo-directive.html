@@ -1,0 +1,25 @@
+<div class="page-content">
+    <div class="page-header position-relative">
+        <div class="abovePagePanels"><h1>Combo directive demo </h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+    </div>
+
+    <div class="row-fluid" ng-model="chartValue" ng-init="chartValue='a7f07c02-80dd-4795-87fc-2b2444cb4779'">
+        <h4>Work with web service: chart account </h4>
+        {{chartValue}}
+        <mtk-radio model="chartValue" source="'financial/chartaccounts'" limit-to="30"/>
+    </div>
+
+    <div class="row-fluid" ng-model="typeValue"
+         ng-init="myObjectOptions=[{Id:'typeA',Name:'First Type'},{Id:'typeB',Name:'Second Type'},{Id:'typeC',Name:'Third Type'}]">
+        <h4>Work with array of object: </h4>
+        {{typeValue}}
+        <mtk-radio model="typeValue" source="myObjectOptions"/>
+    </div>
+
+    <div class="row-fluid" ng-model="stringValue" ng-init="myStringOptions=['Tom','Harry','Jonathan']">
+        <h4>Work with array of string: </h4>
+        {{stringValue}}
+        <mtk-radio model="stringValue" source="myStringOptions"/>
+    </div>
+
+</div>

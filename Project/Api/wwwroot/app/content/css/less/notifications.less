@@ -1,0 +1,202 @@
+
+.notification-icon-mixin() {
+	> [class*='icon'] {
+		background-color: white;
+		opacity: 1;
+		&::before {
+		}
+		+ .badge {
+			&.badge-info {
+				background-color: @brand-info;
+			}
+			&.badge-success {
+				background-color: @brand-success;
+			}
+			&.badge-warning {
+				background-color: @brand-warning;
+			}
+			&.badge-danger, .badge-error {
+				background-color: @brand-danger;
+			}
+		}
+	}
+}
+
+.notifications-main-link {
+	height: 40px;
+	margin-right: 1px;
+	background-color: fade(white, 25%);
+	color: @VF-Primary !important;
+	padding: 4px 9px !important;
+	text-align: center;
+	width: 51px;
+	position: relative;
+	> [class*='icon'] {
+		display: inline-block;
+		padding: 0.75em;
+		border-radius: 100%;
+		background-color: fade(white, 75%);
+		opacity: 0.85;
+		&::before {
+			vertical-align: middle;
+			height: 11px;
+			width: 14px;
+			margin-left: -1px;
+		}
+		+ .badge {
+			//top-right corner of icon
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 3px 6px;
+			@fadeBy : 40%;
+			&.badge-info {
+				background-color: mix(#c9c9c9, @brand-info,@fadeBy);
+			}
+			&.badge-success {
+				background-color: mix(#c9c9c9, @brand-success,@fadeBy);
+			}
+			&.badge-warning {
+				background-color: mix(#c9c9c9, @brand-warning,@fadeBy);
+			}
+			&.badge-danger, .badge-error {
+				background-color: mix(#c9c9c9, @brand-danger,@fadeBy);
+			}
+		}
+	}
+
+	&:hover {
+		.notification-icon-mixin();
+	}
+
+}
+
+.notification-header.open > .notifications-main-link {
+	.notification-icon-mixin();
+}
+
+@notification-bg: white;
+@notification-bg-dark: fade(@VF-Navy, 25%);
+@notification-footer-height: 30px;
+@notification-header-height: 33px;
+@notification-zIndex: @zindex-dropdown;
+.notification-list {
+	//each dropdown list
+	height: 30em;
+	width: 22em;
+	overflow: hidden;
+	list-style-type: none;
+	padding: @notification-header-height 0 @notification-footer-height 0;
+	color: @text-color;
+}
+
+.notification-list-item {
+	//background-color:@notification-bg;
+	padding: 6px 0px;
+	margin: 0 9px;
+	font-size: ceil(@font-size-base * 0.9);
+	z-index: @notification-zIndex + 5;
+	position: relative;
+	border-top: 1px @VF-LightGrey-lighter dotted;
+
+	.details {
+		//padding-left: 34px; //commented out until we put in the user initial
+		display: block;
+	}
+
+	.user-initial {
+		position: absolute;
+		top: 8px;
+		left: 0px;
+		width: 27px !important;
+		height: 27px;
+		border-radius: 30%;
+		&.user-initial-badge {
+			margin: 0;
+		}
+	}
+	a > [class*=icon] {
+		margin: 0;
+	}
+	a:hover > [class*=icon] {
+		color: inherit; //override bootstrap's dropdown style
+		text-decoration: none;
+	}
+}
+
+.notification-list-header {
+	position: absolute;
+	z-index: @notification-zIndex + 10;
+	height: @notification-header-height;
+	font-size: @font-size-large;
+	color: @VF-Navy;
+	padding: 5px 7px 9px 7px;
+	line-height: 22px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: @VF-LightGrey-MuchLighter;
+
+	> small {
+		line-height: 22px;
+		margin-top: 2px;
+		font-size: @font-size-small;
+		color: @text-muted;
+		//float: right;
+	}
+
+}
+
+.notification-list-footer {
+	z-index: @notification-zIndex + 10;
+	position: absolute;
+	text-align: center;
+	background-color: @VF-LightGrey-MuchLighter;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 5px 7px;
+	height: @notification-footer-height;
+}
+
+.notification-list-inner {
+	position: relative;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.notification-group-header {
+	font-size: 9px;
+	margin: 10px 7px 0 7px;
+	padding: 2px 7px 2px 7px;
+	color: @text-color;
+	text-align: center;
+	vertical-align: bottom;
+	z-index: @notification-zIndex;
+	position: relative;
+
+	.marker-line {
+		content: ' ';
+		z-index: @notification-zIndex;
+		border-bottom: 1px @VF-LightGrey dotted;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 50%;
+
+	}
+	.text {
+		z-index: @notification-zIndex + 2;
+		background: white;
+		display: inline-block;
+		position: relative;
+		padding: 1px 8px;
+	}
+
+}
+
+.notification-group-header + .notification-list-item {
+	border-top: none;
+}

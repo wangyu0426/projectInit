@@ -1,0 +1,129 @@
+@card-nudge-in-by:6px;
+@card-label-width: 100px;
+@card-label-left-padding:15px;
+@card-label-value-gap: 10px;
+@card-label-colour: #6d84ac;//fade(@VF-Navy,70%);
+@small-card-label-width:65px;
+@sub-card-label-width:65px;
+.card-row {
+  padding-top:(@padding-base-vertical * 1.5);
+  padding-bottom: (@padding-base-vertical * 1.5);
+  line-height: @line-height-base * 0.85;
+ i[class*='icon'] {
+    vertical-align: middle;
+    &.bigger-150 {
+      vertical-align: text-top;
+    }
+  }
+  border-bottom: 1px dotted fade(@VF-Navy,30%);
+}
+
+
+.card-label, .card-value {
+  vertical-align: bottom;
+  padding: 0px;
+}
+.card-label{
+  text-align: left;
+	padding-left:@card-label-left-padding;
+  color: @card-label-colour;
+  width:@card-label-width;
+  float:left;
+	font-size: 95%;
+	line-height:1.3em;
+
+}
+.card-value {
+
+//  padding-right: @padding-base-horizontal;
+//  margin-right: 0 - @padding-base-horizontal;
+  padding-left: @card-label-width + @card-label-value-gap + @card-label-left-padding;
+	select {
+		margin-top:-2px;
+	}
+}
+
+.small-card {
+
+  .card-label {
+    width:@small-card-label-width;
+	  padding-left:0;
+  }
+  .card-value {
+    padding-left: @small-card-label-width + @card-label-value-gap;
+  }
+}
+.sub-card {
+	display: inline-block;
+	margin-left:32px;
+	vertical-align: top;
+	float: right;
+	min-width:50%;
+	div {
+		padding-bottom:6px;
+	}
+}
+.sub-card-label {
+	color:  @VF-LightGrey-darker;
+	width: @sub-card-label-width;
+	margin-right:6px;
+	display:inline-block;
+	text-align: left;
+	margin-left: -(@card-label-value-gap + @sub-card-label-width);
+	font-size: 95%;
+	line-height:1.75em;
+}
+.sub-normal-card-label{
+		color: @VF-LightGrey-darker;
+    width: @card-label-width;
+    margin-right: 6px;
+    display: inline-block;
+    text-align: left;
+    margin-left: -(@card-label-value-gap + @card-label-width);
+    font-size: 95%;
+    line-height: 1.75em;
+}
+.card-container.nolines {
+	.card-row {
+		border-bottom: none;
+	}
+}
+.job-summary {
+	padding-left:16px;
+}
+
+
+.job-description-box {
+	margin: 0 auto;
+
+	border-radius: @border-radius-base / 2;
+	padding: 6px 16px 1px 0px;
+
+
+	textarea.disabled {
+		min-height: @line-height-computed * 11;
+		padding-bottom:6px;
+		padding-right:6px;
+		height: 100%;
+	}
+}
+
+.job-quotation-container{
+	margin-left: 0px !important;
+	padding-top: 0.3em;
+	display: flex;
+	display: -webkit-flex;
+}
+
+.job-new-quote-container{
+	margin-right: 13px;
+}
+
+
+.card-tabs .tab-pane {
+	min-height: 10em !important;
+}
+
+.form-control-in-card-row {
+	margin-top: -8px;
+}

@@ -1,0 +1,19 @@
+﻿<section class="pageContainer" ng-controller="testActivityFeed as vm">
+    <div class="abovePagePanels"><h1>mtk-activity-feed</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+    <mtk-form>
+        <p>Activity Feed directive. Does not save or show an error until it is bound with a valid entity.</p>
+
+        <h2>Example</h2>
+        <mtk-form-row label="Select a property">
+            <mtk-lookup model="vm.propertyId" source="vm.properties"></mtk-lookup>
+            <strong>vm.selected is: {{vm.propertyId}}</strong>
+        </mtk-form-row>
+
+        <mtk-form-row label="Feed">
+            <mtk-activity-feed entity-type="lot" entity-id="vm.propertyId"/>
+        </mtk-form-row>
+
+        <h4>Syntax:</h4>
+        <pre>&lt;mtk-activity-feed entity-type="lot" entity-id="vm.selectedId"/&gt;</pre>
+    </mtk-form>
+</div></div></section>

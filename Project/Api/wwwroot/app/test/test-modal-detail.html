@@ -1,0 +1,21 @@
+<div>
+    <h4>Test Modal Detail</h4>
+
+
+    <mtk-radio model="radio.value" source="radio.options"></mtk-radio>
+
+    <p class="v-space-24">
+        Time to close: {{parent.timeToClose}} seconds (value from parent).
+
+    </p>
+
+    <p class="v-space-24">
+        Int value on isolated scope does not update: {{timeToClose}}.
+    </p>
+
+    <p class="v-space-24">
+        <a href="" class="btn btn-primary" ng-click="stopTimer()">Stop timer</a>
+    </p>
+
+
+</div>

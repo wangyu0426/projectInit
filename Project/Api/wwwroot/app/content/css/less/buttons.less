@@ -1,0 +1,156 @@
+/*
+These styles overwrite / augment the default Bootstrap styles
+*/
+
+.no-focus:focus {
+	outline: none !important;
+}
+
+.btn {
+	//bootstrap sets a 1px transparent solid border by default
+	//but we want a variable width border
+	border-color: transparent;
+	border-style: solid;
+
+	//make sure buttons don't touch when they are on lines that wrap
+	margin-bottom: 2px;
+
+	//call to our modified button-size mixin
+	.button-size(@padding-base-vertical - @btn-border-width + 1;
+				@padding-base-horizontal + 1 - @btn-border-width;
+				@font-size-base;
+				@line-height-base;
+				@border-radius-base;
+				@btn-border-width);
+
+	.icon-large, .icon-2x, [class*="icon"][class*="bigger"] {
+		&:not(:only-child) {
+			margin-right:4px;
+		}
+	}
+}
+
+//Extra style to go with btn-primary, btn-default etc
+.btn-light {
+	.button-variant(@btn-light-color; @btn-light-bg; @btn-light-border);
+  &.disabled,
+  &[disabled]  {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color:@VF-LightGrey-darker;
+		//we often use text-error / text-danger for icons for delete buttons
+	  [class*=icon].text-danger, [class*=icon].text-error,
+	  [class*=icon].danger, [class*=icon].error {
+		  color: fade(@state-danger-text,50%) !important;
+	  }
+	}
+  }
+}
+
+.btn-yellow {
+	.button-variant(@btn-yellow-color; @btn-yellow-bg; @btn-yellow-border);
+}
+
+.btn-focus {
+	color: @body-bg !important;
+	text-decoration: none !important;
+}
+
+//Extra style to go with btn-primary, btn-defualt etc
+.btn-white {
+	color: inherit;
+	background-color: #ebebeb;
+	border: 1px solid #d2d2d2;
+	padding: 4px 9px;
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open .dropdown-toggle&,
+	&:active:focus,
+	&:active:hover,
+	&.active:hover,
+	&.active:focus {
+		color: inherit;
+		border: 1px solid #d2d2d2;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset;
+	}
+}
+
+//Add error synonym for danger
+
+//Extra style to go with btn-primary, btn-defualt etc
+.btn-warning {
+	.button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+
+.btn-error {
+	.button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+
+//Sizes - modified from Bootstrap to use our button-size mixin;
+.btn-lg {
+	// line-height: ensure even-numbered height of button next to large input
+	.button-size(@padding-large-vertical - @btn-border-width;
+		@padding-large-horizontal - @btn-border-width;
+	@font-size-large; @line-height-large; @border-radius-large;@btn-border-width + 1 );
+}
+.btn-sm {
+	// line-height: ensure proper height of button next to small input
+	.button-size(@padding-small-vertical - @btn-border-width;
+		@padding-small-horizontal - @btn-border-width;
+	@font-size-small; @line-height-small; @border-radius-small;@btn-border-width - 1);
+}
+.btn-xs {
+	.button-size(1px;
+		@padding-xs-horizontal - @btn-border-width + 1;
+	@font-size-small * 0.8; @line-height-small; @border-radius-small;@btn-border-width - 2);
+}
+
+.btn-round.btn {
+  border-radius: 100%;
+  padding: 1px 2px;
+  line-height: 1;
+  font-size: 10px;
+  margin:1px;
+}
+
+//dropdown toggle buttons
+.btn-group > .btn + .dropdown-toggle {
+	margin-left: 1px;
+}
+.dropdown-toggle .caret {
+	border-top-width:6px;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: @VF-LightGrey;
+  color:@VF-LightGrey;
+  padding: 18px;
+
+  border-width:1px;
+  &:hover {
+    border-width:2px;
+    padding:17px;
+    color: @VF-DarkGrey;
+    border-color: @VF-DarkGrey;
+
+  }
+}
+
+.btn .badge.top-right {
+  position:absolute;
+  right:0;
+  top:0;
+	padding: 2px 6px;
+  margin-top:-@padding-base-vertical * 1.75;
+  margin-right : -@padding-base-horizontal * 1.5;
+}
+
+.dropdown-menu a:hover [class*=icon] {
+	color: #ffffff;
+}

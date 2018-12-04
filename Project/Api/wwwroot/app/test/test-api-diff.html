@@ -1,0 +1,55 @@
+<section ng-controller="apidiffController as vm" class="pageContainer" style="overflow: scroll !important; min-height:1000px !important; ">
+
+    <h2>API Diff</h2>
+    <div>
+        <p>
+            There are frequent changes to the web app services which break other apps which use the same service.
+        </p>
+        <p>
+            This tool that will go through two end points and determine the differences between each.
+        </p>
+        <p>
+            to compare two metadata of different domain's web service.
+            Install 'Allow-Control-Allow-Origin *' extension for chrome, and
+            add http://*/ and https://*/ in settings.
+        </p>
+    </div>
+
+    <div ng-show="vm.show">
+            <button class="btn btn-default" ng-click="vm.show = !vm.show;"  >Re Compare</button>
+    </div>
+
+
+    <mtk-form ng-show="!vm.show">
+
+        <mtk-form-row label="Web API old path">
+            <mtk-input model="vm.path1" ></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Web API new path">
+            <mtk-input model="vm.path2" ></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row>
+            <button class="btn btn-default" ng-click="vm.getObjects()">Compare</button>
+
+        </mtk-form-row>
+    </mtk-form>
+
+
+    <div ng-show="vm.show">
+        <ul ng-if="vm.hidden">
+            <li><a href="" scroll-to="diffintypes">Different in Types</a></li>
+            <li><a href="" scroll-to="diffinopers">Different in Operations</a></li>
+        </ul>
+        <br>
+    </div>
+    <div ng-show="vm.show">
+        <h4 id="diffintypes">Different in Types</h4>
+        <pre ng-bind-html="vm.diffTypeValueChangesView"></pre>
+        <h4 id="diffinopers">Different in Operations</h4>
+        <pre ng-bind-html="vm.diffOperationValueChangesView"></pre>
+
+    </div>
+
+
+
+</section>

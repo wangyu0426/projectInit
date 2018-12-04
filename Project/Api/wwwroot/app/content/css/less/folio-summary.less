@@ -1,0 +1,165 @@
+
+@folio-summary-border: 1px dotted @VF-LightGrey;
+@folio-summary-box-width: 85px;
+@folio-summary-box-height: 72px;
+@folio-summary-icon-width: @folio-summary-box-width / 2;
+
+.folio-summary-title {
+	margin-bottom: 0px;
+}
+
+.bill-transaction {
+	.folio-summary-box {
+		margin-top: -10px;
+		min-width: 70px;
+		min-height: auto;
+		background: transparent;
+		padding: 4px;
+	}
+	.folio-summary-label {
+		font-size: 12px;
+		font-weight: normal;
+		padding-bottom: inherit;
+		color: inherit;
+	}
+	.folio-summary-value {
+		font-size: 12px;
+		color: inherit;
+	}
+}
+
+.folio-summary {
+	position: relative;
+	overflow: hidden;
+	border-collapse: collapse;
+	border:  0;
+	padding: 0;
+
+}
+.folio-summary-link-color{
+	 color: @subscribe-blue;
+}
+.folio-summary-box, .folio-summary-icon-box {
+	position: relative;
+	border: @folio-summary-border;
+	border-top: none;
+	min-height: @folio-summary-box-height;  // Allow natural growing of boxes
+	text-align: center;
+	float:left;
+	margin-right:-1px;
+	padding:  12px;
+	&:last-child {
+		margin-right:0px;
+	}
+	background-color: fade(@VF-Primary-faded, 50%);
+}
+.folio-summary-icon-box {
+
+	i {
+		@bigIcon-size: 22px;
+		@bigIcon-padding: 18px;
+		@bigIcon-colour: @VF-Primary;
+		@bigIcon-real-size: @bigIcon-size + @bigIcon-padding;
+		display: block;
+		font-size: @bigIcon-size;
+		width: @bigIcon-real-size;
+		height: @bigIcon-real-size;
+		line-height: @bigIcon-real-size;
+		margin: 0 1px;
+		padding: 0px;
+		border: 0;
+		text-align: center;
+		position: relative;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		border-radius: 100%;
+		background-color: @bigIcon-colour;
+		border-color: darken(@bigIcon-colour, 20%);
+		color: white !important;
+		box-shadow: 1px 1px 1px fade(darken(@bigIcon-colour, 30%), 70%);
+		-moz-text-shadow: 1px 1px 1px darken(@VF-Primary, 30%);
+		-moz-box-shadow: 1px 1px 1px fade(darken(@VF-Primary, 30%), 70%);
+
+		&::before {
+			background-color: fade(#ffffff, 20%);
+			width: @bigIcon-real-size - 3;
+			height: @bigIcon-real-size - 3;
+			border-radius: 100%;
+			margin-left: 3px;
+			padding: 0px;
+			display:block;
+			color:  fade(#ffffff,90%);
+		}
+	}
+
+}
+.folio-summary-box {
+	min-width: @folio-summary-box-width;  // Allow natural growing of boxes
+
+}
+.folio-summary-label {
+	color: @VF-LightGrey-darker;
+	font-weight:bold;
+	font-size: 13px;
+	padding-bottom:6px;
+	text-shadow: 1px 1px 1px fade(@VF-LightGrey-lighter, 95%);
+
+}
+.folio-summary-value {
+	color:  @gray-dark;
+	font-size:  16px;
+
+}
+
+//Owner's portal
+.folio-summary-owner {
+	.folio-summary-box {
+		position:relative;
+		width:20%;
+		min-width:120px;
+		background-color:transparent;
+		margin-right:0;
+
+		&:not(:last-child) {
+			border-right:0;
+		}
+
+		.folio-summary-label {
+			height:3em;
+		}
+		&.income {
+			background-color: fade(@state-success-bg, 40%);
+
+			 .folio-summary-label {
+				color: fade(@state-success-text,75%);
+			}
+			.folio-summary-value {
+				color: @state-success-text;
+			}
+		}
+		&.expense {
+			background-color: fade(@state-danger-bg, 40%);
+			.folio-summary-label {
+				color: fade(@state-danger-text,75%);
+			}
+			.folio-summary-value {
+				color: @state-danger-text;
+			}
+		}
+		&.net-balance {
+			background-color: fade(@VF-Primary-faded, 50%);
+			.folio-summary-label {
+				color: @gray;
+			}
+			.folio-summary-value {
+				font-weight:bold;
+				color: @gray-dark;
+			}
+		}
+	}
+}
+&.folio-summary-box-width-6 {
+	.folio-summary-box {
+		width: 16.66%;
+	}
+}

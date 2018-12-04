@@ -1,0 +1,69 @@
+<div ng-controller="userProfileController as vmProfile">
+    <mtk-form>
+        <mtk-form-row label="Email">
+            <mtk-input ng-hide="vmProfile.awaitingConfirmation"
+                    model="vmProfile.dto.RegisteredEmail" ng-change="vmProfile.emailModified = true"></mtk-input>
+            <a ng-click="vmProfile.updateEmail()"
+               ng-disabled="!vmProfile.emailModified"
+               ng-hide="vmProfile.awaitingConfirmation"
+               class="btn btn-default pull-right">Update Email</a>
+            <div class="alert alert-info"
+                ng-if="vmProfile.awaitingConfirmation">You have requested to update your email address to
+                <strong>{{vmProfile.dto.RegisteredEmail}}</strong>.
+                Please check your inbox for that address and click the confirmation link.
+
+            </div>
+        </mtk-form-row>
+        <mtk-form-row label="First name">
+            <mtk-input model="vmProfile.dto.FirstName"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Last name">
+            <mtk-input model="vmProfile.dto.LastName"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Job title">
+            <mtk-input model="vmProfile.dto.JobTitle"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Mobile">
+            <mtk-input model="vmProfile.dto.MobilePhone"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Work phone">
+            <mtk-input model="vmProfile.dto.WorkPhone"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Facebook link">
+            <mtk-input model="vmProfile.dto.FacebookUrl"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="LinkedIn link">
+            <mtk-input model="vmProfile.dto.LinkedInUrl"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Twitter link">
+            <mtk-input model="vmProfile.dto.TwitterUrl"></mtk-input>
+        </mtk-form-row>
+        <mtk-form-row label="Unread notifications">
+            <mtk-radio  source="vmProfile.notificationTypes" model="vmProfile.dto.NotificationPreference"></mtk-radio>
+        </mtk-form-row>
+
+        <mtk-form-row label="Signature">
+            <textarea froala="vmProfile.froalaOptions"
+                      ng-model="vmProfile.dto.Signature"></textarea>
+        </mtk-form-row>
+
+        <mtk-form-row label="Profile image" ng-if="vmProfile.dto.MemberId">
+            <mtk-setting-member-image
+                    member-id="vmProfile.dto.MemberId"
+                    document-type='avatar'
+                    on-change-status="vm.onImageStatusChange(isUploading, isDeleted)"
+                    title ='profile'>
+            </mtk-setting-member-image>
+        </mtk-form-row>
+
+        <mtk-form-row label="Side menu">
+            <mtk-checkbox model="vmProfile.dto.Preferences.IsDarkMenuOn">Enable darker side navigation menu</mtk-checkbox>
+        </mtk-form-row>
+
+        <mtk-form-row label="Sensitive changes">
+            <mtk-checkbox model="vmProfile.dto.IsNotifySensitiveChanges">Enable Sensitive change notifications</mtk-checkbox>
+        </mtk-form-row>
+
+        <mtk-form-footer on-save="vmProfile.save(stop)"></mtk-form-footer>
+    </mtk-form>
+</div>

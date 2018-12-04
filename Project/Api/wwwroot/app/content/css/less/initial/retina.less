@@ -1,0 +1,28 @@
+//retina displays - whenever there is an image that has a retina version, there will be a .retina elemtn and a .non-retina element
+img.retina {
+	display:none;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	img.retina {
+		display:block !important;
+	}
+	img.non-retina {
+		display:none !important;
+	}
+}
+
+img.avatar-retina {
+  display:none;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+				(min-resolution: 192dpi)
+{
+	img.avatar-retina {
+		display:block !important;
+	}
+	img.avatar-non-retina {
+		display:none !important;
+	}
+}

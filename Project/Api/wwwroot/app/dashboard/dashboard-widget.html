@@ -1,0 +1,48 @@
+<div class="widget-title">
+    {{widget.title}}
+</div>
+<div class="graphic-container" ng-if="widget.icon">
+    <i class="{{widget.icon}} blue "></i>
+</div>
+<div class="graphic-container" ng-if="!widget.icon">
+    <!--<div class="graphic-container-number-container">-->
+        <!--<div class="featureNumber {{'text-' + widget.AlertLevel}}">-->
+            <!--{{widget.featureNumber | number: 0}}-->
+            <!--<span class="smaller" ng-if="widget.isPercent">%</span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<mtk-donut numbers="widget.donut.values" colours="widget.donut.colours"></mtk-donut>-->
+    <mtk-gauge value="widget.donut.values[0]" max="25" min="0" title="{{widget.unitPlural}} %"></mtk-gauge>
+</div>
+<div class="content-container clearfix" ng-if="!widget.compliment">
+    <div ng-if="widget.isPercent">
+        <div ng-repeat="value in widget.Values" class="row" style="line-height:20px;">
+            <div class="col-xs-12 border-bottom-dotted" ng-if="value.leaveGapAbove" style="height:8px;"></div>
+            <div class="col-xs-6">
+                {{value.Label}}
+            </div>
+            <div class="col-xs-2">
+                <span ng-if="value.Percent !== null" class="large">{{value.Percent}}%</span>
+            </div>
+            <div class="col-xs-4 ">
+
+                    <span class="small" ng-if="value.Quantity !== null">{{value.Quantity}}
+                    <span ng-if="value.Quantity === 1">{{widget.unit}}</span>
+                    <span ng-if="value.Quantity != 1">{{widget.unitPlural}}</span></span>
+            </div>
+        </div>
+    </div>
+    <div ng-if="!widget.isPercent">
+        <div ng-repeat="value in widget.Values" class="pull-left mgr-24 ">
+            <span class="bigNumber text-{{value.AlertLevel}}">{{value.Quantity}}</span>
+            {{value.Label}}
+        </div>
+    </div>
+
+
+</div>
+<div class="content-container" ng-if="widget.compliment">
+    <span class="compliment" >{{widget.compliment}}</span>
+</div>
+
+

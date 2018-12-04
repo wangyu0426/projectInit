@@ -1,0 +1,225 @@
+/*  Pricing table
+   ================ */
+@pricing-blue : #2b8dd6;
+
+.pricing-column,
+ul.onboarding-fee {
+  text-align: center;
+  background-color: white;
+  width: 85%;
+  min-width: 214px;
+  min-height: 403px;
+  display: block;
+  margin: 0 auto;
+  padding: 0 !important;
+  border: 1px solid #e4e4e4;
+
+  -webkit-box-shadow: 0 0 25px 1px rgba(0, 0, 0, .15);
+  -moz-box-shadow: 0 0 25px 1px rgba(0, 0, 0, .15);
+  box-shadow: 0 0 25px 1px rgba(0, 0, 0, .15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  z-index: 9;
+  &:hover {
+    border-top-color: #2980b9;
+  }
+  &.highlight {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+  }
+}
+.pricing-cost {
+  font-size: 46px;
+  font-weight: 600;
+  padding-bottom: 20px;
+  color: @pricing-blue;
+  small {
+    font-size: 16px;
+    font-weight: 200;
+    color: @pricing-blue;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span {
+    display: block;
+    padding: 0 7%;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .active &,
+  &:hover {
+    background-color: @subscribe-blue-alt;
+  }
+  &.contact-us {
+    line-height: 1;
+    p {
+      font-style: normal;
+      font-size: 30px;
+      margin-bottom: 0;
+      padding: 15px 0 0 0;
+    }
+    small {
+      font-size: 14px;
+      word-wrap: break-word;
+    }
+  }
+}
+
+.pricing-title {
+  position: relative;
+  min-height: 42px;
+  width: 100%;
+  padding: 7px 5px;
+  background-color: @subscribe-blue;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+.pricing-desc {
+  padding: 15px 25px 15px;
+  line-height: 1.9;
+  color: #666;
+  ul.subs-list, ul.setup-list, ul.sms-list {
+    margin-left: 0;
+    padding-left: 1em;
+    > li {
+      padding-left: 0.8em;
+      &:before {
+        //content: "\2212";
+        content: "•";
+        text-indent: 0;
+        position: relative;
+        display: inline-block;
+        width: 0;
+        left: -0.8em;
+      }
+    }
+    //list-style-type: circle;
+    //> li {
+    //  padding-left: 0.8em;
+    //  display: list-item;
+    //}
+  }
+  ul.sms-list {
+    padding: 10px 5px 0;
+  }
+}
+.pricing-footer {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.pricing-column ul,
+.pricing-column ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pricing-column ul {
+  padding-bottom: 5px;
+  &.features li {
+    font-size: 14px;
+    color: #5c5c5c;
+    padding: 10px 0px;
+    border-bottom: none;
+    text-transform: capitalize;
+  }
+}
+
+/* input */
+.property-input-wrapper {
+  padding-left: 25px;
+}
+/* #b1b1b1, @subscribe-blue */
+.property-input {
+  padding: 0 0 15px 0;
+  span.input-text {
+    color: #666;
+    cursor: text;
+
+    font-size: 20px;
+    font-weight: 300;
+    transition: all 0.3s;
+    @media (min-width: 767px) and (max-width: 867px) {
+      font-size: 18px;
+    }
+  }
+  input {
+    font-weight: 300;
+    /* input reset */
+    text-rendering: auto;
+    word-spacing: normal;
+    text-shadow: none;
+    display: inline-block;
+    /*override form.less */
+    color: @subscribe-blue !important;
+    background-color: transparent !important;
+    padding: 5px 20px !important;
+    border-radius: 0 !important;
+    width: 95px;
+    border: 0;
+    border-bottom: 1px solid #b1b1b1;
+    outline: 0;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: -1px;
+    transition: all 0.3s;
+
+    &:focus, &:active {
+      font-size: 28x;
+      max-width: 100%;
+      width: 110px;
+      border-bottom: 2px solid #b1b1b1;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .pricing-column,
+  ul.onboarding-fee {
+    position: relative;
+    left: -20px;
+  }
+}
+
+/* animate */
+// test pricing active
+ul.slides > li {
+  width: 100%;
+  position: relative;
+  display: block;
+  /* when hiding the slide */
+
+  &.ng-hide-add {
+    animation: 0.5s lightSpeedOut ease;
+  }
+  /* when showing the slide */
+
+  &.ng-hide-remove {
+    animation: 0.5s flipInX ease;
+  }
+}
+
+//
+.plan-details, .setup-details, .sms-details {
+  padding: 25px 50px 0;
+}
+.slides {
+  margin-left: 2%;
+}
+.setup-details, .sms-details {
+  > div:nth-of-type(1) {
+    margin-left: 2%;
+  }
+}
+
+
+

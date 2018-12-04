@@ -1,0 +1,102 @@
+mtk-multi-selector{
+	@multi-selector-left-padding: 7px;
+	.btn-group > .btn:first-child{
+		width: auto;
+		padding-right: 27px;
+		padding-left: @multi-selector-left-padding;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+
+	.btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default
+	{
+		display: inline-block;
+		padding: @padding-base-vertical @multi-selector-left-padding;
+		margin-bottom: 0;
+		font-size: @font-size-base;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		color: @VF-DarkGrey-VeryDark;
+		background-color: @dropdown-bg;
+		border-color: @VF-LightGrey;
+		//width: auto;
+		padding-right: 27px;
+	}
+
+	span.glyphicon-ok:before{
+		content: "\f00c";
+	}
+
+	//.glyphicon:before .glyphicon-ok:before .check-mark:before{
+	//	content: "\f00c";
+	//}
+
+	.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark{
+		display: inline;
+		width: auto;
+		height: auto;
+		line-height: normal;
+		vertical-align: baseline;
+		background-image: none;
+		background-position: 0% 0%;
+		background-repeat: repeat;
+		margin-top: 4px;
+
+		font-family: FontAwesome;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: inherit;
+		-webkit-font-smoothing: antialiased;
+	}
+
+
+	.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+	.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child){
+		display: inline-block;
+		padding: @padding-base-vertical @multi-selector-left-padding;
+		margin-bottom: 0;
+		font-size: @font-size-base;
+
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		color: @VF-DarkGrey-VeryDark;
+		background-color: @dropdown-bg;
+		border-color: @VF-LightGrey;
+		padding-right: 27px;
+	}
+	.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle){
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child){
+
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+}

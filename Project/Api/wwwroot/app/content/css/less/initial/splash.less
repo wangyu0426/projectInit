@@ -1,0 +1,65 @@
+ @splash-box-height: 160px;
+ @splash-logo-width: 350px;
+ @splash-box-top-offset: 180px;
+ @splash-logo-left-offset: 42px;
+
+  #splash-page {
+	z-index: 99999 !important;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+
+
+
+	  //horizontal gradient
+	  background:@VF-Primary;
+
+	  #loading-bar-spinner {
+		background: transparent;
+	}
+
+  }
+  #splash-box {
+    position:absolute;
+    top:50%;
+    margin: @OuterBoxVerticalOffset auto 0 auto;
+    height:@OuterBoxHeight;
+    width:100%;
+    overflow:hidden;
+    left:0;
+    display:block;
+    text-align:center;
+
+	//height: @splash-box-height;
+	//margin-top: 0 - @splash-box-height / 2 - @splash-box-top-offset;
+	text-align: center;
+  }
+
+  #splash-logo {
+  //	width: @splash-logo-width;
+  //  margin-left: @splash-logo-left-offset;
+
+   position:relative;
+   display:block;
+   left: 50%;
+   margin:0;
+   margin-left: @LogoOffset - ( @LogoWidth / 2 );
+   max-width: @LogoWidth;
+
+ }
+
+

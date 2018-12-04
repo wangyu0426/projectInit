@@ -1,0 +1,26 @@
+
+<div class="dashboard-value-widget-inner">
+    <a ng-href="{{vm.href}}" class="hidden-wrapper-link" ng-if="! vm.onClick"></a>
+    <a href="" class="hidden-wrapper-link" ng-click="vm.onClick()" ng-if="vm.onClick" ng-disabled="vm.isProcessing"></a>
+    <h6>{{vm.title}}</h6>
+
+    <div ng-show="vm.isLoading" class="width-100 text-center text-muted">
+        <i class="icon icon-refresh icon-spin"></i>
+    </div>
+   
+    <table class="width-100 mgt-12 table-vertical-align-middle" ng-hide="vm.isLoading">
+        <tr>
+            <td ng-if="!vm.isProcessing" class="" ng-class="{'text-center': !vm.featureNumber}">
+                <i class=" bigIcon small  {{vm.icon}} {{vm.iconAlertLevel}}"></i>
+            </td>
+            <td class="text-center">
+                <div class=" big-number  text-{{vm.AlertLevel}} {{vm.isCurrency ? 'currency-number' : ''}}" ng-class="">
+                    <sup ng-if="vm.isCurrency" class="dollarsign hidden-xs hidden-sm " style="margin:0; position: relative; left: 4px; top: 0;">{{vm.currencySymbol}}</sup>
+                    {{vm.featureNumber||0 | shortNumber: 0 }}
+                    <span ng-if="vm.isPercent" class="small">%</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>  
+

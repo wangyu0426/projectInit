@@ -1,0 +1,55 @@
+<section class="pageContainer dashboard" data-ng-controller="dashboardController as vm">
+    <div class="abovePagePanels clearfix">
+
+        <h1 class="pull-left black" style="margin: 5px 0 15px -10px; border: none;">
+            Dashboard
+        </h1>    </div>
+
+    <div class="pagePanelContainer">
+        <div class="pagePanel pagePanel-left-card pagePanel-dashboard">
+            <div class="dashboard-outer-container" ng-class="{'hide-details': !vm.isShowingDetails}">
+                <div class="dashboard-value-widgets-container">
+                    <mtk-dashboard-value-widget class="dashboard-value-widget dash-panel alert"
+                         ng-repeat="widget in vm.valueWidgets" widget-type="widget">
+                    </mtk-dashboard-value-widget>
+                </div>
+
+                <div class="dashboard-big-widgets-container">
+                    <div class="dashboard-widget big"
+                         ng-repeat="widget in vm.Data.bigWidgets">
+                         <div ng-if="!widget.isInsights" ng-include="'/app/dashboard/dashboard-big-widget.html'"></div>
+                         <div ng-if="widget.isInsights" ng-include="'/app/dashboard/dashboard-insights-widget.html'"></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-detail-widgets-container">
+                    <div class="dashboard-widget"
+                         ng-repeat="widget in vm.Data.DetailWidgets"
+                         ng-include="'/app/dashboard/dashboard-detail-widget.html'">
+                    </div>
+                    <div class="dashboard-widget" ng-show="vm.partnerInfo.Website">
+                        <a ng-href="{{ vm.partnerInfo.Website }}" class="hidden-wrapper-link" target="_blank"></a>
+                        <div class="widget-icon" xxng-show="false" ng-class="{'navy': true}">
+                        </div>
+                        <div class="clearfix width-100 center-vertical-container text-center">
+                            <img ng-src="{{ vm.partnerInfo.LogoUrl }}"
+                                 style="max-height:200px;max-width:170px;"
+                            />
+                        </div>
+                        <div class="widget-title">
+                            PARTNER
+                        </div>
+                    </div>
+                    <div class="dashboard-widget dashboard-widget-spacer" ng-hide="vm.partnerInfo.Website" >
+                    </div>
+                    <div class="dashboard-widget dashboard-widget-spacer"  >
+                    </div>
+                    <div class="dashboard-widget dashboard-widget-spacer"  >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

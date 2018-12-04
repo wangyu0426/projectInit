@@ -1,0 +1,161 @@
+
+//Bootstrap already provides classes text-success, text-info, text-warning, text-danger
+//These use the text variants of the colours, which are a little darker
+.text-error {
+	.text-emphasis-variant(@state-danger-text);
+}
+.muted, .text-muted, .lightgrey {
+  color: @VF-LightGrey-darker !important;
+	b, strong {
+		color: @VF-DarkGrey-darker;
+	}
+}
+.light, .text-light {
+	color: darken(@VF-LightGrey-darker,15%) !important;
+	b, strong {
+		color: @VF-DarkGrey-darker;
+	}
+}
+
+.text-warning {
+  color: @VF-Orange-text !important;
+}
+.text-danger, .text-error {
+  color: @VF-Red-text !important;
+}
+.text-success {
+	color: @alert-success-text !important;
+}
+
+
+.White, .white {
+	color: #fff !important;
+}
+
+.Black, .black {
+	color: #000 !important;
+}
+
+.PrimaryBlue {
+	color: @VF-Primary !important;
+}
+
+
+.blue {
+	color: @VF-Secondary !important;
+}
+
+.SecondaryBlue, .secondaryblue {
+	color: @VF-Secondary !important;
+}
+
+.Navy,.navy {
+	color: @VF-Navy !important;
+}
+
+.DarkGrey, .darkgrey {
+	color: @VF-DarkGrey-darker !important;
+}
+
+.Grey, .grey {
+	color: @VF-DarkGrey !important;
+}
+
+.LightGrey, .lightgrey {
+	color: @VF-LightGrey !important;
+}
+
+.Red, .red {
+	color: @VF-Red !important;
+}
+.darkred {
+	color: @VF-Red-dark !important;
+}
+
+.Orange, .orange {
+	color: @VF-Orange !important;
+}
+
+.Yellow, .yellow {
+	color: @VF-Yellow !important;
+}
+
+.Green, .green {
+	color: @VF-Green !important;
+}
+.ForestGreen, .forest-green {
+  color: @VF-ForestGreen !important;
+}
+
+.Purple, .purple {
+	color:@VF-Purple !important;
+}
+.Gold, .text-gold {
+	color:  darken(@VF-Gold,5%) !important;
+}
+
+i.icon-info {
+  color:@state-info-bg;
+}
+i.icon-success {
+  color:@state-success-bg;
+}
+i.icon-warning {
+  color:@state-warning-bg;
+}
+i.icon-danger, .icon-error {
+  color:@state-danger-bg;
+}
+
+//backgrounds
+.bg-white {
+	.bg-variant(#fff);
+}
+.bg-almost-white {
+	.bg-variant(@VF-LightGrey-AlmostWhite);
+}
+.bg-lightgrey {
+	.bg-variant(@VF-LightGrey-lighter);
+}
+.bg-grey {
+	.bg-variant(@VF-LightGrey);
+}
+.bg-darkgrey {
+	.bg-variant(@VF-DarkGrey);
+}
+.bg-selectedgrey {
+	.bg-variant(@VF-SelectedGrey);
+}
+.bg-blue, .blue-bg {
+  background-color: @VF-Secondary !important;
+}
+.bg-orange {
+	background-color: @VF-Orange !important;
+}
+.bg-primary-blue {
+  .bg-variant(@VF-Primary);
+}
+.bg-primary-blue-faded {
+  .bg-variant(fade(@VF-Primary,10%));
+}
+
+.bg-secondary-blue {
+	.bg-variant(@VF-Secondary);
+}
+
+.bg-secondary-blue-faded {
+	.bg-variant(fade(@VF-Secondary,10%));
+}
+
+.bg-info-blue {
+	background-color: @brand-info !important;
+}
+
+.bg-info {
+	.bg-variant(@state-info-bg);
+}
+
+.bg-error, .bg-red {
+	.bg-variant(@VF-Red);
+}
+

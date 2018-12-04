@@ -1,0 +1,127 @@
+.transaction-process-panel {
+  position: relative;
+	padding: 8px 12px;
+	border-top: 1px darken(@VF-LightGrey-lighter, 10%) solid ;
+	margin-bottom:12px;
+	min-height:4.25em;
+	&.unmatched {
+		box-shadow:  none;
+		color: @text-muted;
+		font-size: 0.9em;
+	}
+}
+
+.dismissed-fading {
+	opacity:0.1;
+	transition: opacity 2.9s ease-in 0.1s;
+}
+
+.dismissed, .completed {
+	.transaction-process-panel {
+		.finishedDiagonalStripeBackground();
+		opacity:0.5;
+	}
+	.transaction-process-buttons {
+		opacity:0.5;
+	}
+}
+
+
+.dismiss-button-container {
+  position: absolute;
+  top:-1px;
+  left:-21px;
+
+  .btn {
+    border-width:0px;
+  }
+
+  .btn-light.btn:not(:hover) {
+	background-color: white;
+	border: 0px;
+  }
+}
+
+
+.transaction-process-panel.multiple{
+	background:  lighten(@VF-Yellow,10%);
+	padding: 8px 12px;
+	border: 1px darken(@VF-LightGrey-lighter,1%) dotted;
+	border-radius: @border-radius-base + 2;
+	margin-bottom:12px;
+	min-height:3em;
+	box-shadow:  0px 2px 4px -2px fade(@VF-DarkGrey,50%);
+	color: #ffffff;
+
+	&:hover {
+		background:   lighten(@VF-Yellow,3%);
+	}
+}
+
+
+.container-fluid .transaction-process-container .matching-amount{
+	display: table-cell;
+	vertical-align: middle;
+	height:3em;
+}
+
+
+.transaction-process-buttons {
+	padding: 6px @padding-base-horizontal 0;
+	width:200px;
+	float:left;
+
+}
+
+.transaction-list-footer {
+	position:absolute;
+	bottom:0;right:0;left:0;
+	padding: 15px 15px 15px 15px;
+	background-color: @gray-lighter;
+	border-left: 1px solid @gray-light;
+	border-right: 1px solid @gray-light;
+	z-index:9;
+}
+.transaction-list-header {
+	position:absolute;
+	right:0;left:0;top:0;
+	padding: 15px 15px 3px 15px;
+	border-bottom: 1px solid @gray-light;
+	z-index:9;
+
+	.info {
+		color: #6d84ac;//fade(@VF-Navy,70%);
+	}
+}
+
+.transaction-tabs {
+	border-bottom: 1px solid @nav-tabs-border-color;
+
+	> li {
+		&.hidden > a{
+			&,&:hover,&:focus {
+				display: none;
+			}
+		}
+	}
+}
+
+.transaction-info-label {
+	font-weight: lighter;
+	padding: 5px;
+	background-color: @VF-LightGrey-AlmostWhite;
+	padding-left: 10px;
+	border-left: solid 5px @VF-Navy
+}
+.bill-form-account-priority-row{
+	height: 33px;
+	> .bill-form-account{	
+		width: 64%;
+	}
+	> .bill-form-priority {		
+		width: 35%;
+		ul{			
+    		min-width: 0px;
+		}
+	}
+}

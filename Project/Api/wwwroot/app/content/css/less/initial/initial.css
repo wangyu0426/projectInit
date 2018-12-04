@@ -1,0 +1,439 @@
+/* MTK variables
+ This follows the structure of Bootstrap's variables file, but overwrites with our values.
+ */
+html.no-js > body .no-js-hide {
+  display: none !important;
+}
+#NoJavascriptMessage {
+  display: none;
+  margin: 16px auto;
+  max-width: 300px;
+}
+#BrowserRecommendationMessage {
+  display: none;
+  margin: auto;
+  position: relative;
+  bottom: 0px;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+  background: #484848;
+}
+#BrowserRecommendationMessage a {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px;
+  border-radius: 3px;
+}
+#BrowserRecommendationMessage a:hover {
+  border-color: white;
+  color: #14cdeb;
+}
+#SignInDeniedForOldBrowsersMsg {
+  display: none;
+  padding: 12px;
+  text-align: center;
+  background: #484848;
+  border-radius: 6px;
+  border: 1px #cccccc solid;
+  max-width: 300px;
+}
+#SignInDeniedForOldBrowsersMsg a {
+  color: white;
+  padding: 0 4px;
+  text-decoration: none;
+}
+#SignInDeniedForOldBrowsersMsg a:hover {
+  color: #14cdeb;
+  text-decoration: none;
+}
+.no-js #NoJavascriptMessage,
+.no-js #BrowserRecommendationMessage {
+  display: block;
+}
+.browserIcon {
+  height: 24px;
+  width: 24px;
+}
+#signInForm {
+  margin-bottom: 20px;
+}
+img.logo {
+  max-width: 350px;
+}
+body.login {
+  color: #f1f1f1;
+  background-color: #14cdeb;
+  padding: 0px;
+}
+body.login::before {
+  background-color: #14cdeb;
+}
+body.login h1,
+body.login h2,
+body.login h3,
+body.login h4,
+body.login h5 {
+  color: #f1f1f1;
+}
+body.login li.side-padded {
+  padding: 22px;
+}
+body.login #activationForm {
+  color: white;
+}
+body.login img.logo {
+  position: relative;
+  display: block;
+  left: 50%;
+  margin: 0;
+  margin-left: -152px;
+  max-width: 350px;
+}
+body.login .outer-container-small,
+body.login .outer-container {
+  position: absolute;
+  top: 50%;
+  margin: -250px auto 0 auto;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  display: block;
+  text-align: center;
+}
+body.login .outer-container-big {
+  margin: auto;
+  overflow: hidden;
+  left: 0;
+  display: block;
+  text-align: center;
+}
+body.login .outer-container-big p.lead {
+  font-size: 16px;
+  margin: 9px auto 20px;
+  color: #ffffff;
+}
+body.login .outer-container-big #activationForm {
+  position: relative;
+  text-align: left;
+}
+body.login .outer-container-big #activationForm ol li {
+  clear: both;
+}
+body.login .login-box,
+body.login .forgot-box {
+  max-width: 300px;
+  text-align: left;
+  position: relative;
+  display: block;
+  height: 300px;
+  width: auto;
+  margin: 27px auto;
+}
+body.login .login-box {
+  padding-top: 12px;
+}
+body.login .forgot-link {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+body.login .forgot-box {
+  display: none;
+}
+body.login footer {
+  display: block;
+  margin: auto;
+  position: absolute;
+  bottom: 0px;
+  padding: 0px;
+  text-align: center;
+  width: 100%;
+  vertical-align: bottom;
+}
+body.login #VisitWebsiteLink {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 32px;
+}
+body.login button,
+body.login a.btn {
+  font-size: 14px;
+}
+body.login ol.form-ol {
+  padding: 0;
+}
+body.login ol.form-ol li {
+  min-height: 36px;
+}
+body.login ol.form-ol li label:not(.chk-outer-label) {
+  text-align: left;
+  width: 120px;
+}
+body.login ol.form-ol li label.chk-outer-label {
+  margin: 0;
+  line-height: 34px;
+}
+body.login ol.form-ol li .form-control {
+  border-radius: 3px !important;
+  width: 300px !important;
+  padding: 7px;
+  border: 1px #d2d2d2 solid;
+  background-color: #fff !important;
+  font-size: 14px;
+}
+body.login ol.form-ol li select.inp {
+  width: 304px !important;
+  margin-top: 4px;
+}
+body.user-account {
+  padding: 0px;
+  color: #ffffff;
+  position: relative;
+  min-height: 100%;
+  display: block;
+  background: #14cdeb;
+}
+body.user-account h1,
+body.user-account h2,
+body.user-account h3,
+body.user-account h4,
+body.user-account h5 {
+  color: #f1f1f1;
+}
+body.user-account .btn-block,
+body.user-account .form-control {
+  width: 93%;
+  max-width: 350px;
+}
+body.user-account select.form-control {
+  color: #111;
+}
+body.user-account .alert {
+  line-height: 1.8;
+}
+body.user-account .form-control {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  display: inline-block;
+}
+body.user-account .control-label {
+  text-align: left;
+}
+body.user-account .logo {
+  display: block;
+  margin: 0 auto;
+}
+body.user-account .logoWidth {
+  max-width: 350px;
+}
+@media only screen and (max-width: 768px) {
+  body.user-account .logo {
+    margin: 0 15px;
+  }
+  body.user-account .lead {
+    max-width: 350px;
+  }
+}
+@media only screen and (max-width: 399px) {
+  body.login img.logo {
+    margin-left: -129.5px;
+    max-width: 275px;
+  }
+  body.login .login-box,
+  body.login .forgot-box {
+    max-width: 260px;
+  }
+  body.login ol.form-ol li .inp {
+    width: 250px !important;
+  }
+}
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  -webkit-transition: 350ms linear all;
+  -moz-transition: 350ms linear all;
+  -o-transition: 350ms linear all;
+  transition: 350ms linear all;
+}
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+  opacity: 1;
+}
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+  background: #1e7dc8;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
+}
+/* Fancy blur effect */
+#loading-bar .peg {
+  position: absolute;
+  width: 70px;
+  right: 0;
+  top: 0;
+  height: 2px;
+  opacity: .45;
+  -moz-box-shadow: #1e7dc8 1px 0 6px 1px;
+  -ms-box-shadow: #1e7dc8 1px 0 6px 1px;
+  -webkit-box-shadow: #1e7dc8 1px 0 6px 1px;
+  box-shadow: #1e7dc8 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+#loading-bar-spinner {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 50%;
+  left: 50%;
+  margin-top: -129px;
+  margin-left: -44px;
+  background-color: rgba(20, 205, 235, 0.6);
+  border-radius: 100%;
+  border: 2px transparent solid;
+}
+#loading-bar-spinner .spinner-icon {
+  width: 88px;
+  height: 88px;
+  display: block;
+  border: solid 5px #ffffff;
+  border-top-color: #ffffff;
+  border-left-color: transparent;
+  border-radius: 100%;
+  -webkit-animation: loading-bar-spinner 3s linear infinite;
+  -moz-animation: loading-bar-spinner 3s linear infinite;
+  -ms-animation: loading-bar-spinner 3s linear infinite;
+  -o-animation: loading-bar-spinner 3s linear infinite;
+  animation: loading-bar-spinner 3s linear infinite;
+}
+#loading-bar-spinner .spinner-icon::before {
+  content: "";
+  display: block;
+  border-radius: 100%;
+  -webkit-animation: loading-bar-spinner 1s linear infinite;
+  -moz-animation: loading-bar-spinner 1s linear infinite;
+  -ms-animation: loading-bar-spinner 1s linear infinite;
+  -o-animation: loading-bar-spinner 1s linear infinite;
+  animation: loading-bar-spinner 1s linear infinite;
+  width: 68px;
+  height: 68px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: solid 4px rgba(255, 255, 255, 0.75);
+  border-left-color: transparent;
+  transform: rotate(45deg);
+  -moz-transfrom: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+@-webkit-keyframes loading-bar-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading-bar-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading-bar-spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading-bar-spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-bar-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#splash-page {
+  z-index: 99999 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  background: #14cdeb;
+}
+#splash-page #loading-bar-spinner {
+  background: transparent;
+}
+#splash-box {
+  position: absolute;
+  top: 50%;
+  margin: -250px auto 0 auto;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  display: block;
+  text-align: center;
+}
+#splash-logo {
+  position: relative;
+  display: block;
+  left: 50%;
+  margin: 0;
+  margin-left: -152px;
+  max-width: 350px;
+}

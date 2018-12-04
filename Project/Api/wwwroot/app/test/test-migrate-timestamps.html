@@ -1,0 +1,107 @@
+<section class="pageContainer" ng-controller="testMigrateTimestamps as vm">
+    <div class="abovePagePanels"><h1>Migrate Timestamps</h1></div>
+
+    <div class="pagePanelContainer">
+        <div class="pagePanel">
+            Migrate:
+            <mtk-checkbox model="vm.migrateLot">Lots</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateContact">Contacts</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateInspection">Inspections</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateJob">Jobs</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateOwnership">Ownerships</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateSaleAgreement">Sale Agreements</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateTenancy">Tenancies</mtk-checkbox>
+            <mtk-checkbox model="vm.migrateTask">Tasks</mtk-checkbox>
+            <p>Batch size: <mtk-input model="vm.limit"></mtk-input></p>
+            <button class="btn btn-default" ng-click="vm.runMigrate()" >
+                Run Migrate
+                <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.isFinished()"></i>
+            </button>
+            <div ng-if="vm.migrateLot">
+                <p>
+                    Lots migrated ({{ vm.lotsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.lotsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.lotsMigrate)"></i>
+                </p>
+                <pre>{{ vm.lotsMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateContact">
+                <p>
+                    Contacts migrated ({{ vm.contactsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.contactsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.contactsMigrate)"></i>
+                </p>
+                <pre>{{ vm.contactsMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateInspection">
+                <p>
+                    Inspections migrated ({{ vm.inspectionsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.inspectionsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.inspectionsMigrate)"></i>
+                </p>
+                <pre>{{ vm.inspectionsMigrate | json }}</pre>
+
+                <p>
+                    Inspection reports migrated ({{ vm.inspectionReportsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.inspectionReportsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.inspectionReportsMigrate)"></i>
+                </p>
+                <pre>{{ vm.inspectionReportsMigrate | json }}</pre>
+
+                <p>
+                    Inspection report areas migrated ({{ vm.areasMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.areasMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.areasMigrate)"></i>
+                </p>
+                <pre>{{ vm.areasMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateJob">
+                <p>
+                    Jobs migrated ({{ vm.jobtasksMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.jobtasksMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.jobtasksMigrate)"></i>
+                </p>
+                <pre>{{ vm.jobtasksMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateOwnership">
+                <p>
+                    Ownerships migrated ({{ vm.ownershipsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.ownershipsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.ownershipsMigrate)"></i>
+                </p>
+                <pre>{{ vm.ownershipsMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateSaleAgreement">
+                <p>
+                    Sale agreements migrated ({{ vm.saleAgreementsMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.saleAgreementsMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.saleAgreementsMigrate)"></i>
+                </p>
+                <pre>{{ vm.saleAgreementsMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateTenancy">
+                <p>
+                    Tenancies migrated ({{ vm.tenanciesMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.tenanciesMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.tenanciesMigrate)"></i>
+                </p>
+                <pre>{{ vm.tenanciesMigrate | json }}</pre>
+            </div>
+
+            <div ng-if="vm.migrateTask">
+                <p>
+                    Tasks migrated ({{ vm.tasksMigrated }})
+                    <span ng-if="vm.nothingToUpdate(vm.tasksMigrate)" class="badge badge-success">Done</span>
+                    <i class="icon-spinner icon-spin icon-rotate-180" ng-if="vm.isRunning && !vm.nothingToUpdate(vm.tasksMigrate)"></i>
+                </p>
+                <pre>{{ vm.tasksMigrate | json }}</pre>
+            </div>
+        </div>
+    </div>
+</section>

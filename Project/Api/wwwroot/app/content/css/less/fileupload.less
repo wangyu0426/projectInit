@@ -1,0 +1,85 @@
+
+.file-drop-target {
+  margin: 0;
+  z-index: 0;
+  .file-over-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+}
+
+.file-drop-target.file-over {
+    @fd-bd-width: 3px;
+    margin: -1 * @fd-bd-width ;
+    margin-left:0;
+    &.pagePanelContainer {
+      margin:0;
+    }
+    border-radius:4px;
+      border: @fd-bd-width dashed @VF-Secondary;
+      background-color: fade(@VF-Secondary, 5%);
+    .non-hover-content {
+      opacity: 0;
+
+    }
+    .file-over-message {
+      display: block;
+      opacity: 1;
+    }
+}
+
+.file-drop-target-border-keeper {
+  margin: 3px; /* Add space for border that may be hidden by outer DIV that has visible:hidden; */
+}
+
+.file-drop-indicator {
+  border: dotted @VF-Navy-faded 3px;
+  padding: 0 6px;
+  margin-bottom: 2px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: bottom;
+  i[class^=icon] {
+    color:@infobox-info;
+  }
+
+}
+
+
+.file-upload-toast {
+  position:fixed;
+  z-index:999;
+  left: 50px;
+  bottom:50px;
+  width:200px;
+  opacity:1;
+  color: white;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  background-color: @VF-Primary;
+  border: 1px @VF-Primary solid;
+  border-radius: @border-radius-base;
+  box-shadow: 0 0 0 4px @VF-Primary;
+  &.ng-hide {
+    opacity:0;
+  }
+  &.ng-hide-add, &.ng-hide-remove{
+    display: block !important;
+  }
+  &.ng-hide-add {
+    .transition(2s ease-in all);
+  }
+
+}
+
+
+
+

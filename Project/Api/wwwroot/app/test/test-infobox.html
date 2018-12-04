@@ -1,0 +1,32 @@
+<section class="pageContainer" ng-controller="testInfoboxController as vm">
+    <div class="abovePagePanels"><h1>Infobox</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+    <p>
+        <label>Reconciliation reconciled</label>
+        <mtk-infobox-reconciliation data="reconciled"></mtk-infobox-reconciliation>
+    </p>
+    <p>
+        <label>Reconciliation bank out</label>
+        <mtk-infobox-reconciliation data="bankOut"></mtk-infobox-reconciliation>
+    </p>
+    <p>
+        <label>Reconciliation ledger out</label>
+        <mtk-infobox-reconciliation data="ledgerOut"></mtk-infobox-reconciliation>
+    </p>
+    <p><label>In arrears gold</label>
+        <mtk-infobox-in-arrears data="inArrearsData" days="20" content="Good boy!" color="gold"></mtk-infobox-in-arrears>
+    </p>
+    <p><label>In arrears warning</label>
+        <mtk-infobox-in-arrears data="inArrearsData" days="21" content="Pay please!"
+                               color="warning"></mtk-infobox-in-arrears>
+    </p>
+    <p><label>In arrears error</label>
+        <mtk-infobox-in-arrears data="inArrearsData" days="22" content="You gotta pay!"
+                               color="error"></mtk-infobox-in-arrears>
+    </p>
+    <p><label>Aged all 3</label>
+        <mtk-infobox-aged data="dueData"></mtk-infobox-aged>
+    </p>
+    <p><label>Aged only 1 and 30 days</label>
+        <mtk-infobox-aged data="dueDataOnly1And30"></mtk-infobox-aged>
+    </p>
+</div></div></section>

@@ -1,0 +1,706 @@
+// message inbox
+.grid-user-filter-btn-container {
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	position: absolute;
+	right: 40px;
+}
+
+.message-preview {
+
+	.modal-content {
+		background-color: @VF-LightGrey-AlmostWhite;
+		min-height: 500px;
+	}
+
+	label {
+		width: 60px;
+	}
+	.scroller {
+		position: absolute;
+		overflow-y: auto;
+		width: 100%;
+		height: calc(~'100% - 118px');
+	}
+
+	.preview-body {
+		margin: 0px 0px 15px 0px;
+		padding: 15px 30px;
+		background-color: #fff;
+		height: 100%;
+	}
+
+	.title {
+		margin: 0;
+		padding: 10px 15px;
+		border-radius: 3px;
+		background-color: white;
+		border-bottom: 1px solid #d2d2d2;
+
+		h2 {
+			padding-bottom: 8px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		min-height: 118px;
+	}
+	.message-footer {
+		background-color: white;
+		border-top: 1px solid #d2d2d2;
+		padding: 15px;
+		position: absolute;
+		bottom: -65px;
+		left: 0;
+		right: 0
+	}
+}
+
+// message editor
+.message-email-panel {
+	//margin: 0 15px 0 0;
+	height: 98%;
+	max-height: 1700px;
+	//min-height: 470px;
+	position: relative;
+	overflow:hidden;
+	overflow-y: auto !important;
+	//.message-body {
+	//	padding-right:7px;
+	//}
+
+	.message-actions {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 0px 7px 1px 7px;
+	}
+
+	.XXmessage-actions {
+		margin-top: 10px;
+	}
+
+	.attachment-area {
+		padding: 8px 0px 20px 10px;
+		margin-top: 10px;
+		margin-bottom: 0px;
+		height: 100px;
+		overflow-y: auto;
+		.attachment-item {
+			list-style: none;
+			margin: 3px 0px -12px 0px;
+		}
+
+		ul {
+			padding-left: 0;
+			list-style: none;
+			margin-left: -5px;
+			list-style-type: none;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		ul li {
+			display: list-item;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+	}
+	//.fr-toolbar {
+	//	border-top: none;
+	//	border-radius: 0;
+	//	box-shadow: none;
+	//}
+	//
+	//.fr-wrapper {
+	//	overflow-y: auto;
+	//	box-shadow: none !important;
+	//	border-radius: @input-border-radius !important;
+	//	border: 1px solid @input-border !important;
+	//}
+
+	.fr-wrapper {
+		overflow-y: auto;
+	}
+
+	.cke_contents, .fr-wrapper {
+		height: calc(~'100vh - 311px') !important;
+	}
+
+	&.draft {
+		.cke_contents, .fr-wrapper {
+			height: calc(~'100vh - 380px') !important;
+		}
+	}
+
+	&.bcc {
+		.cke_contents, .fr-wrapper {
+			height: calc(~'100vh - 410px') !important;
+		}
+	}
+
+	&.bccAndDraft {
+		.cke_contents, .fr-wrapper {
+			height: calc(~'100vh - 480px') !important;
+		}
+	}
+
+	&.attachment {
+		.cke_contents {
+			height: calc(~'100vh - 490px') !important;
+		}
+
+		.fr-wrapper {
+			height: calc(~'100vh - 440px') !important;
+		}
+	}
+
+	&.attachmentAndDraft {
+		.cke_contents {
+			height: calc(~'100vh - 560px') !important;
+		}
+
+		.fr-wrapper {
+			height: calc(~'100vh - 510px') !important;
+		}
+	}
+
+	&.bccAndattachment {
+		.cke_contents {
+			height: calc(~'100vh - 590px') !important;
+		}
+
+		.fr-wrapper {
+			height: calc(~'100vh - 540px') !important;
+		}
+	}
+
+	&.bccAndattachmentAndDraft {
+		.cke_contents {
+			height: calc(~'100vh - 660px') !important;
+		}
+
+		.fr-wrapper {
+			height: calc(~'100vh - 610px') !important;
+		}
+	}
+}
+
+.fr-toolbar {
+	border-top: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.fr-wrapper {
+	//overflow-y: auto;
+	box-shadow: none !important;
+	border-radius: @input-border-radius !important;
+	border: 1px solid @input-border !important;
+}
+
+.message-create-panel {
+	.vpadded {
+		.control-label {
+			padding-top: 25px;
+		}
+		.control-value {
+			padding: 15px 10px;
+			/* background-color: #f1f1f1; */
+		}
+	}
+
+	.bordered {
+		border: 1px #d2d2d2 solid;
+		background: #fff;
+		padding: 6px 12px;
+
+		-webkit-box-shadow: 0 2px 3px -1px rgba(38, 45, 58, .1);
+		-moz-box-shadow: 0 2px 3px -1px rgba(38, 45, 58, .1);
+		box-shadow: 0 2px 3px -1px rgba(38, 45, 58, .1);
+	}
+}
+
+// message create alert-panel
+.msg-right-panel.sticky {
+	/* sticky */
+	position: fixed;
+	z-index: 10;
+	left: 960px;
+	top: 130px;
+}
+.msg-attach {
+	.drop-target-wrapper {
+		padding: 10px 0;
+	}
+	.file-drop-target {
+		border: 1px #d2d2d2 dotted;
+		padding: 40px;
+
+		.disp-ib i[class^="icon-cloud"] {
+			color: #6fb3e0;
+		}
+	}
+	div.toolbar {
+		display: block;
+		.text-info {
+			margin-left: 6px;
+		}
+		.break-word {
+			clear: both;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			display: block;
+			margin: 10px 45px 10px 0px;
+			text-align: center;
+		}
+	}
+	/* when file over */
+	.file-over {
+		& .file-drop-indicator, & div.toolbar {
+			visibility: hidden;
+		}
+	}
+	li {
+		margin-left: -6px;
+	}
+}
+.msg-alert-panel {
+	margin-bottom: 30px;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+	.msg-edit-info {
+		/*background-color: lightgrey;*/
+		font-size: 11px;
+		line-height: 1.15;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+	.msg-restore-info {
+
+	}
+}
+
+// message schedule panel
+.message-schedule-panel {
+	.mtkPanel();
+	margin-bottom:12px;
+
+	table, table > tbody > tr, table > tbody > tr > td {
+		border: 0px !important;
+	}
+
+	&:hover {
+		background:  @VF-LightGrey-lighter;
+	}
+
+}
+.inActive {
+	.message-schedule-panel {
+		background:  lighten(@VF-LightGrey-MuchLighter,10%);
+		border-color: @VF-LightGrey;
+		box-shadow:  0px 2px 4px -2px fade(@VF-LightGrey,50%);
+		&:hover {
+			background:  darken(white,2%);
+		}
+	}
+
+}
+
+.message-schedule-panel-body {
+
+}
+
+
+.message-schedule-template-container{
+	textarea{
+		margin-bottom: 6px;
+	}
+
+	.cke_editor_EmailBody, .cke_editor_Letter{
+		iframe{
+			min-height: 330px;
+			height: calc(~'100vh - 570px') !important;
+			overflow-y: auto;
+		}
+	}
+}
+
+.merge-field-container {
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-bottom: 2 * @padding-base-vertical;
+	border-left:  1px solid @VF-LightGrey-lighter;
+	.panel-heading {
+		padding: 0; //we want the hover colouring to cover the whole heading, so we remove padding here and put it on the title
+	}
+	.panel-body,.panel-title{
+		padding: @padding-base-vertical @padding-base-horizontal;
+	}
+	.panel-body {
+		background: white;
+	}
+	.panel-title {
+		font-size: @font-size-base;
+		a:hover {
+			text-decoration: none;
+		}
+		&:hover {
+			background-color:@VF-LightGrey-AlmostWhite;
+		}
+	}
+	input.search-box.form-control {
+		background-color: fade(white,80%);
+	}
+}
+
+pre.message-preview {
+	background-color: transparent;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	font-family: @font-family-sans-serif;
+	font-size: @font-size-base;
+}
+
+
+#MessagePreviewContainer {
+	//margin-top: 15px;
+
+	color:black;
+
+	/*
+	&:not(.sms) {
+		//we want SMS to just inherit the normal app font, but we want email and letter, which use formatted html to show the correct font the user has chosen
+		font-family:initial;
+		font-size:initial;
+	}
+	*/
+
+	a {
+		&:link, &:visited, &:hover {
+			color: #0000EE;
+			text-decoration:underline;
+		}
+	}
+	table {
+		color: black;
+		width:initial;
+	}
+
+	@media screen {
+		div[style*="page-break-after: always"]:before {
+			position: relative;
+			display:block;
+			border-top: 1px @VF-LightGrey-darker dashed;
+			border-bottom: 1px @VF-LightGrey-darker dashed;
+			line-height:10px;
+			padding: 3px 0;
+			margin:32px 0;
+			font-size: 9px;
+			content:  'Page break';
+			text-align: center;
+		}
+	}
+}
+
+#messagePreviewBody{
+
+	.showMessage,.showMessageAndAlert,.showMessageAndAttachment,.showAllContents {
+		display:flex;
+		flex-direction: column;
+
+		.iframe-container{
+			border: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			flex:1;
+		}
+	}
+
+	.showMessage{
+		height: 99%;
+	}
+	.showMessageAndAttachment{
+		height: 90%;
+	}
+
+	.showMessageAndAlert {
+		height: 94%;
+	}
+	.showAllContents{
+		height: 85%;
+	}
+}
+
+
+.message-container-only{
+	display:flex;
+	flex-direction: column;
+	height: 95%;
+
+	.iframe-container{
+		border: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		flex:1;
+	}
+}
+
+.message-container{
+	display:flex;
+	flex-direction: column;
+	height:90%;
+
+	.iframe-container{
+		border: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		flex:1;
+	}
+}
+
+.attachment-container{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+
+	ul{
+		margin-top:0px !important;
+		margin-bottom:0px !important;
+	}
+
+}
+
+
+.fr-view table.fr-none-border-style td,
+.fr-view table.fr-none-border-style th {
+	border-style: none;
+}
+
+.fr-view table td.fr-none-border,
+.fr-view table th.fr-none-border {
+	border-width: 0px;
+}
+
+//Height Media Queries to set text area height
+.messages-reponsive-mixin(@h) {
+	@heightOfOthers: 430px;
+	@absoluteMin: 200px;
+	.message-schedule-template-container {
+		textarea#EmailBody, textarea#Letter, textarea#Sms  {
+			min-height: max(@absoluteMin, @h - @heightOfOthers);
+		}
+	}
+	.merge-field-container {
+		min-height: max(@absoluteMin, @h - @heightOfOthers + 150px);
+	}
+	.message-preview {
+		min-height: max(@absoluteMin, @h - @heightOfOthers);
+	}
+}
+
+.media-loop(@max-height-pixels) when (@max-height-pixels > 400px) {
+	.media-loop((@max-height-pixels - 100));    // next iteration
+	// code for each iteration
+	@media (min-height: (@max-height-pixels - 99)) and (max-height: @max-height-pixels) {
+		.messages-reponsive-mixin(@max-height-pixels - 99)
+	}
+}
+
+.media-loop(1000px);
+//Need an end-case for sizes > 1000px
+@media (min-height: (1001px)){
+	.messages-reponsive-mixin(1001px)
+}
+@media only screen and (min-device-width : 768px) and  (max-device-width : 1024px) and (orientation:portrait){
+	.message-email-panel {
+		height: 98%;
+		max-height: 900px;
+		position: relative;
+		overflow:hidden;
+		overflow-y: auto !important;
+
+		.fr-wrapper {
+			overflow-y: auto;
+		}
+
+		.cke_contents, .fr-wrapper {
+			height: 600px !important;
+		}
+
+		&.draft {
+			.cke_contents, .fr-wrapper {
+				height: 540px !important;
+			}
+		}
+
+		&.bcc {
+			.cke_contents, .fr-wrapper {
+				height: 510px !important;
+			}
+		}
+
+		&.bccAndDraft {
+			.cke_contents, .fr-wrapper {
+				height: 440px !important;
+			}
+		}
+
+		&.attachment {
+			.cke_contents {
+				height: 430px !important;
+			}
+
+			.fr-wrapper {
+				height: 480px !important;
+			}
+		}
+
+		&.attachmentAndDraft {
+			.cke_contents {
+				height: 360px !important;
+			}
+
+			.fr-wrapper {
+				height: 410px !important;
+			}
+		}
+
+		&.bccAndattachment {
+			.cke_contents {
+				height: 330px !important;
+			}
+
+			.fr-wrapper {
+				height: 380px !important;
+			}
+		}
+
+		&.bccAndattachmentAndDraft {
+			.cke_contents {
+				height: 260px !important;
+			}
+
+			.fr-wrapper {
+				height: 310px !important;
+			}
+		}
+	}
+
+	.message-schedule-template-container{
+		.cke_editor_EmailBody, .cke_editor_Letter{
+			iframe{
+				height: 350px !important;
+			}
+		}
+	}
+
+	.message-preview {
+		.scroller {
+			height: 600px;
+		}
+	}
+}
+/**
+ *  iPad with landscape orientation.
+ */
+@media only screen and (min-device-width : 768px) and  (max-device-width : 1024px) and (orientation:landscape){
+	.message-email-panel {
+		height: 98%;
+		max-height: 650px;
+		position: relative;
+		overflow:hidden;
+		overflow-y: auto !important;
+
+		.fr-wrapper {
+			overflow-y: auto;
+		}
+
+		.cke_contents, .fr-wrapper {
+			height: 370px !important;
+		}
+
+		&.draft {
+			.cke_contents, .fr-wrapper {
+				height: 314px !important;
+			}
+		}
+
+		&.bcc {
+			.cke_contents, .fr-wrapper {
+				height: 284px !important;
+			}
+		}
+
+		&.bccAndDraft {
+			.cke_contents, .fr-wrapper {
+				height: 214px !important;
+			}
+		}
+
+		&.attachment {
+			.cke_contents {
+				height: 204px !important;
+			}
+
+			.fr-wrapper {
+				height: 256px !important;
+			}
+		}
+
+		&.attachmentAndDraft {
+			.cke_contents {
+				height: 134px !important;
+			}
+
+			.fr-wrapper {
+				height: 184px !important;
+			}
+		}
+
+		&.bccAndattachment {
+			.cke_contents {
+				height: 104px !important;
+			}
+
+			.fr-wrapper {
+				height: 114px !important;
+			}
+		}
+
+		&.bccAndattachmentAndDraft {
+			.cke_contents {
+				height: 34px !important;
+			}
+
+			.fr-wrapper {
+				height: 84px !important;
+			}
+		}
+	}
+
+	.message-schedule-template-container{
+		.cke_editor_EmailBody, .cke_editor_Letter{
+			iframe{
+				height: 124px !important;
+			}
+		}
+	}
+
+	.message-preview {
+		.scroller {
+			height: 374px;
+		}
+	}
+}
+

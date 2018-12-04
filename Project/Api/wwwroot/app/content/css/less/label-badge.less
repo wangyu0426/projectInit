@@ -1,0 +1,223 @@
+//Labels - Augment Bootstrap
+
+span.label {
+	max-width: 100px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-flex;
+	padding: 4px;
+	&.label-exempt-limit {
+		max-width: none;
+	}
+}
+
+.label {
+	@font-size: 11px;
+	@line-height: 1.15;
+	@height: 20px;
+	@border-height: 10px;
+	@border-width: 5px;
+	font-size: @font-size;
+	font-weight:normal;
+	//padding-top: 0.5em;
+	//padding-bottom: 0.5em;
+	line-height: @line-height;
+	height: @height;
+
+
+	&.arrowed {
+		margin-left: @border-width;
+		&:before {
+			left: -(@border-width * 2);
+			border-width: @border-height @border-width;
+		}
+	}
+	&.arrowed-in {
+		margin-left: (@border-width);
+		&:before {
+			left: -@border-width;
+			border-width: @border-height @border-width;
+		}
+	}
+
+	&.arrowed-right {
+		margin-right: @border-width;
+		&:after {
+			right: -(@border-width * 2);
+			border-width: @border-height @border-width;
+		}
+	}
+	&.arrowed-in-right {
+		margin-right: (@border-width);
+		&:after {
+			right: -@border-width;
+			border-width: @border-height @border-width;
+		}
+	}
+}
+
+h2 .label {
+	vertical-align: middle !important;
+}
+
+
+//Add extra colours
+.label-purple {
+	.label-variant(@state-purple-bg);
+}
+.label-yellow {
+  .label-variant(@VF-Yellow2);
+}
+.label-green {
+  .label-variant(@VF-Green);
+}
+.label-error {
+	// "error" class as synonym of "danger"
+	.label-variant(@label-danger-bg);
+}
+.label-black {
+	.label-variant(#111);
+}
+.label-darkgrey {
+	.label-variant(@VF-DarkGrey-darker);
+}
+.label-grey {
+	.label-variant(@VF-DarkGrey-lighter);
+}
+
+
+
+///// Arrowed labels - from Ace
+
+.label.arrowed , .label.arrowed-in {
+	position:relative;
+	z-index: 1;
+	&:before {
+		display: inline-block;
+		content: "";
+		position: absolute;
+		top: 0;
+		z-index: -1;
+
+		border-color: transparent;
+		border-style: solid;
+
+		border-right-color: @label-default-bg;
+		-moz-border-right-colors: @label-default-bg;
+	}
+}
+.label.arrowed-in:before {
+	border-color: @label-default-bg;
+	border-left-color: transparent;
+	-moz-border-left-colors: none;
+}
+
+
+.label.arrowed-right , .label.arrowed-in-right {
+	position: relative;
+	z-index: 1;
+	&:after {
+		display: inline-block;
+		content: "";
+		position: absolute;
+		top: 0;
+		z-index: -1;
+
+		border-color: transparent;
+		border-style: solid;
+
+		border-left-color: @label-default-bg;
+		-moz-border-left-colors: @label-default-bg;
+	}
+}
+.label.arrowed-in-right:after {
+	border-color: @label-default-bg;
+	border-right-color: transparent;
+	-moz-border-right-colors: none;
+}
+
+
+
+
+
+.label-arrow(@state, @color) {
+	@label-class:~`"label-@{state}"`;
+	@label-color:lighten(@color, 40%);
+
+	.@{label-class}{
+		&.arrowed:before {
+			border-right-color: @label-color;
+			-moz-border-right-colors: @label-color;
+		}
+		&.arrowed-in:before {
+			border-color: @label-color @label-color @label-color transparent;
+			-moz-border-right-colors: @label-color;
+		}
+
+		&.arrowed-right:after {
+			border-left-color: @label-color;
+			-moz-border-left-colors: @label-color;
+		}
+		&.arrowed-in-right:after {
+			border-color: @label-color transparent @label-color @label-color;
+			-moz-border-left-colors: @label-color;
+		}
+	}
+}
+
+.label-arrow(~"info", @label-info-bg);
+.label-arrow(~"primary", @label-primary-bg);
+.label-arrow(~"success", @label-success-bg);
+.label-arrow(~"warning", @label-warning-bg);
+.label-arrow(~"danger", @label-danger-bg);
+.label-arrow(~"error", @label-danger-bg);
+
+.label-arrow(~"purple", @state-purple-bg);
+.label-arrow(~"black", #111);
+.label-arrow(~"darkgrey", @VF-DarkGrey-darker);
+
+
+
+
+
+/////////////////////////////
+
+//badges - augment Bootstrap
+.badge {
+	&.badge-info,
+	&.badge-success,
+	&.badge-danger, &.badge-error,
+	&.badge-warning, &.badge-gold, &.badge-light-grey {
+		color:  #fff;
+		font-weight:normal;
+		padding:  3px 9px;
+	}
+	&.badge-info {
+		background-color: @brand-info;
+	}
+	&.badge-light-grey {
+		background-color: @VF-LightGrey;
+	}
+	&.badge-success {
+		background-color: @brand-success;
+	}
+	&.badge-danger, &.badge-error {
+		background-color: @brand-danger;
+	}
+	&.badge-warning {
+		background-color: @brand-warning;
+	}
+	&.badge-gold {
+		background-color: @VF-Gold;
+	}
+	&.badge-purple {
+		background-color: @VF-Purple;
+	}
+	&.badge-grey {
+		background-color: @VF-DarkGrey-darker;
+	}
+	&.badge-round {
+		border-radius: 100%;
+		padding: 3px 4px;
+	}
+}

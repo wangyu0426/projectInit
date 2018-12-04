@@ -1,0 +1,19 @@
+<div ng-if="vm.isShown">
+    <div class="infobox {{vm.state.color}}" ng-show="!vm.isLoading" ng-click="vm.refresh()">
+        <div class="infobox-icon">
+            <i class="icon {{vm.state.icon}}"></i>
+        </div>
+        <div class="infobox-body text-center" >
+            <h5 ng-if="vm.state.amount != 0">{{vm.state.amount | currency}}</h5>
+            <p ng-bind="vm.state.line"></p>
+        </div>
+    </div>
+    <div class="infobox infobox-lightgrey" ng-show="vm.isLoading">
+        <div class="infobox-icon">
+            <i class="icon icon-vf-scale-balanced"></i>
+        </div>
+        <div class="infobox-body text-center width-50" >
+            <i class="icon-spin icon-refresh"></i>
+        </div>
+    </div>
+</div>

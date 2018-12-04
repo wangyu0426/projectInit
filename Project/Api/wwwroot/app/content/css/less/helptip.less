@@ -1,0 +1,82 @@
+
+//helptip is text showing next to the inputs
+.helptip {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 12.0px;
+  color: @VF-DarkGrey-lighter;
+  text-align: left;
+  line-height: 14px;
+  vertical-align: middle;
+
+  @media  (max-width:@screen-sm) {
+	display:block;
+	padding-left: 0px;
+	margin: 4px 0;
+  }
+
+  &::before {
+    font-family:FontAwesome; font-weight:normal;
+	font-size: 15px;
+	content: "\f05a"; //font awesome info-sign
+	padding-right:3px;
+  }
+}
+
+ol.form-ol  .helptip {
+  max-width:280px;
+	@media  (max-width:@screen-sm) {
+		max-width:none;
+	}
+}
+
+
+.help-inline-toggle {
+  position:relative;
+  z-index: 9999;
+  color: @text-muted;
+  background-color:white; //make sure it is visible on top of all colours
+  border-radius: 100%;
+  cursor:pointer;
+  font-size:14px;
+  display:inline-block;
+  vertical-align:top;
+  margin-left: 2px;
+  margin-right: 0 !important;
+  border: 2px transparent solid;
+  &:hover {
+    border: 0px transparent solid;
+    font-size:20px;
+    margin-top:-2px;
+    color: @VF-Navy;
+  }
+  &.has-content {
+    color:@VF-Secondary;
+  }
+  &.has-region-specific-content {
+    color:@VF-Green;
+  }
+  &.has-ambiguous-content {
+    &, &.has-region-specific-content {
+      &, &.has-content {
+        color: @VF-Orange;
+      }
+    }
+
+  }
+}
+
+.help-inline-popup {
+  position:fixed;
+  z-index: 9000;
+  background: mix(white, @VF-Navy, 75%);
+  padding:8px;
+  margin:-6px 0 0 3px;
+  border-radius: @border-radius-base;
+  box-shadow: 2px 2px 3px 0 fade(@VF-Navy,50%);
+  color:@gray-darker;
+  &.editable {
+    min-width:500px;
+    min-height:300px;
+  }
+}

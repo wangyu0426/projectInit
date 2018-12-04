@@ -1,0 +1,100 @@
+<div id="title-bar-notifications" data-ng-controller="notificationsController as vm">
+    <ul class="navbar-nav nav navbar-right"  >
+        <!--Search-->
+        <li class="notification-header search">
+            <mtk-quick-search place-holder="Search..." is-displayed-before="vm.isDisplayedBefore"></mtk-quick-search>
+        </li>
+
+        <!--ALERTS-->
+        <li class="notification-header alerts" ng-if="!vm.disabled">
+            <a data-toggle="dropdown" href="" class=" dropdown-toggle notifications-main-link" ng-click="vm.clickAlerts()">
+                <i class="icon-exclamation icon-large " ng-class="{'orange icon-animated-bell': vm.notificationService.newAlertCount > 0 }"></i>
+                <!--<span class="badge badge-danger" ng-if="vm.newAlertCount">{{vm.newAlertCount}}</span>-->
+            </a>
+            <ul class=" notification-list dropdown-menu  dropdown-caret dropdown-closer  ">
+                <div class="notification-list-header">
+                    <span class="text-warning"><i class="icon-alert-warning  "></i> Alerts</span>
+                    <small>(from batched actions)</small> 
+                    <small class="pull-right" ng-class="{'grey': vm.notificationService.newAlertCount > 0}">{{vm.notificationService.newAlertCount}} new</small>
+                </div>
+
+                <div class="notification-list-inner">
+                    <!-- <li class="notification-group-header">
+                    </li>
+                  -->
+                    <li class="notification-list-item text-center text-muted" ng-if="!vm.notificationService.waitingToLoadingAlerts && vm.notificationService.newAlerts.length === 0">
+                        No new alerts
+                    </li>
+
+                    <div ng-repeat="grp in vm.groupedAlerts track by $index">
+
+                        <!-- <li class="notification-list-item " ng-repeat="event in vm.notificationService.newAlerts track by $index" style="display:flex"> -->
+                        <li class="notification-list-item " ng-repeat="alert in grp.alerts | orderBy:'-Timestamp' track by $index " style="display:flex" 
+                            ng-show="$index < grp.limit">
+
+                            <div class="details " ng-class="{'text-muted': alert.IsRead, 'grey': !alert.IsRead }" style="width: 100%;">
+                            
+                                <div class="clearfix">
+                                    <div class="pull-left" style="font-weight:bold">{{grp.title}}</div> 
+                                    <div class="pull-right">
+                                        <span ng-show="alert.ContactId"> 
+                                            &nbsp;
+                                            <a href="/#/contact/card/{{alert.ContactId}}" ng-class="{'text-muted': alert.IsRead}"><i class="icon-user icon-large"></i></a>
+                                        </span>
+                                    <span ng-show="alert.LotId"> 
+                                        &nbsp; 
+                                        <a href="/#/property/card/{{alert.LotId}}" ng-class="{'text-muted': alert.IsRead}"><i class="icon-home icon-large"></i></a>
+                                    </span>
+                                    </div> 
+                                </div>
+                                {{alert.Detail}}
+                            </div>
+                        </li>
+                        <li class="notification-list-item text-center text-muted" ng-if="grp.limit < grp.alerts.length">
+                            <a href="" ng-click="grp.limit = grp.alerts.length; $event.stopPropagation();" >{{grp.title}}: show {{grp.alerts.length - grp.limit}} more</a>
+                        </li>
+                    </div>
+
+                    <li class="notification-list-item text-center text-muted" ng-if="vm.notificationService.waitingToLoadingAlerts">
+                        Loading new alerts ...
+                    </li>
+                </div>
+
+                <div class="notification-list-footer">
+                    <div>
+                        <a class="" href="" ng-click="vm.clearAll()">Clear</a>
+                    </div>
+                </div>
+               
+            </ul>
+        </li>
+    </ul>
+    <div class="disconnected-banner" ng-if="vm.disconnected" ng-class="{'warning': !vm.disconnectedRequireReload, 'danger': vm.disconnectedRequireReload }">
+        <div ng-hide="vm.disconnectedRequireReload" >
+            <i class=" icon-cloud icon-animated-pulse "></i>
+            Connecting ...
+        </div>
+        <div ng-show="vm.disconnectedRequireReload" >
+            <p>
+                <i class=" icon-cloud  icon-large "></i>
+                Connection lost
+            </p>
+            <a href="" class="btn btn-block btn-light btn-sm" ng-click="vm.reload()" >
+                <i class=" icon-vf-powercord "></i>
+                Reconnect
+            </a>
+        </div>
+    </div>
+    <div class="signedout-banner" ng-if="vm.userSignedOut" ng-class="{'danger': vm.userSignedOut }">
+        <div>
+            <p>
+                <i class=" icon-cloud  icon-large "></i>
+                Session terminated
+            </p>
+            <a href="" class="btn btn-block btn-light btn-sm" ng-click="vm.reload()" >
+                <i class=" icon-vf-powercord "></i>
+                Sign in
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<ul class="navbar-nav nav navbar-left mgr-12">
+    <li mtk-show-only-to-support class="">
+        <a data-toggle="dropdown" class="dropdown-toggle disp-ib">
+            <i class="icon-user-md" style="font-size: 1.5em; "></i>
+        </a>
+        <ul class="user-menu  dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+            <li>
+                <a href="#/invitation/invite">
+                    <i class="icon-envelope"></i>
+                    Invite
+                </a>
+            </li>
+            <li>
+                <a href="#/support/">
+                    <i class="icon-question-sign"></i>
+                    Support list
+                </a>
+            </li>
+            <li>
+                <a href="#/support/migrates">
+                    <i class="icon-stackexchange"></i>
+                    Migrate list
+                </a>
+            </li>
+            <li>
+                <a href="#/support/portfolios">
+                    <i class="icon-suitcase"></i>
+                    Portfolios
+                </a>
+            </li>
+            <li>
+                <a href="#/zadministration/setuppage/list">
+                    <i class="icon-truck"></i>
+                    SetupMe
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li mtk-show-only-to-admin>
+                <a href="#/zadministration">
+                    <i class="icon-fire-extinguisher"></i>
+                    Administration
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <!--
+    <li mtk-show-only-to-admin class="">
+        <a data-toggle="dropdown" class="dropdown-toggle disp-ib" style="">
+            <i class="icon-question-sign icon-large"></i>
+
+            <i class="icon-globe icon-large" ng-hide="$root.regionAdmin.helpRegionCode"></i>
+            <b>{{$root.regionAdmin.helpRegionCode}}</b>
+        </a>
+        <ul class="user-menu  dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+            <li class="dropdown-header">
+                Showing inline help for
+
+                <b class="black">{{$root.regionAdmin.helpRegionCode}}</b>
+                <b class="black" ng-hide="$root.regionAdmin.helpRegionCode">EVERYWHERE</b>
+                <i class="icon-globe icon-large black" ng-hide="$root.regionAdmin.helpRegionCode"></i>
+
+            </li>
+            <li>
+                <a href="" ng-click="$root.regionAdmin.setHelpRegionCode()">
+                    <small>NULL</small>  EVERYWHERE <i class="icon-globe  "></i>
+                </a>
+            </li>
+            <li ng-repeat="r in $root.regionAdmin.regions">
+                <a href="" ng-click="$root.regionAdmin.setHelpRegionCode(r.code)">
+                   {{r.code}} {{r.name}}
+                </a>
+            </li>
+        </ul>
+    </li>
+    -->
+
+</ul>

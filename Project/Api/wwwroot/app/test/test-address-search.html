@@ -1,0 +1,26 @@
+<section class="pageContainer" ng-controller="testAddressSearch as vm">
+    <div class="abovePagePanels"><h1>Test of address search</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+
+    <p>&nbsp;</p>
+
+    <mtk-form>
+        <mtk-form-row label="Address search">
+            <mtk-address model="vm.address_search" placeholder="This is google address!"></mtk-address>
+            <br>
+            <pre>{{vm.address_search}}</pre>
+        </mtk-form-row>
+
+        <mtk-form-row label="Address search 1">
+            <mtk-address model="vm.address_search1" placeholder="This is google address!" autofocus></mtk-address>
+            <br>
+            <pre>{{vm.address_search1}}</pre>
+        </mtk-form-row>
+
+        <mtk-form-row label="Address search 2">
+            <mtk-address model="vm.address_search2" placeholder="This is google address!"></mtk-address>
+            <br>
+            <pre>{{vm.address_search2}}</pre>
+        </mtk-form-row>
+    </mtk-form>
+
+</div></div></section>

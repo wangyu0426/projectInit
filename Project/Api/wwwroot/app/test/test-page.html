@@ -1,0 +1,248 @@
+<section class="pageContainer">
+    <div class="abovePagePanels"><h1>Pages <code>h1</code></h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+
+    <button class="btn btn-default" ng-click="$root.routeBack()" ng-show="$root.routeBackEnabled()"><i class="icon-arrow-left"></i> Back test</button>
+    <button class="btn btn-default" ng-click="$root.routeBack()" ng-hide="$root.routeBackEnabled()"><i class="icon-arrow-left"></i> Back test no history</button>
+
+
+    <h3>Layout and Headers</h3>
+    <p>All pages should be contained in a
+    <code>&lt;section class="pageContainer"&gt; &nbsp; &lt;/section&gt;</code>
+    </p>
+    <p>The page should start with an <code>h1</code></p>
+
+    <p class="v-space-24"></p>
+    <h2>Use <code>h2</code> for headers with an underline, like this</h2>
+
+    <p class="v-space-24"></p>
+    <h2>h2 headers can also have toolbars
+        <div class="toolbar">
+            <button class="btn btn-default"><i class="icon-pencil"></i></button>
+            <button class="btn btn-primary"><i class="icon-legal"></i></button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Action <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </div>
+    </h2>
+    <p>Use the <code>toolbar</code> class on a <code>div</code> inside the h2.</p>
+    <p>Dropdowns inside the toolbar need to have the class <code>dropdown-menu-right</code> added to the <code>ul</code> element.</p>
+
+    <p class="v-space-24"></p>
+
+    <h3>Use <code>h3</code> for headers without an underline</h3>
+    <p>There once was a frog named Cat. He wished to be a cat named Frog.</p>
+    <p class="v-space-24"></p>
+    <h4>Use <code>h4</code> for sub-headers</h4>
+    <p>How many tenants does it take to change a light bulb?
+    </p>
+    <p class="v-space-24"></p>
+    <h5>And <code>h5</code> if you need to</h5>
+    <p>It depends on legislation.</p>
+
+    <p class="v-space-48"></p>
+
+
+    <h3>Rows and columns</h3>
+    <p>Use class <code>row</code> to make a row that contains columns. A row must be inside a <code>container-fluid</code>,
+        which the section containing the whole page is.</p>
+    <p>Use <code>col-xs-N</code> inside a row to make a block N columns wide.
+        <strong>There are 12 columns in a row</strong>.</p>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <i class="icon-vf-dot display-b display-b"></i>
+            <code>col-xs-12</code> fills the whole width
+            <i class="icon-vf-dot display-b display-b"></i>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <i class="icon-vf-dot display-b display-b"></i>
+            2 column layout using <code>col-xs-6</code>
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-xs-6">
+            <i class="icon-vf-dot display-b"></i>
+            Second column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+
+    </div>
+    <p>&nbsp;</p>
+    <div class="row">
+        <div class="col-xs-4">
+            <i class="icon-vf-dot display-b"></i>
+            3 column layout using <code>col-xs-4</code>
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-xs-4">
+            <i class="icon-vf-dot display-b"></i>
+            Second column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-xs-4">
+            <i class="icon-vf-dot display-b"></i>
+            Third column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p><strong>Column widths are enforced <em>even on tiny screens</em>.</strong></p>
+
+    <div class="row">
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>There <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>are <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>twelve <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>columns <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>available <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>to be  <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>used! <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>8 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>9 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>10 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>11 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-xs-1"><i class="icon-vf-dot display-b"></i>12 <i class="icon-vf-dot display-b"></i></div>
+
+    </div>
+    <p class="v-space-48"></p>
+    <h3>Responsive rows and columns</h3>
+    <p>Use <code>col-md-N</code> to make a column that will change to full width on smaller screens.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <i class="icon-vf-dot display-b display-b"></i>
+            2 column layout using <code>col-md-6</code>
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-md-6">
+            <i class="icon-vf-dot display-b"></i>
+            Second column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+
+    </div>
+    <p class="v-space-24"></p>
+    <div class="row">
+        <div class="col-md-4">
+            <i class="icon-vf-dot display-b"></i>
+            3 column layout using <code>col-md-4</code>
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-md-4">
+            <i class="icon-vf-dot display-b"></i>
+            Second column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+        <div class="col-md-4">
+            <i class="icon-vf-dot display-b"></i>
+            Third column
+            <i class="icon-vf-dot display-b"></i>
+        </div>
+    </div>
+    <p class="v-space-24"></p>
+    <div class="row">
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>There <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>are <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>twelve <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>columns <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>available <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>to be  <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>used! <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>8 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>9 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>10 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>11 <i class="icon-vf-dot display-b"></i></div>
+        <div class="col-md-1"><i class="icon-vf-dot display-b"></i>12 <i class="icon-vf-dot display-b"></i></div>
+
+    </div>
+
+    <p class="v-space-48"></p>
+
+    <h2>Paragraphs and spacing</h2>
+
+    <article>
+
+    <p>For a <strong>thin gap </strong> below something, use an <strong>empty paragraph <code>&lt;p&gt;&lt;/p&gt;</code></strong>
+
+        <p>For a <strong>bigger gap </strong> use a paragraph with one of the classes <strong>v-space-16</strong>, <strong>v-space-24</strong>,
+            <strong>v-space-32</strong>, or <strong>v-space-48</strong>.
+
+        </p>
+
+        <p>To put a space <strong>above an element</strong>, without adding an extra element, add one of the classes <strong>mgt-8</strong> or (margin-top-8),
+            <strong>mgt-12</strong> (or margin-top-12),
+            <strong>mgt-16</strong> (or margin-top-16),
+            <strong>mgt-24</strong> (or margin-top-24) to the element.
+        </p>
+
+
+        <h4 class="mgt-24">Examples</h4>
+
+        <p>Paragraphs have a 9 pixel gap below them. An empty paragraph will create a 9 pixel gap.</p>
+
+        <button class="btn btn-primary">This button has an empty &lt;p&gt; below it</button>
+
+        <p></p>
+        <button class="btn btn-info">this button has a &lt;p&gt; with a space below it. A space will be ignored by the browser</button>
+        <p> </p>
+        <button class="btn btn-light">this button has a &lt;p&gt; with a &amp;nbsp; below it</button>
+        <p>&nbsp;</p>
+        <div class="alert alert-info">
+            <strong>&amp;nbsp;</strong> is "non-breaking space" - a space the browser will always render.
+            So this means the paragraph will be high enough for one line of text.
+            <p>This alert has its own bottom margin.</p>
+
+        </div>
+        <button class="btn btn-success">this button has a &lt;br&gt; below it</button>
+        <BR>
+        <button class="btn btn-error">this button has 2 empty &lt;p&gt;s below it  </button>
+        <p></p>
+        <p></p>
+        <button class="btn btn-warning">this button has 3 empty &lt;p&gt;s below it  </button>
+        <p></p>
+        <p></p>
+        <p></p>
+        <button class="btn btn-light">A button</button>
+
+        <h4>Vertical Space classes</h4>
+        <button class="btn btn-primary">This button has a <code>&lt;p&gt with v-space-16</code> below it</button>
+        <p class="v-space-16"></p>
+
+        <button class="btn btn-default">This button has a <code>&lt;p&gt with v-space-24</code> below it</button>
+        <p class="v-space-24"></p>
+
+        <button class="btn btn-info">This button has a <code>&lt;p&gt with v-space-32</code> below it</button>
+        <p class="v-space-32"></p>
+
+        <button class="btn btn-error">This button has a <code>&lt;p&gt with v-space-48</code> below it</button>
+        <p class="v-space-48"></p>
+        <button class="btn btn-light">A button</button>
+
+        <h4>Margin Top classes</h4>
+        <button class="btn btn-primary">This button has a <code>&lt;BR&gt</code> below it</button>
+        <BR>
+        <button class="btn btn-default mgt-8">This button has the class<code>mgt-8</code> and a <code>&lt;BR&gt</code> below it</button>
+        <BR>
+        <button class="btn btn-default mgt-12">This button has the class<code>mgt-12</code> and a <code>&lt;BR&gt</code> below it</button>
+        <BR>
+        <button class="btn btn-default mgt-16">This button has the class<code>mgt-16</code> and a <code>&lt;BR&gt</code> below it</button>
+        <BR>
+        <button class="btn btn-default mgt-24">This button has the class<code>mgt-24</code> </button>
+
+
+    </article>
+
+</div></div></section>

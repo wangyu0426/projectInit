@@ -1,0 +1,63 @@
+<form class="pageContainer form"  name="pageForm">
+
+    <div class="abovePagePanels padding-bottom-0">
+        <h1 class="padding-bottom-0 no-border-bottom">
+            {{ vm.title }}
+        </h1>
+        <div>
+            <ul class="nav nav-pills">
+                <li ng-repeat="tab in vm.tabs"
+                    ng-class="{ 'active':  tab === vm.activeTab, 'disabled': tab.isDisabled }"
+                    ng-disabled="tab.isDisabled"
+                >
+                    <a href="" ng-if="!tab.isDisabled" ng-click="vm.select(tab)" >
+                        <span class="number" ng-if="vm.wizard">{{$index + 1}}.</span>
+                        {{tab.label}}
+                        <span ng-if="tab.isCompleted"><i class="icon-ok icon-large green"></i></span>
+                    </a>
+                    <a href="" ng-if="tab.isDisabled">
+                        <span class="number" ng-if="vm.wizard">{{$index + 1}}.</span>
+                        {{tab.label}}
+                        <span ng-if="tab.isCompleted"><i class="icon-ok icon-large green"></i></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pagePanelContainer">
+        <div class="pagePanel ">
+            <div id="topOfPage"></div>
+
+            <ng-transclude></ng-transclude>
+
+        </div>
+    </div>
+
+    <div class="form-footer-container" ng-if="vm.showFooter">
+        <div class="form-horizontal">
+            <div class="pull-left text-warning" ng-if="pageForm.$dirty && !vm.wizard" style="padding: 5px; margin: 0; min-width: 100px;">
+               <i class="icon-alert-warn"></i> Unsaved changes
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-default " type="button" ng-click="vm.cancel()">
+                    <i class="icon icon-remove "></i>
+                    Cancel
+                </button>
+                &nbsp;
+                <button class="btn btn-primary ng-scope"
+                        mtk-enabled-if-edit-allowed
+                        ng-click="vm.save()">
+                    <i class="icon icon-save "></i>
+
+                    <span ng-if="vm.wizard"> {{vm.saveLabel}}{{ vm.isLastStep() ? 'Finish': 'Next' }}</span>
+                    <span ng-if="!vm.wizard">Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+

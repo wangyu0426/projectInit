@@ -1,0 +1,28 @@
+<section  class="pageContainer" ng-controller="testEmailRouteController as vm">
+    <div class="abovePagePanels">
+        <h1 class="">
+            Inbox - Email Routes Test Page
+        </h1>
+    </div>
+    <div class="pagePanelContainer"><div class="pagePanel">
+        <h4>Register to receive email</h4>
+        <br/>
+        <p>The following emails are registered:</p>
+        <ul>
+            <li ng-repeat="email in vm.registered.Emails">{{email}}</li>
+        </ul>
+
+        <p>The following domains are available:</p>
+        <ul>
+            <li ng-repeat="domain in vm.registered.Domains">{{domain}}</li>
+        </ul>
+        <br/>
+        <mtk-form >
+            <mtk-form-row label="Register new email">
+                <mtk-input placeholder="" model="vm.email"></mtk-input>
+            </mtk-form-row>
+
+            <mtk-form-footer on-save="vm.addRoute()" on-cancel="vm.cancel()"></mtk-form-footer>
+        </mtk-form>
+    </div>
+</section>

@@ -1,0 +1,34 @@
+<div class="feed-entry">
+    <div class="feed-entry-row">
+
+        <div class="feed-entry-col-user">
+
+            <div ng-if="vm.dto.AssignedTo">
+                <mtk-member-avatar member-name="vm.dto.AssignedTo" member-id="vm.dto.MemberId"></mtk-member-avatar>
+            </div>
+            <div ng-if="!vm.dto.AssignedTo">
+                <div class="user-initial-badge" data-original-title="Unassigned" mtk-tooltip>
+                    <span> </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="feed-entry-col-body">
+            <div class="feed-entry-title clearfix">
+                <div class="pull-left padding-bottom-4">
+                    <i class="icon-comment-alt icon-large "></i>
+                </div>
+
+                <div class="pull-right" >
+                    <span ng-if="vm.dto.NextActionDueDate" class="padding-left-2em">
+                        <i class="icon-calendar-empty "></i>
+                        <time>{{vm.dto.NextActionDueDate | date:'shortDate' }}</time>
+                    </span>
+                </div>
+
+                <span ng-if="vm.dto.Title" style="white-space: pre-wrap;"> {{vm.dto.Title}} </span>
+            </div>
+        </div>
+    </div>
+</div>

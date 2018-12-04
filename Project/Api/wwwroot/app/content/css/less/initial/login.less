@@ -1,0 +1,369 @@
+//basic variables
+@OuterBoxWidth:300px;
+@LogoWidth: @OuterBoxWidth + 50;
+@LogoOffset: 23;
+@OuterBoxHeight: 500px;
+@OuterBoxVerticalOffset: 0 - @OuterBoxHeight / 2 ;
+
+//for phones
+@OuterBoxWidth-small:260px;
+@LogoWidth-small: 275px;
+@LogoOffset-small: 8;
+
+
+//this class is added by default and will be switched off by Modernizr when it finds javascript
+html.no-js > body .no-js-hide {
+	display: none !important;
+}
+#NoJavascriptMessage {
+	display:none;
+	margin: 16px auto;
+	max-width:300px;
+}
+#BrowserRecommendationMessage {
+	display: none;
+	margin: auto;
+	position: relative;
+	bottom: 0px;
+	padding: 12px;
+	text-align: center;
+	width: 100%;
+	background: @VF-DarkGrey-darker;
+
+	a{
+		color: white;
+		border: 1px solid rgba(255,255,255,0.25);
+		padding: 8px;
+		border-radius: 3px;
+	}
+	a:hover {
+		border-color: white;
+		color: @VF-Primary;
+	}
+}
+#SignInDeniedForOldBrowsersMsg {
+	display: none;
+	padding: 12px;
+	text-align: center;
+	background: #484848;
+	border-radius:6px;
+	border:1px #cccccc solid;
+	max-width:300px;
+	a{
+		color: white;
+		padding: 0 4px;
+		text-decoration:none;
+	}
+	a:hover {
+		color: @VF-Primary;
+		text-decoration:none;
+	}
+}
+.no-js {
+	#NoJavascriptMessage, #BrowserRecommendationMessage {
+		display: block;
+	}
+}
+
+.browserIcon {height:  24px; width: 24px;}
+
+#signInForm {
+	margin-bottom:20px;
+}
+
+
+img.logo {
+	max-width: @LogoWidth;
+}
+
+
+body.login {
+	color: @VF-LightGrey;
+	background-color: @VF-LightGrey-lighter;
+	padding: 0px;
+
+	&::before {
+		background-color: @VF-Primary;
+	}
+	h1,h2,h3,h4,h5 {color: @VF-LightGrey;}
+
+
+	li.side-padded {padding:  22px;}
+	#activationForm {
+		color:  white;
+	}
+
+	img.logo {
+		position:relative;
+		display:block;
+		left: 50%;
+		margin:0;
+		margin-left: @LogoOffset - ( @LogoWidth / 2 ) - 20; // line up with the boxes
+		max-width: @LogoWidth;
+
+	}
+
+	.outer-container-small, .outer-container {
+		position:absolute;
+		top:50%;
+		margin: @OuterBoxVerticalOffset auto 0 auto;
+		height:@OuterBoxHeight;
+		width:100%;
+		overflow:hidden;
+		left:0;
+		display:block;
+		text-align:center;		
+		
+	}
+	.inner-container {
+		padding-top: 50px;
+		background-color: @VF-Primary;
+	}
+	.outer-container-big {
+		margin: auto;
+		overflow:hidden;
+		left:0;
+		display:block;
+		text-align:center;
+
+		p.lead {
+			font-size: 16px;
+			margin: 9px auto 20px;
+			color:  #ffffff;
+		}
+		#activationForm {
+			position: relative;
+
+			text-align: left;
+
+			ol li {clear: both;}
+		}
+
+	}
+
+	#signinError, #bigForgotAlert {
+		display: none;
+	}
+
+	.box-container {
+		max-width:@LogoWidth;
+		text-align:left;
+		position: relative;
+		display:block;
+		height: 300px;
+		width: auto;
+		margin: 27px auto;
+	}
+
+	.forgot-box, .totp-box, .tfa-setup-box {
+		display:none;
+	}
+
+	.tfa-setup-box {
+		.qr-panel, .manual-panel, .verification-panel {
+			display: none;
+		}
+
+		.tfa-secret-display-box {
+			margin-top: 8px;
+
+			h3 {
+				color:inherit;
+				margin: 9px;
+			}
+		}
+	}
+
+	#loading-bar-spinner {
+		display: none;
+	}
+
+	footer {
+		display: block;
+		margin: auto;
+		position: absolute;
+		bottom: 0px;
+		padding: 0px;
+		text-align: center;
+		width: 100%;
+		vertical-align: bottom;
+	}
+
+
+	#VisitWebsiteLink {
+		display:inline-block;
+		margin:auto;
+		text-align:center;
+		padding-bottom: 32px;
+	}
+
+	button, a.btn {
+		font-size: 14px;
+	}
+
+	ol.form-ol {
+		padding: 0;
+		li {
+			min-height: 36px;
+
+			label:not(.chk-outer-label) {
+				text-align:  left;
+				width:  120px;
+			}
+
+			label.chk-outer-label {
+				margin: 0;
+				line-height:34px;
+
+			}
+			.form-control {
+				border-radius: 3px !important;
+				width: 330px !important;
+				padding: 7px;
+				border: 1px @VF-LightGrey solid;
+				background-color: #fff !important;
+				font-size: 14px;
+			}
+			select.inp {
+				width: @OuterBoxWidth + 4 !important;
+				margin-top: 4px;
+			}
+		}
+	}
+}
+
+
+body.user-account {
+	padding: 0px;
+	color: #ffffff;
+	position: relative;
+	min-height:100%;
+	display:block;
+	h1,h2,h3,h4,h5 {color: @VF-LightGrey-lighter;}
+
+
+	background:@VF-Primary;
+
+	.btn-block, .form-control {
+		width: 93%;
+		max-width: @LogoWidth;
+	}
+	select.form-control {
+		color:  #111;
+	}
+
+	.alert {
+		line-height:1.8;
+	}
+
+	.form-control{
+		background-color: fade(#ffffff, 90%) !important;
+		display: inline-block;
+	}
+
+	.control-label {
+		text-align: left;
+	}
+
+	.logo {
+		display:block;
+		margin: 0 auto;
+	}
+
+	.logoWidth {
+		max-width: @LogoWidth;
+	}
+
+	@media only screen and (max-width:@screen-sm) {
+		.logo {
+			margin: 0 15px; //don't center;
+		}
+		.lead {
+			max-width: @LogoWidth;
+		}
+
+
+	}
+
+
+
+}
+
+
+@media only screen and (max-width:399px) {
+
+	@LogoWidth-smallscreen: 320px;
+	@LogoWidth: @LogoWidth-small;
+	@OuterBoxWidth: @OuterBoxWidth-small;
+	@LogoOffset: @LogoOffset-small;
+	body.login {
+
+		img.logo {
+
+			margin-left: @LogoOffset - ( @LogoWidth / 2 );
+			max-width: @LogoWidth;
+
+		}
+		.login-box, .forgot-box, .totp-box {
+			margin-left: 10px;
+			max-width:@LogoWidth;
+		}
+
+		#signinError {
+			margin-left: 10px !important;
+			max-width: @LogoWidth-smallscreen !important;
+		}
+		#login-box-inner {
+			width:@LogoWidth-smallscreen;
+		}
+
+		.form-control {
+			max-width: @LogoWidth-smallscreen !important;
+		}
+
+		//add some padding on the form inputs
+		ol.form-ol li .inp {
+			width: @LogoWidth - 10 !important;
+		}
+
+	}
+}
+
+
+@media only screen and (max-width:320px) {
+
+	@LogoWidth-smallscreen: 300px;
+	@LogoWidth: @LogoWidth-small;
+	@OuterBoxWidth: @OuterBoxWidth-small;
+	@LogoOffset: @LogoOffset-small;
+	body.login {
+
+		img.logo {
+
+			margin-left: @LogoOffset - ( @LogoWidth / 2 );
+			max-width: @LogoWidth;
+
+		}
+		.login-box, .forgot-box, .totp-box {
+			max-width:@LogoWidth;
+		}
+
+		#signinError {
+			max-width: @LogoWidth-smallscreen !important;
+		}
+		#login-box-inner {
+			width:@LogoWidth-smallscreen;
+		}
+
+		.form-control {
+			max-width: @LogoWidth-smallscreen !important;
+		}
+
+		//add some padding on the form inputs
+		ol.form-ol li .inp {
+			width: @LogoWidth - 10 !important;
+		}
+
+	}
+}
+

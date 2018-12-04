@@ -1,0 +1,50 @@
+
+<ul class="navbar-nav nav  navbar-left portfolio-btn" data-ng-controller="userPortfoliosController as vm" ng-cloak>
+
+    <li class="">
+        <a data-toggle="dropdown" href="" class="dropdown-toggle disp-ib ">
+            <span class="large" >
+               <i class="icon-list"></i> {{$root.session.Access.CompanyName}}
+            </span>
+            <span class="badge badge-warning" ng-if="$root.session.Access.DatasetType === 'DemoInstance'">
+                Demo
+            </span>
+            <i class="icon-caret-down mgl-6"></i>
+        </a>
+
+        <ul class="user-menu  dropdown-menu dropdown-yellow dropdown-caret dropdown-closer navbar-inverse"
+            style="padding: 3px 10px 10px 10px; border: none; ">
+            <li mtk-show-only-to-non-guest>
+                <a href="#/setting/portfolio/edit">
+                    <i class="icon-cog"></i>Settings
+                </a>
+            </li>
+            <li class="divider"></li>
+
+            <li class="" ng-repeat="portfolio in vm.portfolios" ng-if="!portfolio.IsActive">
+                <a href="" ng-click="vm.activate(portfolio)" >
+                    {{ portfolio.CustomerCompanyName }}
+                </a>
+
+            </li>
+
+            <li class="" ng-if="!vm.isDemoActive">
+                <a href="" class="text-warning"
+                   ng-click="vm.switchToDemoDatabase()">
+                     <span class="badge badge-warning">
+                        Demo Portfolio
+                    </span>
+                </a>
+            </li>
+
+            <li class="divider" mtk-show-only-to-partner ng-if="$root.session.Access.DatasetType !== 'DemoInstance'" ></li>
+
+            <li mtk-show-only-to-partner ng-if="$root.session.Access.DatasetType !== 'DemoInstance'">
+                <a href="#/client/list">
+                    <i class="icon-group"></i>
+                    My Clients
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

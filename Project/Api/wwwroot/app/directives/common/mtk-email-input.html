@@ -1,0 +1,8 @@
+<input ng-attr="{id: elId,name: elId}"
+placeholder="{{mtkInputPlaceholder}}"
+class="form-control"
+type="text"
+ng-model="model"
+ng-class="{unlockable: isChanged !== true && role}" />
+<i class="icon-contact-tenant" ng-if="isChanged !== true && role === 'Tenant'"></i>
+<i class="icon-contact-owner" ng-if="isChanged !== true && role === 'Owner'"></i>

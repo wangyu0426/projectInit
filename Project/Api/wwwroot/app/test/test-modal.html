@@ -1,0 +1,44 @@
+<section class="pageContainer" ng-controller="testModalController as vm">
+    <div class="abovePagePanels"><h1>Modals</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+
+    <div class="well well-lg">
+        Just some blank space <BR>
+        to push the page content<BR>
+        down so it is visible <BR>
+        below the modal.
+
+    </div>
+
+    <p>
+        The modal can be specified with a template file, in this case <em>test/test-modal-detail.html</em>.
+    </p>
+    <p>
+        Scope variables can be passed to the modal and they will update on the main scope and vice versa.
+    </p>
+    <p>
+        The modal is called with <code>new modalDetail(<em>templateUrl</em>, <em>data</em>, <em>onCloseCallbackFunction</em>)</code>
+    </p>
+    <p>
+        The modal can be closed from the parent controller using <code>modal.close()</code>.
+    </p>
+
+    <div class="v-space-48">
+        <mtk-radio model="vm.radio.value" source="vm.radio.options"></mtk-radio>
+
+    </div>
+
+    <div>
+        <a href="" class="btn btn-primary" ng-click="vm.fireModal()">
+            Open modal
+        </a>
+        <a href="" class="btn btn-default" ng-click="vm.timeToClose = 5">
+            Reset timer
+        </a>
+    </div>
+
+    <div class="well well-sm">
+        Closing modal in {{vm.timeToClose}} seconds
+    </div>
+
+
+</div></div></section>

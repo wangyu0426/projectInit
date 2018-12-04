@@ -1,0 +1,19 @@
+<div>
+    <ul class="nav nav-pills">
+        <li ng-repeat="step in vm.stepItems"
+            ng-class="{ 'active':  step.isActive, 'disabled': step.isDisabled }"
+            ng-disabled="step.isDisabled"
+            >
+            <a href="" ng-if="!step.isDisabled" ng-click="vm.select(step.label)" >
+                <span class="number" ng-if="vm.wizard">{{$index + 1}}.</span>
+                {{step.label}}
+                <span ng-if="step.isCompleted"><i class="icon-ok icon-large green"></i></span>
+            </a>
+            <a href="" ng-if="step.isDisabled">
+                <span class="number" ng-if="vm.wizard">{{$index + 1}}.</span>
+                {{step.label}}
+                <span ng-if="step.isCompleted"><i class="icon-ok icon-large green"></i></span>
+            </a>
+        </li>
+    </ul>
+</div>

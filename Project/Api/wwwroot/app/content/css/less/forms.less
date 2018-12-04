@@ -1,0 +1,546 @@
+//Variables
+
+@inp-width-small: 60px;
+@inp-width-wider: @inp-width-small * 3 + @input-group-margin-right;
+//+ @padding-base-horizontal
+
+@input-group-margin-bottom: 12px;
+@input-group-margin-right: 9px;
+@form-max-width: 740px;
+
+//font on inputs - taken from bootstrap
+input, textarea, select {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section.form {
+	.abovePagePanels {
+		border-bottom: 1px dotted @page-header-border-color;
+
+		h1 {
+			border: none;
+			padding-bottom: 0;
+		}
+	}
+}
+
+// TODO need to correct common input directives to use ng-model so native angular validation can be used
+.form-validation {
+	input.form-control.ng-dirty:not(.ng-pristine), textarea.form-control.ng-dirty:not(.ng-pristine) {
+		//background-color: @alert-info-bg;
+        border-color: @alert-info-border;
+	}
+
+	input.form-control.ng-invalid:not(.ng-pristine), textarea.form-control.ng-invalid:not(.ng-pristine) {
+		background-color: @alert-warning-bg;
+        //border-color: @alert-warning-border;
+	}
+}
+
+.focus-glow-mixin() {
+  border-color:@input-border-focus;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade(@input-border-focus,60);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade(@input-border-focus,60);
+}
+//extra .focused class to apply manually
+.focused {
+  .focus-glow-mixin();
+}
+
+
+.width-match-form {
+	max-width:@form-max-width;
+}
+
+.form-horizontal {
+	position: relative;
+
+	&:not(.form-full-width) {
+		max-width:@form-max-width;
+	}
+
+
+	.control-label {
+		text-align:left; //override bootstrap
+	}
+
+	@media (min-width: @screen-sm) {
+		.form-group p {
+			//use p tags for text values inside form-groups
+			padding-top: 7px;
+		}
+		.control-label {
+			padding-left:3em;
+		}
+		> ol > p {
+			padding-left:3em;
+			margin-left:@grid-gutter-width / -2;
+		}
+		&.no-label-padding {
+			.control-label[class*=col-] {
+				padding-left:@grid-gutter-width / 2;
+			}
+		}
+	}
+
+}
+
+.form-ol {
+	list-style: none;
+	label {
+		font-weight: normal;
+	}
+	li {
+		position: relative;
+		display: block;
+		//overflow: hidden;
+		.well {
+			padding: 6px 13px;
+		}
+
+	}
+
+}
+
+.date-picker-container-width,
+.date-picker-container {
+	max-width:9.8em;
+}
+
+.date-picker-container {
+	display:inline-block;
+	position: relative;
+	vertical-align: middle;
+	z-index: 3; //datepicker popup looks at parent zindex and sets itself higher
+
+}
+
+.datepicker-dropdown {
+	z-index: 9999 !important;
+}
+
+input.currency, input.integer, input.decimal {
+	text-align: right;
+	max-width:7em;
+	&.form-control {
+		display:inline-block;
+	}
+	&.space-for-icon-right {
+		max-width:5.5em;
+		padding-right: 24px;
+	}
+}
+
+input[type] {
+	&.unlockable.form-control {
+		background-color: @input-bg-disabled;
+	}
+	&.form-control + i[class^="icon-"] {
+		position: absolute;
+		right: 25px;
+		top: 9px;
+	}
+
+	&.form-control:not(.unlockable) + i[class^="icon-"],
+	&.form-control:active + i[class^="icon-"],
+	&.form-control:focus + i[class^="icon-"] {
+		display: none;
+	}
+	
+}
+
+.mtk-radio {
+  border-radius: @border-radius-base;
+  border:1px transparent solid;
+  &.focused {
+    .focus-glow-mixin();
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+	.btn {
+	  border-width: 1px;
+      margin: 0;
+		//button with no borders
+		.button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base; 1);
+
+		&.active {
+
+			border-color: @VF-LightGrey;
+			background-color: lighten(@VF-LightGrey-darker, 8%);
+
+			color: @VF-DarkGrey-darker;
+		}
+		&:not(.active) {
+			color: @VF-DarkGrey;
+			background-color: white;
+			border-color: @VF-LightGrey;
+			&:hover {
+				background-color: @VF-LightGrey-lighter;
+
+			}
+		}
+
+		&.btn-sm {
+			.button-size(@padding-xs-vertical + 2; @padding-xs-horizontal + 1; @font-size-small; @line-height-small; @border-radius-small);
+		}
+	}
+}
+
+.mtk-condition-radio{
+	.btn {
+		height:26px;
+		width:29px;
+	}
+	.btn.btn-light {
+		color: #ffffff;
+		&:not(:hover) {
+			border-color: darken(@btn-light-border,2);
+			background-color: darken(@btn-light-bg,2);
+		}
+	}
+}
+
+
+.input-group-btn {
+	margin-left: -1px;
+	border-bottom-right-radius: @border-radius-base;
+	border-top-right-radius: @border-radius-base;
+	border: 1px solid @input-border;
+
+	> .btn {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		padding: 2px 7px;
+		margin-bottom:0px;
+		border-bottom-right-radius: @border-radius-base;
+		border-top-right-radius: @border-radius-base;
+	}
+}
+
+//this is sometimes nested inside form-horizontal
+.form-inline {
+	display:inline-block;
+	legend {
+		line-height: 28px;
+		font-size: 15px;
+		margin-bottom: 12px;
+		font-weight: lighter;
+		color: @VF-Secondary;
+		border-bottom: 1px dotted fade(mix(@VF-LightGrey, @VF-Navy),40%);
+	}
+	.dropdown-menu {
+		//compensate for the gap below input-groups
+		margin-top:  @input-group-margin-bottom * -1 + 3;
+	}
+	.input-group {
+		margin-right: @input-group-margin-right;
+		margin-bottom: @input-group-margin-bottom;
+
+		@media (max-width: @screen-sm) {
+			margin-right: 0px;
+		}
+
+
+		.input-group-addon {
+			font-size: 0.85em;
+			font-weight: normal;
+			padding: 6px 8px;
+		}
+		.form-control {
+			margin-bottom:0
+		}
+	}
+	.btn.close {
+		&:hover {
+			color: @VF-Secondary;
+		}
+	}
+
+}
+
+.form-final-actions-container, .form-footer-container {
+	background-color: transparent;
+	overflow: hidden;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	position: relative;
+
+  .button-col {
+
+    border-bottom-left-radius: @border-radius-base * 0.75 ;
+    border-bottom-right-radius: @border-radius-base * 0.75;
+    padding-top:12px;
+    padding-bottom: 12px;
+
+  }
+	div.space {
+
+		height: 100%;
+	}
+}
+
+.form-footer-container {
+	border-top: 1px dotted @page-header-border-color;
+}
+
+textarea, input[type] {
+	//border-radius: @input-border-radius ;
+	margin-bottom: 2px;
+
+	&.form-control {
+		background-color: rgba(255, 255, 255, 0.5); //so that watermark is visible
+		//force input elements to have dark text when they have a value
+		color: @VF-DarkGrey-VeryDark;
+		padding: 5px 7px;
+
+        &:not(:focus) {
+          box-shadow: none;
+        }
+		&:focus {
+			background-color: white;
+		}
+		&[disabled] {
+			background-color: @VF-LightGrey-lighter;
+		}
+		&.attached-to-well {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&.currency, &.integer {
+			display:inline-block;
+			&.space-for-icon-right {
+				padding-right: 2.75em;
+			}
+		}
+	}
+}
+
+//inputs inside wells and tables
+.well, .table, .feed-new-entry, .greyed {
+	textarea, input[type] {
+		&.form-control {
+			background-color: white; //so that well background doesnt come through
+		}
+	}
+}
+
+
+.addr-detail-label {
+	display:inline-block;
+	width:9em;
+	float:left;
+	line-height: 26px;
+}
+
+
+
+//inline forms
+.form-inline {
+
+	.mtk-lookup, .form-control {
+		display: inline-block;
+	}
+
+	.form-control {
+		margin-bottom: @input-group-margin-bottom;
+	}
+
+	.inp-wider {
+		width: @inp-width-wider;
+		&.form-control {
+			//make sure it overrides default
+			width: @inp-width-wider;
+		}
+	}
+}
+
+textarea {
+	.placeholder();
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+//disabled textareas used for displaying blocks of user-entered text
+textarea.disabled {
+	overflow-y: auto;
+	background: transparent;
+	border: none;
+	width: 100%;
+}
+
+.form-small-block {
+  @small-form-label-width: 60px;
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .control-label {
+    width:@small-form-label-width;
+    text-align:left;
+    float:left;
+    padding-top: @padding-base-vertical;
+	  padding-left:0;
+    display: inline-block;
+    @media (max-width: @screen-xs) {
+      width:auto;
+      float:none;
+      display:block;
+      text-align:inherit;
+    }
+	&.no-width {
+		width: auto;
+	}
+  }
+  .control-value {
+    padding-left: @small-form-label-width + 12px;
+  }
+
+}
+
+.form-right {
+  .btn-group{
+    float:right;
+  }
+
+}
+
+
+.feesTable {
+	border: 1px solid @table-border-color;
+	border-collapse: collapse;
+
+	th {
+		background-color: @VF-LightGrey-lighter;
+	}
+
+	.stick-to-below {
+		&, > td {
+			border-bottom:0;
+          padding-bottom:0px;
+          padding-top:18px;
+		}
+
+	}
+	.stick-to-above {
+		margin-top:0px;
+		&, > td {
+			border-top:0;
+          padding-top:0px;
+          padding-bottom:18px;
+		}
+	}
+
+}
+
+.well > .table {
+  margin-bottom:0px;
+}
+
+.map-canvas-small {
+	opacity: 1;
+	position: relative;
+	width: 100%;
+	min-height: 250px;
+	left: 0px;
+	bottom: 0px;
+	top: 0px;
+	right: 0px;
+}
+
+
+
+.search-box-container {
+	> i {
+		font-size: 15px;
+		margin-left: 8px;
+		margin-top: 8px;
+		color: @VF-LightGrey-darker;
+		position: absolute;
+	}
+	> .input-group > .input-group-btn  > .btn {
+		margin-right:-1px;
+	}
+}
+
+input.search-box {
+	//padding for the icon;
+	padding-left: 32px;
+	&[type].form-control:not(.no-icon) {
+		padding-left: 32px;
+	}
+}
+
+//needed for IE 9
+input, input.form-control {
+	line-height:1;
+}
+
+//For barcode
+.barcode, .barcode input {
+		border-width: 2px;
+		border-color: @VF-Yellow2;
+}
+
+//For label in multiple select
+.ui-select-match-item.multiple-select  {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin: 3px;
+	//color: @VF-DarkGrey-lighter;
+}
+
+//For partial label in multiple select
+form .ui-select-match-item.partial-label-warning {
+	border-width: 1px;
+	border-color: @VF-Yellow2;
+}
+
+// avoid btn hover
+.ui-select-match-item:hover{
+	color: @VF-DarkGrey-lighter;
+}
+
+// for editable labels
+mtk-label-editable {
+	position: relative;
+}
+div.editable-labels-box{
+	position: absolute;
+	display: block;
+	min-width:360px;
+	top: 5px;
+	left: 15px;
+	min-height:120px;
+	margin-top:5px;
+	border: 1px @VF-LightGrey-lighter solid;
+	border-radius: 3px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+	z-index: 90 !important;
+	background-color: white;
+}
+
+.loading-spin {
+	z-index:1000;
+	top:3%;
+	left: 92%;
+}
+
+@mtkLabelWidthMax: 400;
+.mtk-form-loop (@i) when (@i >= 150) {
+	.mtk-form-label-@{i}{
+		.control-label{
+			width:~"@{i}px";
+		}
+	}
+	.mtk-form-value-@{i}{
+		.control-value{
+			width:~"@{i}px";
+		}
+	}
+    .mtk-form-loop(@i - 10);
+}
+.mtk-form-loop(@mtkLabelWidthMax);

@@ -1,0 +1,46 @@
+@vimeo-height: 285px;
+@vimeo-width: 500px;
+
+.video-overview-container {
+	position: absolute;
+	display: -webkit-flex;
+	display: flex;
+	top: 0; //javascript will adjust this to be below the page title
+	bottom: 0;
+	left: @grid-gutter-width / 2 - 2px; //line up with content
+	right: ceil(@grid-gutter-width / 4) - 2px; //line up with content
+	z-index: 999;
+	overflow-y:auto;
+
+	//Gradient
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(232,250,253,1) 0%, rgba(232,250,253,1) 49%, rgba(232,250,253,0.9) 77%, rgba(232,250,253,0.8) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(232,250,253,1)), color-stop(49%,rgba(232,250,253,1)), color-stop(77%,rgba(232,250,253,0.9)), color-stop(100%,rgba(232,250,253,0.8))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(232,250,253,1) 0%,rgba(232,250,253,1) 49%,rgba(232,250,253,0.9) 77%,rgba(232,250,253,0.8) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(232,250,253,1) 0%,rgba(232,250,253,1) 49%,rgba(232,250,253,0.9) 77%,rgba(232,250,253,0.8) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(232,250,253,1) 0%,rgba(232,250,253,1) 49%,rgba(232,250,253,0.9) 77%,rgba(232,250,253,0.8) 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  rgba(232,250,253,1) 0%,rgba(232,250,253,1) 49%,rgba(232,250,253,0.9) 77%,rgba(232,250,253,0.8) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fafd', endColorstr='#cce8fafd',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	//End gradient
+	.video-overview-body {
+		margin: auto 0;
+
+		width:100%;
+
+		.video-overview-inner {
+			min-width: @vimeo-width;
+			width: 70%;
+			padding: 24px;
+			margin: auto;
+			//background: @VF-Primary-faded-10;
+			//box-shadow: 0 0 24px 0 @VF-Primary-faded-10;
+			#embeddedPlayer > iframe {
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+.video-description {
+	color: @VF-DarkGrey;
+}
+

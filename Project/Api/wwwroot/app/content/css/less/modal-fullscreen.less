@@ -1,0 +1,191 @@
+.modal.modal-fullscreen {
+	/* Maximize the main wrappers on the screen */
+	.modal-dialog,
+	.modal-content {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	/* Make the parent wrapper of the modal box a full-width block */
+	.modal-dialog {
+		margin: 0;
+		width: 100%;
+	}
+
+	/* Remove borders and effects on the content */
+	.modal-content {
+		border: none;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		-webkit-box-shadow: inherit;
+		-moz-box-shadow: inherit;
+		-o-box-shadow: inherit;
+		box-shadow: inherit;
+	}
+
+
+	/**
+	 * /!\ By using this feature, you force the header and footer to be placed
+	 * in an absolute position. You must handle by yourself the margin of the
+	 * content.
+	 */
+	&.force-fullscreen {
+		/* Remove the padding inside the body */
+		.modal-body {
+			padding: 0;
+		}
+		.modal-header,
+		.modal-footer {
+			left: 0;
+			position: absolute;
+			right: 0;
+		}
+		.modal-header {
+			top: 0;
+		}
+		.modal-footer {
+			bottom: 0;
+		}
+	}
+}
+
+.modal.modal-view {
+	/* set the size */
+	.modal-dialog {
+		width: 85% !important;
+		max-width: 1024px;
+	}
+	.modal-content {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+
+.modal.modal-preview {
+	/* set the size */
+	.modal-dialog {
+		width: 85% !important;
+		max-width: 1024px;
+	}
+	.modal-content {
+		height: 90vh;
+		min-width: 702px !important;
+		min-height: 400px !important;
+	}
+}
+
+.modal.modal-task {
+	/* set the overflow */
+	.modal-dialog {
+		overflow: initial !important;
+	}
+	.modal-content {
+		max-height: 90vh;
+		overflow: auto !important;
+	}
+}
+
+.modal.modal-85percent {
+	/* set the size */
+	.modal-dialog {
+		width: 85% !important;
+		max-width: 1024px;
+	}
+	.modal-content {
+		height: 90vh;
+		min-width: 702px !important;
+		// min-height: 837px !important;
+		max-height: 892px;
+	}
+}
+
+.modal.modal-email-stationery {
+	overflow-y: hidden;
+
+	/* set the size */
+	.modal-dialog {
+		width: 95% !important;
+	}
+	.modal-content {
+		min-width: 800px !important;
+		max-height: 94% !important;
+		min-height: 400px !important;
+	}
+
+	.bootbox-close-button.close {
+		opacity: 1;
+		right: 15px;
+		z-index: 9999;
+		position: fixed;
+		color: darkgrey;
+		text-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+		font-size: 30px;
+	}
+}
+
+.modal.report-modal-preview {
+	overflow-y: hidden;
+
+	/* set the size */
+	.modal-dialog {
+		width: 70% !important;
+		max-width: 1024px;
+	}
+	.modal-content {
+		min-width: 500px !important;
+		min-height: 330px !important;
+	}
+
+	.bootbox-close-button.close {
+		opacity: 1;
+		right: 15px;
+		z-index: 9999;
+		position: fixed;
+		color: darkgrey;
+		text-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+		font-size: 30px;
+	}
+	.modal-detail-nav-left{
+		left: -120px;
+		margin-left: 15px;
+		position: fixed;
+		top: 40%;
+		background: transparent;
+		height: 120px !important;
+	}
+	.modal-detail-nav-right{
+		left: 100%;
+		top: 40%;
+		background: transparent;
+		margin-left: -25px;
+		position: fixed;
+		height: 120px !important;
+	}
+}
+
+.modal.tenant-bond-edit-modal {
+	overflow-y: hidden;
+
+	/* set the size */
+	.modal-dialog {
+		width: 70% !important;
+		max-width: 710px;
+	}
+	.modal-content {
+		min-width: 400px !important;
+		min-height: 230px !important;
+	}
+
+	.bootbox-close-button.close {
+		opacity: 1;
+		right: 15px;
+		z-index: 9999;
+		position: fixed;
+		color: darkgrey;
+		text-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+		font-size: 30px;
+	}
+}

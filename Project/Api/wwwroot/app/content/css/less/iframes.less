@@ -1,0 +1,29 @@
+//Height Media Queries to set text area height
+.iframe-reponsive-mixin(@h) {
+	@heightOfOthers: 200px;
+	@absoluteMin: 200px;
+
+	.iframe-responsive {
+		min-height: max(@absoluteMin, @h - @heightOfOthers);
+	}
+
+}
+
+.iframe-media-loop(@max-height-pixels) when (@max-height-pixels > 400px) {
+	.iframe-media-loop((@max-height-pixels - 100));    // next iteration
+	// code for each iteration
+	@media (min-height: (@max-height-pixels - 99)) and (max-height: @max-height-pixels) {
+		.iframe-reponsive-mixin(@max-height-pixels - 99)
+	}
+}
+
+.iframe-media-loop(1000px);
+//Need an end-case for sizes > 1000px
+@media (min-height: (1001px)){
+	.iframe-reponsive-mixin(1001px)
+}
+
+.bill-iframe {
+	border:1px solid @VF-LightGrey;
+	padding:1px;
+}

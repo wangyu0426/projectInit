@@ -1,0 +1,169 @@
+
+.infobox-container{
+  text-align: center;
+  font-size: 0;
+}
+
+.infobox-thin,
+.infobox{
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  box-shadow: none;
+  border-radius: 0;
+  line-height: 20px;
+  box-sizing: content-box;
+  margin: 0 0 3px;
+  padding: 7px 4px 5px 4px;
+  border: 0px;
+  vertical-align: middle;
+  text-align: left;
+  position: relative;
+
+  h5{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  > .infobox-icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 43px;
+    height: 100%;
+    position: relative;
+
+    > [class*="icon-"]{
+      display: inline-block;
+      height: 42px;
+      margin: 0;
+      padding: 4px 1px 0 2px;
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      position: relative;
+
+      &:before{
+        font-size: 31px;
+        display: block;
+        width: 40px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      &.icon-calendar-empty:before{
+        font-size: 34px;
+      }
+    }
+
+    .percentage, .ic-text{
+      position: absolute;
+      background: transparent;
+      display: block;
+      font-size: 11pt;
+      width: 100%;
+      text-align: center;
+    }
+    .ic-text{
+      top: 15px;
+      font-weight: bold;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .percentage{
+      top: 10px;
+      padding-left: 4px;
+      text-align: center;
+      font-size: 10pt;
+      text-shadow: none;
+      font-weight: normal;
+    }
+    .easyPieChart{
+      margin: 0 6px 0 2px;
+    }
+  }
+
+  > .infobox-body{
+    display: inline-block;
+    border: none;
+    border-top-width: 0;
+    font-size: 13px;
+    text-align: left;
+    line-height: 21px;
+    max-width: 72px;
+    padding-left: 7px;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+
+    p{
+      margin: 0px;
+      text-align: center;
+      //white-space: nowrap;
+      line-height: 13.5px;
+    }
+  }
+
+  &.no-border{
+    border: none !important;
+  }
+}
+.infobox-thin{
+  height: 24px !important;
+  padding-top: 4px;
+  width: 24px;
+  > .infobox-icon{
+    width: 24px;
+    > [class*="icon-"]{
+      height: 24px;   
+      &:before{
+        font-size: 15px;
+        width: 24px;
+      }
+      &.icon-calendar-empty:before{
+        font-size: 15px;
+      }
+    }
+  }
+}
+//infobox color
+.infobox-color(@color) {
+  @infobox-class: ~`"infobox-@{color}"`;
+  @infobox-bg: ~`"infobox-@{color}"`;
+  @infobox-cl: @@infobox-bg;
+
+  .@{infobox-class}{
+    background-color: @infobox-cl;
+    border-color: @infobox-cl;
+    color: contrast(@infobox-cl, #fff);
+    h5{
+      color: contrast(@infobox-cl, #fff);
+    }
+    .infobox-icon{
+      text-shadow: 1px 1px 1px fade(darken(@infobox-cl, 15%), 95%);
+    }
+
+  }
+}
+
+@infobox-navy: @VF-Navy;
+@infobox-info: #6fb3e0;
+@infobox-lightgrey: @VF-LightGrey;
+
+
+.infobox-color(~"success");
+
+.infobox-color(~"warning");
+
+.infobox-color(~"error");
+
+.infobox-color(~"gold");
+
+.infobox-color(~"info");
+
+.infobox-color(~"navy");
+
+.infobox-color(~"lightgrey");
+
+
+

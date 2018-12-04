@@ -1,0 +1,20 @@
+<div ng-controller="lightboxListController as ctrl">
+    <div class="loader-spin position-a z0" ng-show="ctrl.isLoading" style="top:45.5%; left: 45.5%; ">
+        <i class="icon-spin icon-refresh icon-2x"></i>
+    </div>
+    <!--<div class="lightbox-top-panel"></div>-->
+    <div class="lightbox-list-container">
+        <div class="lightbox-list-content-wrapper">
+            <ul class="lightbox-list-content mgt-24">
+                <li ng-repeat="photo in list track by $index " ng-click="ctrl.select($index)" class="lightbox-list-thumbnail photo-background cursor-pointer "
+                    style="background-image: url({{photo.littleSrc}});">
+                    <span ng-if="photo.selected" class="font-size-22 img-circle text-center lightbox-list-number-overlay">{{photo.overlay}}</span>
+                </li>
+            </ul>
+            <a href="" ng-click="ctrl.save()" class="btn btn-primary">
+                <i class="icon-save"></i>
+                Select
+            </a>
+        </div>
+    </div>
+</div>

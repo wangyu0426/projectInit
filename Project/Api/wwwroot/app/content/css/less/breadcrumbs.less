@@ -1,0 +1,54 @@
+
+h1 + .ng-isolate-scope > .breadcrumb {
+	//make it snug below the h1
+	top:-12px;
+	margin-bottom: 0;
+}
+
+.breadcrumb {
+	display:block;
+	position: relative;
+	margin-bottom:4px;
+	font-size:12px;
+	background-color: transparent;
+	padding: 0;
+	.text-nowrap();
+
+	h1+& {
+		//make it snug below the h1
+		top:-12px;
+		margin-bottom: 0;
+	}
+
+	> li {
+		max-width:50%;
+		padding:4px 6px 5px 0;
+		a {
+			border: 1px transparent solid;
+			border-top: 0;
+
+			color:darken(@text-muted,10);
+			border-radius:3px;
+			text-decoration:none;
+			padding: 5px 4px 4px 2px;
+			background-color:@VF-LightGrey-AlmostWhite;
+			//i {
+			//	color: fade(@link-color,50%);
+			//}
+			&:hover {
+				opacity:1;
+				text-decoration: none;
+				border: 1px dotted fade(@link-color,50%);
+				border-top: 0;
+				color:@link-color;
+				i {
+					color:@link-color;
+				}
+			}
+		}
+		& + li:before {
+			content:none; //turn it off
+		}
+	}
+
+}

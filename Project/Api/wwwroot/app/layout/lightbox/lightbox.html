@@ -1,0 +1,69 @@
+<div ng-controller="lightboxController as ctrl">
+    <div class="position-a z0" ng-show="ctrl.isLoading" style="top:47.5%; left: 47.5%; ">
+        <i class="icon-spin icon-refresh icon-2x"></i>
+    </div>
+    <div ng-show="!ctrl.isReordering" class="position-a z99" style="top:2px; right: 2px;">
+        <a href="" data-dismiss="modal" class="btn btn-default btn-sm">
+            <i class="icon-remove"></i>
+            Close
+        </a>
+    </div>
+    <div ng-show="!ctrl.isReordering">
+        <div class="lightbox-photo photo-background" ng-hide="ctrl.isLoading"
+             style="background-image: url({{ctrl.currentPhoto.bigSrc}})"></div>
+        <div class="lightbox-advance prev " ng-hide="list.length == 1" ng-click="ctrl.moveBy(-1)">
+            <i class="icon-angle-left icon-4x"></i>
+        </div>
+        <div class="lightbox-advance next  text-center" ng-hide="list.length == 1" ng-click="ctrl.moveBy(+1)">
+            <i class="icon-angle-right icon-4x "></i>
+        </div>
+    </div>
+    <div ng-show="ctrl.isReordering" class="well well-sm photo-order-container">
+        <h4>Drag the photos to re-order them</h4>
+
+        <p>The first photo is the <strong>primary</strong> photo for this property</p>
+        <ul class="photo-order position-r clearfix" ng-sortable="ctrl.sortableOptions"
+            ng-class="{'small-thumbnails': ctrl.list.length > 14}">
+            <li ng-repeat="photo in ctrl.list track by $index " data-hash="{{photo.$$hashKey}}"
+                class="photo-order-thumbnail " style="">
+                <div class="photo-background draggable" style="background-image: url({{photo.bigSrc}})"></div>
+            </li>
+        </ul>
+        <div class="text-right">
+            <a href="" ng-click="ctrl.saveReordering();" class="btn btn-primary">
+                <i class="icon-save"></i>
+                Save order
+            </a>
+            <a href="" ng-click="ctrl.cancelReordering();" class="btn btn-default">
+                <i class="icon-remove"></i>
+                Cancel
+            </a>
+        </div>
+    </div>
+    <div class="modal-footer" ng-show="!ctrl.isReordering">
+        <div class="position-a text-right" style="bottom:3px; right:3px;">
+            <a ng-if="ctrl.isReorderingAllowed && ctrl.list.length > 1" ng-click="ctrl.enableReordering()" href=""
+               class="btn btn-default btn-sm  ">
+                <i class='icon-exchange'></i>
+                Re-order
+            </a>
+            <a href=""
+               mtk-download="{{ ctrl.currentPhoto.originalSrc + '&Attachment=true' }}"
+               class="btn btn-default btn-sm">
+                <i class='icon-download'></i>
+                Download
+            </a>
+            <a ng-if="ctrl.isDeleteAllowed" ng-click="ctrl.deleteCurrentPhoto()" href=""
+               class="btn btn-default btn-sm  ">
+                <i class='icon-trash'></i>
+                Delete
+            </a>
+        </div>
+        <div>
+            <!--TODO handle too many thumbnails and making a scrollbar-->
+            <div ng-repeat="photo in list track by $index" ng-class="{'bigger': selectedIndex == $index}"
+                 ng-click="ctrl.moveTo($index)" class="lightbox-thumbnail photo-background cursor-pointer"
+                 style="background-image: url({{photo.littleSrc}});"></div>
+        </div>
+    </div>
+</div>

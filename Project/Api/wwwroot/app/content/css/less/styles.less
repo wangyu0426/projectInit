@@ -1,0 +1,121 @@
+/*
+Veriface base LESS file for stylesheets.
+It should be in a folder called "less" underneath a folder called "css".
+There should be a file called compileLess in the directory above,
+which runs a less compile on this file and creates "styles.css" in the parent "css" folder.
+*/
+
+//Owner portal must support IE9 and IE9 only reads 4096 selectors in a file, so any owner portal includes need to b near the top
+
+@import "bootstrap/mtk-bootstrap";
+@import "dropdown-submenu";
+@import "dropdown-custom";
+
+//** reset bootstrap
+@import "reset-list-group";
+
+//** customized css
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "scaffolding";
+@import "base";
+@import "sidebar";
+@import "owner-portal";
+@import "photos";
+@import "lightbox";
+@import "maps";
+@import "spinners";
+@import "charts";
+@import "helpers";
+@import "colour-helpers";
+@import "icon-helpers";
+@import "icons";
+@import "nav-header";
+@import "forms";
+@import "label-tags";
+@import "widget";
+@import "tabs";
+@import "rightpane-tabset";
+@import "checkboxes";
+@import "buttons";
+@import "helpers";
+@import "colour-helpers";
+@import "icon-helpers";
+@import "icons";
+@import "statements";
+@import "reports";
+@import "lookup";
+@import "grids";
+@import "feed";
+
+@import "card";
+@import "infobox";
+@import "dashboard";
+@import "folio-summary";
+@import "folio-tenant";
+@import "helptip";
+@import "video-overview";
+@import "message";
+@import "yesno";
+@import "notifications";
+@import "multi-selector";
+@import "financial-summary";
+@import "reconciliation";
+@import "setting";
+@import "colour-picker";
+@import "fileupload";
+@import "taglist";
+
+@import "iframes";
+@import "system-alert";
+@import "permission";
+@import "label-badge";
+@import "transaction";
+
+@import "helpme";
+@import "setup";
+@import "flex";
+
+@import "dragdrop";
+@import "conversation";
+@import "range-slider";
+@import "breadcrumbs";
+@import "timeline";
+
+@import "editable";
+@import "multiselect";
+@import "contact-alert";
+
+@import "modal-fullscreen";
+@import "listing";
+
+// messages
+@import "threads";
+
+@import "raleway";
+@import "subscribe";
+@import "subscribe-accordion";
+
+@import "pricing-table";
+@import "pricing-form";
+
+@import "stationery-designer";
+
+@import "skins/skin-1.less";
+
+//////////////////////////////////////////////////////////////////////
+/*Third-party CSS files added into our stylesheet*/
+/* ***********************
+Toastr
+**************************/
+@import (less) "toastr/toastr.css";
+/************************
+Easy pie chart
+**************************/
+@import "easy-pie-chart/easy-pie-chart";
+
+
+// css for main of the app
+@import "main/setup/pages/subscribe";
+

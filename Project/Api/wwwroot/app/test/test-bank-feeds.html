@@ -1,0 +1,62 @@
+<section class="pageContainer" ng-controller="testBankFeedsController as vm">
+    <div class="abovePagePanels"><h1>Test of bank feeds</h1></div> <div class="pagePanelContainer"><div class="pagePanel">
+
+    <p>&nbsp;</p>
+
+    <mtk-form>
+        <mtk-form-row label="Select your bank">
+            <mtk-lookup model="vm.bankSlug" source="vm.banks" mtk-autofocus></mtk-lookup>
+            <br/>
+        </mtk-form-row>
+
+        <li class="form-group form-row" ng-if="vm.bankSlug">
+            <label class="col-sm-3 col-xs-4 control-label">{{vm.firstLabel}}
+            </label>
+            <div class="col-xs-8 control-value">
+                <mtk-input model="vm.userName" placeholder={{vm.firstLabel}} mtk-autofocus></mtk-input>
+            </div>
+        </li>
+
+        <li class="form-group form-row" ng-if="vm.bankSlug && !vm.mfaRequired">
+            <label class="col-sm-3 col-xs-4 control-label">{{vm.secondLabel}}
+            </label>
+            <div class="col-xs-8 control-value">
+                <mtk-input model="vm.password" placeholder={{vm.secondLabel}} type="password" style="-webkit-text-security: square;"></mtk-input>
+            </div>
+        </li>
+
+        <li class="form-group form-row" ng-if="vm.bankSlug && vm.thirdLabel && !vm.mfaRequired">
+            <label class="col-sm-3 col-xs-4 control-label">{{vm.thirdLabel}}
+            </label>
+            <div class="col-xs-8 control-value">
+                <mtk-input model="vm.third" placeholder={{vm.thirdLabel}}></mtk-input>
+            </div>
+        </li>
+
+        <li class="form-group form-row" ng-if="vm.bankSlug && vm.fourthLabel && !vm.mfaRequired ">
+            <label class="col-sm-3 col-xs-4 control-label">{{vm.fourthLabel}}
+            </label>
+            <div class="col-xs-8 control-value">
+                <mtk-input model="vm.fourth" placeholder={{vm.fourthLabel}}></mtk-input>
+            </div>
+        </li>
+
+        <li class="form-group form-row" ng-repeat="field in vm.mfaRequired.Fields" ng-if="vm.bankSlug && vm.mfaRequired && field.FieldId">
+            <label class="col-sm-3 col-xs-4 control-label">{{vm.mfaRequired.Title}}
+            </label>
+            <div class="col-xs-8" ng-class="{'control-value': field.Type !== 'Options'}">
+                <mtk-input ng-if="field.Type === 'Input'" model="field.inputValue" placeholder={{vm.getMfaHeader()}} mtk-autofocus></mtk-input>
+                <mtk-input ng-if="field.Type === 'Password'" model="field.inputValue" placeholder={{vm.getMfaHeader()}} mtk-autofocus type="password" style="-webkit-text-security: square;"></mtk-input>
+                <!--<mtk-radio ng-if="field.Type === 'Options'" source="field.options" model="field.inputValue"></mtk-radio>-->
+                <mtk-lookup  ng-if="field.Type === 'Options'" model="field.inputValue" source="field.lookup" mtk-autofocus></mtk-lookup>
+            </div>
+        </li>
+
+        <mtk-form-footer on-save="vm.getMyBankFeeds()" save-label="'Get Bank Data'"></mtk-form-footer>
+    </mtk-form>
+
+    <div style="width:90%;display: flex;margin: 2em; min-height: 60%;" ng-if="vm.bankData">
+        <pre>{{vm.bankData | json}}</pre>
+    </div>
+
+</div></div></section>

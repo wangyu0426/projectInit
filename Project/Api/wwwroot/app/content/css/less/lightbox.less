@@ -1,0 +1,369 @@
+@sidepanel-menu-height: 50px;
+@sidepanel-width: 255px;
+@sidepanel-bg-colour: transparent;
+@sidepanel-pane-border : none;
+
+// to enable side pane colour
+//@sidepanel-bg-colour: #F3F3F3;
+//@sidepanel-pane-border : 1px solid #d1d1d1;
+
+.lightbox-modal {
+	width:100%;
+	max-width:none;
+	height:100%;
+	.close {
+		color:@VF-LightGrey;
+	}
+	& .modal-dialog {
+		min-width:90%;
+		max-width:none;
+		height:93%;
+		margin: 15px auto 30px auto; //need to be above the HelpMe button
+	}
+	.modal-content {
+		height:100%;
+		background-color: rgba(10, 10, 10, 0.93);
+	}
+	.modal-body {
+		height:100%;
+		overflow:hidden;
+	}
+	.modal-header {
+		border-bottom:0;
+		.close {
+			color:@VF-LightGrey;
+		}
+	}
+	.preview-body,
+	.preview-content {
+		width: 100%;
+		height: 100%;
+	}
+	.preview-body-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	.preview-body {
+		display: table;
+		table-layout: fixed;
+	}
+	.preview-content-container {
+		padding: 0 7px;
+		display: table-cell;
+		vertical-align: top;
+	}
+	.preview-content {
+		position: relative;
+		float: left;
+	}
+	.preview-sidebar {
+		display: table-cell;
+		vertical-align: top;
+		width: @sidepanel-width;
+		height: 100%;
+		border-left:  @sidepanel-pane-border;  // #D5D5D5
+		background-color: @sidepanel-bg-colour;
+		transition: width 0.2s;
+		z-index: 53;
+	}
+	.preview-sidebar-header {
+		background-color: @sidepanel-bg-colour;
+		border-bottom: @sidepanel-pane-border;
+		min-height: @sidepanel-menu-height;
+		z-index:100;
+		top: 0;
+		width: 100%;
+	}
+	.sidebar-btn-group {
+		float: right;
+		margin: 5px 7px 0;
+		a { margin-left: 5px; }
+		a.btn-light {
+			border: 1px solid #d2d2d2;
+			padding: 4px 9px !important;
+		}
+	}
+	.preview-sidebar-container {
+		position: absolute;
+		top: @sidepanel-menu-height;
+		bottom: 0;
+		width: @sidepanel-width;
+	}
+	.lightbox-list-container {
+		position: absolute;
+		top: @sidepanel-menu-height;
+		bottom: 0;
+		width: 98%;
+	}
+
+	.lightbox-list-content-wrapper,
+	.preview-sidebar-content-wrapper {
+		height: 95%;
+	}
+
+	.lightbox-list-content,
+	.preview-sidebar-content {
+		height: 99%;
+		//padding-top: 35px;
+		padding-top: 10px;
+		padding-left: 7px;
+		overflow-y: scroll;
+	}
+	.preview-sidebar-footer {
+		bottom: 0;
+		right: 2px;
+		width: @sidepanel-width - 1;
+		position: fixed;
+		display: block;
+		padding: 7px 0;
+		background-color: @sidepanel-bg-colour;
+		border-top: @sidepanel-pane-border;
+	}
+	.preview-btn-group {
+		bottom: 10px;
+		position: absolute;
+		display: inline-block;
+		min-width: 161px;
+		&.push-right {
+			right: 0;
+		}
+		&.push-left {
+			left: 0;
+		}
+	}
+	.modal-footer {
+		border-top:0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 6px 2px 6px 6px;
+		.lightbox-delete.btn {
+			right:2px; bottom:2px;
+			margin: 0px;
+		}
+
+		.btn {
+			margin-bottom:0px;
+		}
+
+	}
+	h4.modal-title  {
+		color: @VF-LightGrey-AlmostWhite;
+	}
+
+}
+
+.lightbox-photo {
+	position:absolute;
+	top:0;bottom:0;right:0;left:0;
+	background-size: contain;
+}
+.lightbox-thumbnail {
+	height:50px;
+	width:50px;
+	display:inline-block;
+	float:left;
+	border:1px @VF-LightGrey solid;
+	margin:4px;
+	background-size: cover;
+	&.bigger {
+		height:80px;
+		width:80px;
+		margin-top:-26px;
+		border: 3px @VF-Secondary solid;
+	}
+	&.bolder {
+		height:50px;
+		width:50px;
+		margin-top: 4px;
+		border: 3px @VF-Secondary solid;
+	}
+}
+
+.lightbox-list-thumbnail{
+	width: 295px;
+	height: 295px;
+	display:inline-block;
+	float:left;
+	border:1px @VF-LightGrey solid;
+	margin:4px;
+	background-size: cover;
+	&.bolder {
+		margin-top: 4px;
+		border: 3px @VF-Secondary solid;
+	}
+}
+.lightbox-list-number-overlay{
+	color: #ffffff;
+	font-weight: bolder;
+	background-color: #5bc0de;
+	border-color: #46b8da;
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+}
+.lightbox-advance{
+	top:92px; //needs to be below the close button, above the big sized thumbnail and be symmetrical
+	bottom:92px; //needs to be above the big sized thumbnail
+	width:45px;
+	border-radius:20px;
+	&.prev {
+		left:0; right:auto;
+		//border-top-left-radius: 0;
+		//border-bottom-left-radius: 0;
+		i {
+			border-bottom-left-radius: 0 !important;
+			border-top-left-radius: 0 !important;
+		}
+	}
+	&.next {
+		left:auto; right: 0;
+		//border-top-right-radius: 0;
+		//border-bottom-right-radius: 0;
+		i {
+			border-bottom-right-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+		}
+	}
+	&.no-border {
+		box-shadow:none !important;
+		border:none;
+	}
+}
+
+.lightbox-pdf {
+	@lightbox-pdf-footer-height: 34px;
+
+	.modal-footer {
+		background-color: @VF-LightGrey;
+		height:@lightbox-pdf-footer-height;
+		padding: 0 3px;
+	}
+	#lightbox-pdf-iframe {
+		position:absolute;
+		top:0;
+		border:0;
+		height: 100%;
+		width:100%;
+		left: 0px;
+		padding: @lightbox-pdf-footer-height 45px;
+	}
+}
+
+.lightbox-thumbnail-filename {
+	height:auto;
+	width:auto;
+	display:inline-block;
+	float:left;
+	padding: @padding-base-vertical / 2 @padding-base-horizontal / 2;
+	background-color: @VF-Primary-faded;
+	color: @gray;
+	font-size:@font-size-small * 0.75;
+	border:1px @VF-Primary solid;
+	margin: 5px 2px;
+	background-size: cover;
+	border-radius: 4px;
+	&.bigger {
+		font-weight:bold;
+		background-color:white;
+		color:@gray-darker;
+		border-color: @VF-Secondary;
+	}
+	&.statement {
+		font-size:@font-size-small;
+		margin: 4px 2px;
+	}
+	&:hover:not(.bigger) {
+		text-decoration:underline;
+	}
+
+}
+
+//small modal pop up for viewing lists of files on Internet Explorer
+.lightbox-modal-ie {
+	.modal-dialog {
+		margin-top:120px; //this is a small popup, default 30px top margin makes it too high on the screen
+	}
+}
+
+.photo-order-container {
+	@photo-order-tn-height: 120px;
+	@photo-order-tn-width: 200px;
+	@photo-order-tn-margin:8px;
+	@photo-order-tn-padding: 4px;
+
+	h2,h3,h4,h5,p {
+		margin-left: @photo-order-tn-margin
+	}
+	.photo-order {
+		padding:0; margin:0 0 12px 0;
+		counter-reset: photo-order-counter;
+
+		.photo-order-thumbnail {
+			&:first-child {
+				//first one is primary photo
+				height: 2 * (@photo-order-tn-height  + @photo-order-tn-margin);
+			}
+			&::before {
+				counter-increment: photo-order-counter;
+				content: counter(photo-order-counter);
+				font-size:22px;
+				display:inline-block;
+				position:absolute;
+				top: 2px;
+				left: 2px;
+				line-height:1;
+				color:@text-muted;
+			}
+
+			height: @photo-order-tn-height;
+			position:relative;
+			width:@photo-order-tn-width;
+			margin: @photo-order-tn-margin;
+
+			.pull-left();
+
+			//adapted from thumbnail in bootstrap
+			display: block;
+			padding: @photo-order-tn-padding;
+			line-height: 1.42857143;
+			background-color: fade(black,35);
+			border: 1px solid #dddddd;
+			border-radius: 3px;
+
+			.photo-background {
+				height:100%;
+				width:100%;
+				background-size:contain;
+				cursor:move;
+
+				//Using the drag handle and creating hover effects with the sortable plugin
+				//seems to leaver the hover state on an element even after the mouse has moved off that element
+				//so it has been removed
+			}
+		}
+
+		//small version for when there are more thumbnails;
+		&.small-thumbnails {
+			.photo-order-thumbnail {
+				&:first-child {
+					//first one is primary photo
+					height: ceil(1.5 * @photo-order-tn-height  + 2 * @photo-order-tn-margin);
+					width: @photo-order-tn-width;
+				}
+
+				height: @photo-order-tn-height / 2;
+				position: relative;
+				width: @photo-order-tn-width / 2;
+				margin: @photo-order-tn-margin / 2;
+			}
+		}
+	}
+ }
+
+

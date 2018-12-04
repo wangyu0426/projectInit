@@ -1,0 +1,31 @@
+// set content editable css - mtkEdit
+[mtk-editable]:hover:after {
+  content: ' click to edit';
+  font-style: italic;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #ccc;
+  //.text-stroke(0);
+}
+
+[mtk-editable]:hover, [contenteditable]:focus {
+  background: #eef2f7;
+}
+
+[mtk-editable]:focus {
+  padding: 5px;
+}
+
+[mtk-editable]:focus:after {
+  content: '';
+}
+
+.cke {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.cke_top {
+  background: transparent !important;
+}

@@ -1,0 +1,31 @@
+<section class="pageContainer" data-ng-controller="paymentEditController as vm">
+    <div class="abovePagePanels">
+        <h1>Your Subscription</h1>
+    </div>
+    <style>
+        .tab-container { height: 100%; }
+    </style>
+    <div class="pagePanelContainer">
+        <div class="pagePanel">
+            <div class="col-xs-12"
+                 style="padding-top: 0; height: 100%;">
+                <!--We use ng-if here so that the DOM objects don't load, therefore they won't call the backend and get rejected -->
+                <div class="text-center text-muted" ng-show="vm.loadingMessage">
+                    <p>
+                        <i class="icon-spin icon-refresh mgr-6"></i>
+                        {{vm.loadingMessage}}
+                    </p>
+                </div>
+
+                <mtk-tabset border="true" >
+                    <mtk-tab title="Subscription" active>
+                        <p class="v-space-12"></p>
+                        <div ng-if="vm.subscription">
+                            <mtk-manage-subscription subscription="vm.subscription"></mtk-manage-subscription>
+                        </div>
+                    </mtk-tab>
+                </mtk-tabset>
+            </div>
+        </div>
+    </div>
+</section>

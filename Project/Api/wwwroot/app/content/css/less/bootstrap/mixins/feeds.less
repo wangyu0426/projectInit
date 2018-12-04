@@ -1,0 +1,12 @@
+
+// related activity icon mixin
+.activity-icon-color(@color) {
+  background-color: lighten(@color, 40%);
+  color: @color;
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: lighten(@color, 30%);
+    }
+  }
+}

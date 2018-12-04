@@ -1,0 +1,40 @@
+@pricing-grey-color: #90a1b5;
+@pricing-lightgrey-color: #f6f7f9;
+
+.cc-details {
+  max-width: 650px;
+
+  input[type="text"]{
+    height:40px;
+    border:none;
+    background-color:transparent;
+    border-bottom:1px solid @pricing-grey-color;
+  }
+
+  input[type="text"]:focus {
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .1em;
+    color: grey;
+    margin: 10px 0;
+  }
+
+  .review-summary {
+    clear:both;
+    padding-top: 10px;
+  }
+
+  .well.well-sm {
+    color: @pricing-grey-color !important;
+    background-color: @pricing-lightgrey-color !important;
+    box-shadow: none !important;
+  }
+}
+

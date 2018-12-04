@@ -1,0 +1,10 @@
+<div ng-repeat="alert in vm.alerts">
+    <div class="alert closeable alert-{{alert.type}}">
+        <button type="button" class="close">
+            <i class="icon-remove"></i>
+        </button>
+        <i class="icon-large  icon-alert-{{alert.type}}"></i> &nbsp;
+        <strong>{{alert.type | titlecase}}</strong> &nbsp;
+        <span>{{alert.message}}</span>
+    </div>
+</div>

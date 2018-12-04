@@ -1,0 +1,35 @@
+<style>
+    #icon_box{  color: black; }
+    .box{
+           border: 1px solid #ddd;
+        padding: 12px inherit; }
+</style>
+<section class="pageContainer" ng-controller="testHouseIcons as vm">
+    <div class="abovePagePanels"><h1>
+        Icons
+    </h1></div>
+    <div class="pagePanelContainer"><div class="pagePanel">
+
+
+        <div class="disp-ib">
+            <div >
+                <div ng-repeat="row in vm.houseRows">
+
+                    <i ng-repeat="h in row" class="icon-home icon-3x text-{{h.class}}"></i>
+
+                </div>
+            </div>
+
+            <div class="text-right">
+                <div class="lead no-margin-bottom text-muted"> 15% vacancy <i class="icon-home icon-2x"></i></div>
+                <div class="lead no-margin-bottom text-warning"> 5% in arrears 0+ days <i class="icon-home icon-2x"></i></div>
+                <div class="lead no-margin-bottom text-danger">  10% in arrears 14+ days <i class="icon-home icon-2x"></i></div>
+
+
+            </div>
+        </div>
+
+
+
+</div></div></section>
+

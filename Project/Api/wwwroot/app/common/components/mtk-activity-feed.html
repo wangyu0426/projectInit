@@ -1,0 +1,40 @@
+<div class="feed-comment feed-new-entry" ng-if="vm.showCommentBox">
+    <textarea class="disp-ib no-margin-bottom form-control" lines="3" placeholder="Add a comment..."
+              ng-model="vm.newCommentText"
+              autofocus="autofocus"
+              mtk-show-only-to-non-guest></textarea>
+    <div class="clearfix">
+        <span class="pull-right input-">
+            <button class="btn btn-default btn-sm" ng-click="vm.cancelComment()" mtk-show-only-to-non-guest>
+                Cancel
+            </button>
+            <button class="btn btn-primary btn-sm" type="button" ng-click="vm.saveComment()" mtk-show-only-to-non-guest>
+                Save
+            </button>
+        </span>
+    </div>
+</div>
+
+<div class="feed-container">
+    <div class="" style="position: absolute; top: 3px; right: 2px;">
+        <button type="button" class="btn btn-light mgr-4 no-focus"
+                ng-click="vm.toggleComment()" ng-class="{ 'active': vm.showCommentBox }" >
+            <i class="icon-vf-comment icon-large "></i>
+
+            <i class="icon-caret-down icon-on-right"></i>
+        </button>
+        <a href="#/{{vm.activityType}}/activity/{{vm.id}}">
+            <button type="button" class="btn btn-light">
+                All
+            </button>
+        </a>
+    </div>
+
+    <div class="feed-body" ng-class="{ 'feed-comment-active' : vm.showCommentBox }">
+        <mtk-activity-list title="Active" id="vm.id" type="{{vm.type}}" active="true"></mtk-activity-list>
+        <mtk-activity-list title="Recent History" id="vm.id" type="{{vm.type}}" active="false"></mtk-activity-list>
+        <a href="#/{{vm.activityType}}/activity/{{vm.id}}" class="mgt-3 pull-right btn btn-light"> 
+            <i class="icon-external-link"></i> View All
+        </a>
+    </div>
+</div>

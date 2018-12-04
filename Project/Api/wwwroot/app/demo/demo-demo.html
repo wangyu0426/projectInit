@@ -1,0 +1,79 @@
+﻿<div class="pageContainer" ng-controller="demoController as vm">
+    <div class="abovePagePanels">
+        <h1>{{vm.pageTitle}}</h1> 
+    </div>
+    <div class="pagePanelContainer">
+        <div class="pagePanel  pagePanel-left-card" style="overflow-y: hidden;">
+            <h2> Camera</h2>
+            <div style="width: 320px;height: 244px;">
+                <canvas id="canvas"
+                        class="z9"
+                        style="
+                            position: absolute;
+                            width: 320px;
+                            height: 244px;
+                        ">
+                </canvas>
+                <webcam
+                    style="position: absolute;" 
+                    on-stream="onStream(stream)"
+                    on-streaming="onSuccess()"
+                    channel="vm.config"
+                    on-error="onError(err)">
+                </webcam>
+            </div>
+            <h2> Images ({{vm.facesData.length||0}}/{{vm.numOfRequiredImgs}})</h2>
+            <div style="height: 50vh; overflow-y: auto;">
+                <img ng-repeat="data in vm.facesData" style="width: 160px;height: 122px;" class="mgt-3 mgl-3 mgr-3"  data-ng-src="{{data.base64Image}}"/> 
+            </div>           
+        </div>
+        
+        <div class="pagePanel flex-11">
+            <h2> Visitor Infomations</h2>
+            <div>
+                <a ng-click="vm.trainSvm()" href="" class="btn btn-info">
+                    <i class="icon-forward  icon-large"></i>
+                    <span>Train Model</span>
+                </a>
+                <a ng-click="vm.reset()" href="" class="btn btn-info">
+                    <i class=" icon-refresh  icon-large"></i>
+                    <span>Reset</span>
+                </a>
+                <a ng-click="vm.seekFace()" href="" class="btn btn-info">
+                    <i class="icon-eye-open  icon-large"></i>
+                    <span>Seek</span>
+                </a>
+                <a ng-click="vm.create()" href="" class="btn btn-info" ng-disabled="vm.visitor.id || vm.facesData.length < 10">
+                    <i class="icon-save  icon-large"></i>
+                    <span>Save as new</span>
+                </a>
+            </div>
+            <p class="v-space-16"></p>
+            <mtk-alerts   priority="Info">
+                <ul>
+                    <li> Please capture 10 image to create visitor </li>
+                    <li> Please reset after seek for create visitor </li>
+                </ul>
+            </mtk-alerts>
+            <p class="v-space-16"></p>
+            <mtk-form>
+                <mtk-form-row label="Firstname">
+                    <mtk-input model="vm.visitor.givenName" maxlength="20"/>
+                </mtk-form-row>
+                <mtk-form-row label="Surname">
+                    <mtk-input model="vm.visitor.familyName" maxlength="20"/>
+                </mtk-form-row>
+                <mtk-form-row label="Phone">
+                    <mtk-input model="vm.visitor.phone" maxlength="20"/>
+                </mtk-form-row>
+                <mtk-form-row label="Email">
+                    <mtk-input model="vm.visitor.email" maxlength="20"/>
+                </mtk-form-row>
+            </mtk-form>
+            
+            <h2>Vsitors</h2>
+        </div>
+        
+    </div>
+    
+</div>

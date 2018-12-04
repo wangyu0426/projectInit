@@ -1,0 +1,23 @@
+﻿<section class="pageContainer" ng-controller="testRelatedActivityFeed as vm">
+    <div class="abovePagePanels"><h1>mtk-related-activity-feed</h1></div>
+    <div class="pagePanelContainer">
+        <div class="pagePanel">
+            <mtk-form>
+                <p>Related Activity Feed directive</p>
+
+                <h2>Example</h2>
+                <mtk-form-row label="Select a property">
+                    <mtk-lookup model="vm.propertyId" source="vm.properties"></mtk-lookup>
+                    <strong>vm.selectedId is: {{vm.propertyId}}</strong>
+                </mtk-form-row>
+
+                <mtk-form-row label="Feed">
+                    <mtk-related-activity-feed entity-type="lot" entity-id="vm.propertyId"/>
+                </mtk-form-row>
+
+                <h4>Syntax:</h4>
+                <pre>&lt;mtk-related-activity-feed entity-type="lot" entity-id="vm.selectedId"/&gt;</pre>
+            </mtk-form>
+        </div>
+    </div>
+</section>

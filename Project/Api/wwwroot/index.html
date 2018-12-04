@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Veriface</title>
+    <meta name="description" content="Veriface Manager Application"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="none">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <style>
+        /* load the class early. */
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/app/content/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/app/content/css/initial.css"/>
+    <link rel="stylesheet" href="/app/lib/ui/nouislider.min.css"/>
+    <link rel="stylesheet" href="/app/lib/ui/ng-tags-input.css" />
+    <link rel="stylesheet" href="/app/content/css/styles.css"/>
+    <link rel="stylesheet" href="/app/lib/ui/datepicker.css"/>
+    <link rel="stylesheet" href="/app/lib/ui/angular-color-picker.css"/>
+    <link rel="stylesheet" href="/app/lib/ui/angular-ui-select.css" />
+    <link rel="stylesheet" href="/app/content/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/app/lib/ui/select.css" />
+    <link rel="stylesheet" href="/app/lib/ui/hotkeys.css" />
+    <link rel="stylesheet" href="/app/lib/ui/animate.css" />
+    <link rel="stylesheet" href="/app/lib/ui/angular-object-diff.css" />
+    <link rel="stylesheet" href="/app/lib/ui/jsondiffpatch-formatters.css" />
+    <link rel="stylesheet" href="/app/lib/ui/jsondiffpatch-annotated.css" />
+
+    <link rel="stylesheet" href="/app/lib/froala/css/froala_editor.pkgd.min.css" type="text/css" />
+    <link rel="stylesheet" href="/app/lib/froala/css/froala_style.min.css" type="text/css" />
+
+    <!-- Froala Editor dependancies -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  <!-- Include external CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+    <script id="fr-fek">try{(function (k){localStorage.FEK=k;t=document.getElementById('fr-fek');t.parentNode.removeChild(t);})('zc1QXIa2QZe1UOXATEX==')}catch(e){}</script>
+</head>
+<body ng-class="{
+        'touch-enabled': $root.isTouchDevice,
+        'allow-hover no-touch': !$root.isTouchDevice,
+        'skin-1' : $root.isDarkMenuOn
+    }">
+    
+    <div ng-if="$root.session" ng-include="'/app/layout/shell.html'"></div>
+
+    <div id="splash-page" ng-hide="$root.isAppLoaded">
+        <div id="loading-bar-spinner">
+            <span class='spinner-icon'></span>
+        </div>
+        <div id="splash-box">
+            <img id="splash-logo"  src="./app/content/images/logo-big.png" alt="Veriface">
+            <!--big img scaling down so retina version shouldn't be needed-->
+
+        </div>
+    </div>
+
+    <script>
+        window.name = 'Veriface_App';
+    </script>
+
+
+    <!-- build:js app/dist/scripts/lib.js -->
+    <script type="text/javascript" src="app/lib/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="app/lib/angular.js"></script>
+    <script type="text/javascript" src="app/lib/angular.easypiechart.js"></script>
+    <script type="text/javascript" src="app/lib/angular-animate.js"></script>
+    <script type="text/javascript" src="app/lib/angular-route.js"></script>
+    <script type="text/javascript" src="app/lib/angular-sanitize.js"></script>
+    <script type="text/javascript" src="app/lib/angular-touch.js"></script>
+    <script type="text/javascript" src="app/lib/angular-cookies.js"></script>
+    <script type="text/javascript" src="app/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="app/lib/bootstrap-datepicker-MODIFIED.js"></script>
+    <script type="text/javascript" src="app/lib/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="app/lib/jquery.dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="app/lib/jquery.dataTables.fnReloadAjax-MODIFIED.js"></script>
+    <script type="text/javascript" src="app/lib/jquery.payment.js"></script>
+    <script type="text/javascript" src="app/lib/jquery.sparkline.js"></script>
+    <script type="text/javascript" src="app/lib/underscore.js"></script>
+    <script type="text/javascript" src="app/lib/amplify.js"></script>
+    <script type="text/javascript" src="app/lib/ui-bootstrap-tpls-2.4.0.js"></script>
+    <script type="text/javascript" src="app/lib/ui/angular-object-diff.js" ></script>
+    <script type="text/javascript" src="app/lib/ui/jsondiffpatch.js" ></script>
+    <script type="text/javascript" src="app/lib/ui/jsondiffpatch-formatters.js" ></script>
+    <script type="text/javascript" src="app/lib/ui/angular-ui-select-modified.js"></script>
+    <script type="text/javascript" src="app/lib/ui/ng-tags-input.js"></script>
+    <script type="text/javascript" src="app/lib/ui/bootbox-vf-modified.js"></script>
+    <script type="text/javascript" src="app/lib/bowser.js"></script>
+    <script type="text/javascript" src="app/lib/moment.js"></script>
+    <script type="text/javascript" src="app/lib/numeral/numeral.js"></script>
+    <script type="text/javascript" src="app/lib/numeral/languages.js"></script>
+    <script type="text/javascript" src="app/lib/toastr.js"></script>
+    <script type="text/javascript" src="app/lib/ui/easy-donut.min.js"></script>
+    <script type="text/javascript" src="app/lib/ui/loading-bar.js"></script>
+    <script type="text/javascript" src="app/lib/ui/tinycolor.js"></script>
+    <script type="text/javascript" src="app/lib/ui/nouislider.js"></script>
+    <script type="text/javascript" src="app/lib/ui/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="app/lib/ui/flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="app/lib/ui/sortable.min.js"></script>
+    <script type="text/javascript" src="app/lib/ui/ng-sortable.js"></script>
+    <script type="text/javascript" src="app/lib/ui/raphael.js"></script>
+    <script type="text/javascript" src="app/lib/ui/justgage-custom.1.0.1.js"></script>
+    <script type="text/javascript" src="app/lib/ui/angular-color-picker.js"></script>
+    <script type="text/javascript" src="app/lib/ui/hotkeys.js"></script>
+    <script type="text/javascript" src="app/lib/Chart.js"></script>
+    <script type="text/javascript" src="app/lib/angular-chart.js"></script>
+    <script type="text/javascript" src="app/lib/ui/select.js"></script>
+    <script type="text/javascript" src="app/lib/ss-utils.js"></script>
+    <script type="text/javascript" src="app/lib/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="app/lib/number-functions.js"></script>
+    <script type="text/javascript" src="app/lib/qrious.js"></script>
+    <script type="text/javascript" src="app/lib/sha.js"></script>
+    <script type="text/javascript" src="app/lib/tfa-util.js"></script>
+    <script type="text/javascript" src="app/lib/froala/js/froala_editor.pkgd.min.js"></script>
+    <script type="text/javascript" src="app/lib/angular-froala.js"></script>
+    <script type="text/javascript" src="app/lib/ui/angular-file-upload-modified.js"></script>
+    <script type="text/javascript" src="app/lib/webcam.min.js"></script>
+    <script type="text/javascript" src="app/lib/tracking.min.js"></script>
+    <script type="text/javascript" src="app/lib/data/face.js"></script>
+    <!-- endbuild -->
+
+    <!--  Froala Editor external JS libs. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+    <!-- build:js app/dist/scripts/app.js -->
+    <script type="text/javascript" src="app/jquery-extensions.js"></script>
+    <script type="text/javascript" src="app/js-extensions.js"></script>
+    <script type="text/javascript" src="app/colours.js"></script>
+    <script type="text/javascript" src="version.js"></script>
+    <script type="text/javascript" src="app/bootstrap.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/config.js"></script>
+    <script type="text/javascript" src="app/config.exceptionHandler.js"></script>
+    <script type="text/javascript" src="app/config.route.js"></script>
+
+    <!-- include: "type": "js", "files": ["app/**/*.js", "!app/lib/**/*.js", "!app/bootstrap.js"] -->&nbsp;<script src="app/app.js"></script>
+    <script src="app/colours.js"></script>
+    <script src="app/common/components/mtk-activity-comment-item.js"></script>
+    <script src="app/common/components/mtk-activity-feed.js"></script>
+    <script src="app/common/components/mtk-activity-list.js"></script>
+    <script src="app/common/components/mtk-activity-message-item.js"></script>
+    <script src="app/common/components/mtk-activity-task-item.js"></script>
+    <script src="app/common/components/mtk-alerts.js"></script>
+    <script src="app/common/components/mtk-breadcrumbs.js"></script>
+    <script src="app/common/components/mtk-checkbox.js"></script>
+    <script src="app/common/components/mtk-labels.js"></script>
+    <script src="app/common/components/mtk-lookup-ownership.js"></script>
+    <script src="app/common/components/mtk-member-avatar.js"></script>
+    <script src="app/common/components/mtk-nav-pills.js"></script>
+    <script src="app/common/components/mtk-scroll-to.js"></script>
+    <script src="app/common/components/mtk-set-focus.js"></script>
+    <script src="app/common/components/mtk-status-bankrec.js"></script>
+    <script src="app/common/components/mtk-tab-form.js"></script>
+    <script src="app/common/logger.js"></script>
+    <script src="app/common/mtkAlert.js"></script>
+    <script src="app/config.exceptionHandler.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/config.route.js"></script>
+    <script src="app/dashboard/components/mtk-dashboard-insights-widget.js"></script>
+    <script src="app/dashboard/components/mtk-dashboard-reconcile-widget.js"></script>
+    <script src="app/dashboard/components/mtk-dashboard-value-widget.js"></script>
+    <script src="app/dashboard/dashboard-now.js"></script>
+    <script src="app/dashboard/services/dashboardHelperService.js"></script>
+    <script src="app/defaultRedirect.js"></script>
+    <script src="app/demo/demo-demo.js"></script>
+    <script src="app/directives/account-input/mtk-account-bsb.js"></script>
+    <script src="app/directives/account-input/mtk-account-number.js"></script>
+    <script src="app/directives/alert/mtk-alerts.js"></script>
+    <script src="app/directives/charts/mtk-barchart-cashflow.js"></script>
+    <script src="app/directives/charts/mtk-barchart.js"></script>
+    <script src="app/directives/charts/mtk-donut.js"></script>
+    <script src="app/directives/charts/mtk-gauge.js"></script>
+    <script src="app/directives/charts/mtk-piechart-small.js"></script>
+    <script src="app/directives/charts/mtk-piechart.js"></script>
+    <script src="app/directives/charts/mtk-sparkline.js"></script>
+    <script src="app/directives/common/mtk-activity-feed.js"></script>
+    <script src="app/directives/common/mtk-attr-iframe.js"></script>
+    <script src="app/directives/common/mtk-autocomplete.js"></script>
+    <script src="app/directives/common/mtk-autofocus.js"></script>
+    <script src="app/directives/common/mtk-beta-feature.js"></script>
+    <script src="app/directives/common/mtk-breadcrumbs.js"></script>
+    <script src="app/directives/common/mtk-card-row.js"></script>
+    <script src="app/directives/common/mtk-card.js"></script>
+    <script src="app/directives/common/mtk-cc-payment.js"></script>
+    <script src="app/directives/common/mtk-checkbox.js"></script>
+    <script src="app/directives/common/mtk-colour-picker.js"></script>
+    <script src="app/directives/common/mtk-condition-radio.js"></script>
+    <script src="app/directives/common/mtk-currency.js"></script>
+    <script src="app/directives/common/mtk-decimal.js"></script>
+    <script src="app/directives/common/mtk-download.js"></script>
+    <script src="app/directives/common/mtk-editable.js"></script>
+    <script src="app/directives/common/mtk-email-input.js"></script>
+    <script src="app/directives/common/mtk-form-footer.js"></script>
+    <script src="app/directives/common/mtk-form-row.js"></script>
+    <script src="app/directives/common/mtk-form.js"></script>
+    <script src="app/directives/common/mtk-input.js"></script>
+    <script src="app/directives/common/mtk-integer.js"></script>
+    <script src="app/directives/common/mtk-lookup.js"></script>
+    <script src="app/directives/common/mtk-onoff.js"></script>
+    <script src="app/directives/common/mtk-password.js"></script>
+    <script src="app/directives/common/mtk-percent.js"></script>
+    <script src="app/directives/common/mtk-radio-bool.js"></script>
+    <script src="app/directives/common/mtk-radio.js"></script>
+    <script src="app/directives/common/mtk-tab.js"></script>
+    <script src="app/directives/common/mtk-tabset.js"></script>
+    <script src="app/directives/common/ng-model-disable-keydown.js"></script>
+    <script src="app/directives/datetime/mtk-datepicker.js"></script>
+    <script src="app/directives/datetime/mtk-time-picker.js"></script>
+    <script src="app/directives/grid/mtk-datatable.js"></script>
+    <script src="app/directives/grid/mtk-grid-container.js"></script>
+    <script src="app/directives/grid/mtk-grid-tab.js"></script>
+    <script src="app/directives/grid/mtk-grid.js"></script>
+    <script src="app/directives/photo/mtk-photo-selector.js"></script>
+    <script src="app/directives/photo/mtk-photos.js"></script>
+    <script src="app/directives/right-pane-tabs/mtk-right-pane-tab.js"></script>
+    <script src="app/directives/right-pane-tabs/mtk-right-pane-tabset.js"></script>
+    <script src="app/jquery-extensions.js"></script>
+    <script src="app/js-extensions.js"></script>
+    <script src="app/layout/components/pmc-demo-cloning-mask.js"></script>
+    <script src="app/layout/footer-alert.js"></script>
+    <script src="app/layout/lightbox/lightbox-controller.js"></script>
+    <script src="app/layout/lightbox/lightbox-list.js"></script>
+    <script src="app/layout/lightbox/lightbox-service.js"></script>
+    <script src="app/layout/notifications.js"></script>
+    <script src="app/layout/shell.js"></script>
+    <script src="app/layout/sidebar.js"></script>
+    <script src="app/layout/system-alert.js"></script>
+    <script src="app/layout/usermenu.js"></script>
+    <script src="app/login.js"></script>
+    <script src="app/payment/components/mtk-manage-subscription.js"></script>
+    <script src="app/payment/components/mtk-modify-cc.js"></script>
+    <script src="app/payment/payment-edit.js"></script>
+    <script src="app/services/AddressDataset/countries.js"></script>
+    <script src="app/services/AddressDataset/roadTypes.js"></script>
+    <script src="app/services/AddressDataset/states.js"></script>
+    <script src="app/services/addressParser.js"></script>
+    <script src="app/services/dateService.js"></script>
+    <script src="app/services/datetimeUtility.js"></script>
+    <script src="app/services/dtoFactory.js"></script>
+    <script src="app/services/filterUtility.js"></script>
+    <script src="app/services/filters.js"></script>
+    <script src="app/services/flotHelper.js"></script>
+    <script src="app/services/gridBuilder.js"></script>
+    <script src="app/services/gridDetail.js"></script>
+    <script src="app/services/gridOnOff.js"></script>
+    <script src="app/services/httpErrorInterceptor.js"></script>
+    <script src="app/services/httpResponseInterceptor.js"></script>
+    <script src="app/services/iconMapper.js"></script>
+    <script src="app/services/keyEvent.js"></script>
+    <script src="app/services/labelsParser.js"></script>
+    <script src="app/services/libraryLoader.js"></script>
+    <script src="app/services/locationHelper.js"></script>
+    <script src="app/services/lookupAdaptor.js"></script>
+    <script src="app/services/modalDetail.js"></script>
+    <script src="app/services/modals.js"></script>
+    <script src="app/services/mtkCachingService.js"></script>
+    <script src="app/services/mtkConstants.js"></script>
+    <script src="app/services/permissionService.js"></script>
+    <script src="app/services/routeHistory.js"></script>
+    <script src="app/services/server.js"></script>
+    <script src="app/services/session.js"></script>
+    <script src="app/services/subscriptionUtility.js"></script>
+    <script src="app/services/textFormat.js"></script>
+    <script src="app/services/ux.js"></script>
+    <script src="app/templates.js"></script>
+    <script src="app/test/test-activity-feed.js"></script>
+    <script src="app/test/test-address-search.js"></script>
+    <script src="app/test/test-alert.js"></script>
+    <script src="app/test/test-angular-select.js"></script>
+    <script src="app/test/test-api-diff.js"></script>
+    <script src="app/test/test-bank-feeds.js"></script>
+    <script src="app/test/test-card.js"></script>
+    <script src="app/test/test-colour-picker.js"></script>
+    <script src="app/test/test-custom-range.js"></script>
+    <script src="app/test/test-document-list.js"></script>
+    <script src="app/test/test-email-lookup.js"></script>
+    <script src="app/test/test-email-route.js"></script>
+    <script src="app/test/test-file-upload.js"></script>
+    <script src="app/test/test-form-controls.js"></script>
+    <script src="app/test/test-grid.js"></script>
+    <script src="app/test/test-house-icons.js"></script>
+    <script src="app/test/test-icons.js"></script>
+    <script src="app/test/test-inbox.js"></script>
+    <script src="app/test/test-infobox.js"></script>
+    <script src="app/test/test-lookup.js"></script>
+    <script src="app/test/test-map.js"></script>
+    <script src="app/test/test-message-triggers.js"></script>
+    <script src="app/test/test-migrate-timestamps.js"></script>
+    <script src="app/test/test-modal.js"></script>
+    <script src="app/test/test-origin.js"></script>
+    <script src="app/test/test-qif-import.js"></script>
+    <script src="app/test/test-related-activity-feed.js"></script>
+    <script src="app/test/test-selector-directive.js"></script>
+    <script src="app/test/test-threads.js"></script>
+    <script src="app/test/test-zendesk-outbound.js"></script>
+    <script src="app/usage/usage-list.js"></script>
+    <script src="app/user/components/mtk-create-tfa-secret.js"></script>
+    <script src="app/user/components/mtk-setting-member-image.js"></script>
+    <script src="app/user/user-edit.js"></script>
+    <script src="app/user/user-profile.js"></script>
+    <!-- /include --><!-- endbuild -->
+    <!-- build:js app/dist/scripts/template.js -->
+    <script type="text/javascript" src="app/templates.js"></script>
+    <!-- endbuild -->
+
+
+    <!--  Zendesk Widget script moved into session.js for control the timing -->
+</body>
+</html>

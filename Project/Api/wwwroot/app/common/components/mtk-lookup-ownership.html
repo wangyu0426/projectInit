@@ -1,0 +1,48 @@
+<span class="mtk-lookup">
+    <span class="input-group">
+        <input type="text" class="form-control" placeholder="{{vm.placeholder}}"
+               autocomplete="off"
+               ng-model="vm.searchText"
+               ng-focus="vm.activate()"
+               ng-change="vm.search()"
+               ng-blur="vm.cleanup(true)"
+               ng-keydown="vm.keyboard($event)"
+               ng-disabled="vm.isLoading"
+               mtk-set-focus="vm.showList"
+            >
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-light" tabindex="-1" style="outline: none;"
+                             ng-mousedown="vm.show()">
+                <i class="icon-caret-down"></i>
+            </button>
+        </span>
+    </span>
+    <div class="" ng-class="{open: vm.showList}">
+        <ul class="dropdown-menu filtered-list" ng-show="vm.filteredList.length > 0" mtk-scroll-to="vm.posIndex">
+            <li ng-repeat="item in (vm.filteredList | limitTo: 50 )"
+                ng-class="{'active': vm.index == $index}"
+                ng-mouseover="vm.updateIndex($index)"
+                ng-mousedown="vm.selectHighlighted()">
+                <a tabindex="-1" >{{item.Label}}</a>
+            </li>
+            <li class="text-muted text-center" ng-if="vm.filteredList.length > 50">
+                (50 of {{vm.filteredList.length}} matches, type to search)
+            </li>
+        </ul>
+        <ul class="dropdown-menu padding-h6 action-buttons" ng-show="vm.filteredList.length === 0 " style="height: 3em;">
+            <li ng-if="!vm.isLoading" class="clearfix "  >
+                <div class="pull-left">
+                     No match...
+                </div>
+                <div class="pull-right">
+                      <a type="button" class="" tabindex="-1"
+                         ng-mousedown="vm.refresh()"><i class="icon-refresh"></i> refresh</a>
+                </div>
+            </li>
+            <li ng-if="vm.isLoading" >
+                <span class=""><i class="icon-spin icon-refresh"></i> loading</span>
+            </li>
+        </ul>
+        <span class="lookup-spacer"></span>
+    </div>
+</span>

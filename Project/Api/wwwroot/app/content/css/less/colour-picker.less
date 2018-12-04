@@ -1,0 +1,32 @@
+.mtk-colour-picker{
+	position: relative;
+	display: inline-block;
+
+	.init-hidden{
+		position: absolute;
+		top: 33px;
+		left: 0px;
+		border: solid 1px @VF-LightGrey;
+
+		-webkit-border-radius: @border-radius-base;
+		-moz-border-radius: @border-radius-base;
+		border-radius: @border-radius-base;
+		text-align: center;
+		padding: 0 0 10px 0;
+
+		z-index: 15;
+		background: white;
+	}
+	.picker{
+		border:solid 1px white;
+	}
+	input {
+		position: relative;
+		left: 22px;
+		width: 160px;
+	}
+	.closePicker{
+		position: relative;
+		right: 12px;
+	}
+}
