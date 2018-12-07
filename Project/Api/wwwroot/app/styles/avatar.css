@@ -1,0 +1,19 @@
+.user-initial-badge{
+    background-color: #d2d2d2;
+    display: inline-block;
+    width: 35px !important;
+    height: 35px;
+    padding: 2px;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 4px;
+    margin-left: 0;
+    text-shadow: none !important;
+    float: left;
+}
+.user-menu-top-bar .user-initial-badge{
+    margin: 0px !important;
+}

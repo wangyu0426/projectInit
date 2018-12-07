@@ -80,7 +80,7 @@
     "Microsoft.Extensions.DependencyInjection.Abstractions/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2luhjVaWZd8Wmr2KUJcLNAN+iZgezTyfamLG6Lo5FVYY1LYaS7UFOmNtApHGVIytWWtuXSk4ea0t2Vx0HgF5fg==",
+      "sha512": "sha512-rPHEUTsmrO3TujSNGq83cigs0uE72gDdT46XcugzcOXQeZ5PXV/cInDuERk5X8tUbUign+nC769Df4yiAiQYdA==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/1.1.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.1.1.0.nupkg.sha512"
     },

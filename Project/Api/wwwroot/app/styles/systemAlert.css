@@ -1,0 +1,14 @@
+.system-alert-menu .img-square{
+    border-radius: 10%;
+}
+.system-alert-menu{
+    width: 350px;
+}
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.system-alert-menu li.item{
+    height: 63px;
+}

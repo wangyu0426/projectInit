@@ -303,10 +303,12 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/1.1.0": {
-      "sha512": "2luhjVaWZd8Wmr2KUJcLNAN+iZgezTyfamLG6Lo5FVYY1LYaS7UFOmNtApHGVIytWWtuXSk4ea0t2Vx0HgF5fg==",
+      "sha512": "rPHEUTsmrO3TujSNGq83cigs0uE72gDdT46XcugzcOXQeZ5PXV/cInDuERk5X8tUbUign+nC769Df4yiAiQYdA==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection.abstractions/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "lib/netstandard1.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard1.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "microsoft.extensions.dependencyinjection.abstractions.1.1.0.nupkg.sha512",
@@ -945,11 +947,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\liche\\Desktop\\ProjectInit\\Project\\Util\\Util.csproj",
+      "projectUniqueName": "C:\\Users\\liche\\Documents\\projectInit\\Project\\Util\\Util.csproj",
       "projectName": "Util",
-      "projectPath": "C:\\Users\\liche\\Desktop\\ProjectInit\\Project\\Util\\Util.csproj",
+      "projectPath": "C:\\Users\\liche\\Documents\\projectInit\\Project\\Util\\Util.csproj",
       "packagesPath": "C:\\Users\\liche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\liche\\Desktop\\ProjectInit\\Project\\Util\\obj\\",
+      "outputPath": "C:\\Users\\liche\\Documents\\projectInit\\Project\\Util\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

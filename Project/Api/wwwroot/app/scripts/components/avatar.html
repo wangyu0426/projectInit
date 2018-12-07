@@ -1,0 +1,10 @@
+<div class="pull-left">
+    <div ng-if="vm.avatarUrl" data-original-title="{{ vm.fistrName }}{{ vm.lastName }}" pm-tooltip>
+        <img class="img-circle avatar-non-retina" ng-src={{vm.avatarUrl}}  width="{{vm.size}}" height="{{vm.size}}">
+    </div>
+    <div class="user-initial-badge bg-blue" ng-class="{'img-circle':!vm.isSquare, 'img-square':vm.isSquare}"
+     style="margin: 15px;" width="{{vm.size}}" height="{{vm.size}}" data-original-title="{{ vm.memberName }}"
+      pm-tooltip ng-if="!vm.avatarUrl">
+        {{ vm.memberName | initials}}
+    </div>
+</div>

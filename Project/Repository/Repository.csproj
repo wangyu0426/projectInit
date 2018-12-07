@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Statistics\**" />
+    <EmbeddedResource Remove="Statistics\**" />
+    <None Remove="Statistics\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="AWSSDK.Core" Version="3.3.29.5" />
     <PackageReference Include="AWSSDK.Polly" Version="3.3.8.12" />
@@ -21,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Statistics\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>

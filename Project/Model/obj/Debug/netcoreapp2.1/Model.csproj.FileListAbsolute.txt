@@ -12,3 +12,17 @@ C:\Users\liche\Desktop\ProjectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.A
 C:\Users\liche\Desktop\ProjectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.csproj.CopyComplete
 C:\Users\liche\Desktop\ProjectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.dll
 C:\Users\liche\Desktop\ProjectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.pdb
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.csprojAssemblyReference.cache
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.csproj.CoreCompileInputs.cache
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfoInputs.cache
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfo.cs
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Model.deps.json
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Model.runtimeconfig.json
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Model.runtimeconfig.dev.json
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Model.dll
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Model.pdb
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Util.dll
+C:\Users\liche\Documents\projectInit\Project\Model\bin\Debug\netcoreapp2.1\Util.pdb
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.csproj.CopyComplete
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.dll
+C:\Users\liche\Documents\projectInit\Project\Model\obj\Debug\netcoreapp2.1\Model.pdb

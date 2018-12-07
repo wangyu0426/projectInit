@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using MediatR;
@@ -18,8 +19,6 @@ using AutoMapper;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using FluentValidation.AspNetCore;
 using Hangfire;
-using Logic.Entity;
-using Model.Common;
 using Model.Entity;
 using NJsonSchema;
 using NSwag;
@@ -52,10 +51,6 @@ namespace Api
         {
             var appSettingsSection = Configuration.GetSection("AppSettings");
             // configure strongly typed settings objects
-            services.Configure<AppSettings>(appSettingsSection);
-
-            // configure jwt authentication
-            var appSettings = appSettingsSection.Get<AppSettings>();
 
             services.AddAutoMapper();
 
@@ -67,58 +62,12 @@ namespace Api
             services.AddSwagger();
             services.AddCors();
 
-            services.AddHangfire(x => x.UseSqlServerStorage(Configuration["ConnectionStrings:DefaultConnection"]));
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            services.AddAuthentication(x =>
-                {
-                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(options =>
-                {
-                    options.Events = new JwtBearerEvents
-                    {
-                        OnTokenValidated = context =>
-                        {
-                            var contactRepository = context.HttpContext.RequestServices.GetRequiredService<ContactRepository>();
-                            var userId = int.Parse(context.Principal.Identity.Name);
-                            var user = contactRepository.Get(userId);
-                            if (user == null)
-                            {
-                                // return unauthorized if user no longer exists
-                                context.Fail("Unauthorized");
-                            }
-                            context.Success();
-                            return Task.CompletedTask;
-                        },
-                        OnAuthenticationFailed = context =>
-                        {
-                            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-                            {
-                                context.Response.Headers.Add("Token-Expired", "true");
-                            }
-                            return Task.CompletedTask;
-                        }
-                    };
-                    options.RequireHttpsMetadata = false;
-                    options.SaveToken = true;
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        ValidateLifetime = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                    };
-                });
+            
         }
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            //builder.RegisterModule(new AutofacModule());
-            AutoWireAttribute.Register(typeof(ContactRepository).Assembly, builder);  // repo
-            AutoWireAttribute.Register(typeof(ContextFactory).Assembly, builder);  // Model
-            AutoWireAttribute.Register(typeof(ContactController).Assembly, builder);  // controller
-            builder.AddMediatR(typeof(CalculateZerosFromIntHandler).GetTypeInfo().Assembly);
+            AutoWireAttribute.Register(typeof(StudentRepository).Assembly, builder);  // repo
+            AutoWireAttribute.Register(typeof(StudentController).Assembly, builder);  // controller
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -154,9 +103,21 @@ namespace Api
                 settings.GeneratorSettings.DefaultPropertyNameHandling =
                     PropertyNameHandling.CamelCase;
             });
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("/app/index.html");
+            app.UseDefaultFiles(options);
             app.UseStaticFiles();
-            app.UseHangfireServer();
-            app.UseHangfireDashboard();
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                {
+                    context.Request.Path = "/app/index.html";
+                    context.Response.StatusCode = 200;
+                    await next();
+                }
+            });
         }
     }
 }

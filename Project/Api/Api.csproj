@@ -6,13 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\**" />
-    <Compile Remove="wwwroot\js\**" />
+    <Compile Remove="wwwroot\**" />
     <Content Remove="Views\**" />
-    <Content Remove="wwwroot\js\**" />
+    <Content Remove="wwwroot\**" />
     <EmbeddedResource Remove="Views\**" />
-    <EmbeddedResource Remove="wwwroot\js\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="Views\**" />
-    <None Remove="wwwroot\js\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Hangfire\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,0 @@
-<div>
-    <div ng-if="vm.avatarUrl" data-original-title="{{ vm.memberName }}" mtk-tooltip>
-        <img class="img-circle avatar-non-retina" ng-src={{vm.avatarUrl}}  width="{{vm.size}}" height="{{vm.size}}">
-        <img class="img-circle avatar-retina" ng-src={{vm.middleAvatarUrl}}  width="{{vm.size}}" height="{{vm.size}}">
-    </div>
-    <div class="user-initial-badge bg-blue" style="margin: 0" data-original-title="{{ vm.memberName }}" mtk-tooltip ng-if="!vm.avatarUrl">
-        {{ vm.memberName | initials}}
-    </div>
-</div>

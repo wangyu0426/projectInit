@@ -1,0 +1,30 @@
+<ul class="navbar-nav nav navbar-right" data-ng-controller="userMenuController as vm" ng-cloak >
+    <li class="">
+        <a data-toggle="dropdown" href="" class="dropdown-toggle disp-ib clearfix no-padding pull-right" style="margin: 6px 0 0 5px">
+            <avatar member-name="vm.user.firstName + ' ' + vm.user.lastName" class="pull-left user-menu-top-bar"></avatar>
+                            
+            <i class="icon-vf-down8 icon-3x pull-right"></i>
+            <div class="pull-right" style="margin: 8px 0px 0 5px">  Hi! {{vm.user.firstName}} {{vm.user.lastName}}</div>
+        </a>
+        <ul class="user-menu  dropdown-menu">
+            <li >
+                <span  style="padding-left:19px;">{{vm.user.firstName}} {{vm.user.lastName}}</span>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#/user/edit">
+                    <i class="icon-user"></i>
+                    Your Profile
+                </a>
+            </li>
+            <li class="divider"></li>
+
+            <li>
+                <a ng-click="vm.logout()">
+                    <i class="icon-off"></i>
+                    Sign Out
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

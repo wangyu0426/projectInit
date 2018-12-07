@@ -1,0 +1,61 @@
+<ul class="navbar-nav nav navbar-right" data-ng-controller="systemAlertController as vm" ng-cloak >
+    <li class="">
+        <a data-toggle="dropdown" href="" class="dropdown-toggle disp-ib clearfix no-padding pull-right" style="margin: 6px 0 0 5px">
+            <i class="icon-bell-alt icon-2x pull-right"></i>
+        </a>
+        <ul class="user-menu  dropdown-menu system-alert-menu">
+            <li >
+                <span  style="padding-left:19px;" class="large"> ACTIVITY </span>
+                <span  style="padding-left:19px;" class="small"> {{ vm.totalNotRead }} </span>
+            </li>
+            <li class="divider"></li>
+            <li >
+                <span  style="padding-left:19px;"> TODAY </span>
+            </li>
+            <li class="divider"></li>
+            <div  ng-repeat="item in vm.todayActivities">
+                    <li class="item">
+                            <avatar member-name="item.student.firstName + ' ' + item.student.lastName" is-square="true" class="pull-left col-sm-2"></avatar>
+                            <div class="pull-right col-sm-10" style="padding-top:15px; padding-bottom:15px;">                    
+                                <span class="bold">{{item.student.firstName}} {{item.student.lastName}}</span>
+                                <span class="small"> {{item.title}}</span>
+                                <span class="disp-b smaller gray truncate"> {{item.description}} </span>
+                            </div>
+                        </li>
+                        
+                        <li class="divider"></li>
+            </div>
+            
+            <li >
+                <span  style="padding-left:19px;"> YESTERDAY </span>
+            </li>
+            <li class="divider"></li>
+            <div ng-repeat="item in vm.yesterdayActivities ">
+                <li class="item"  >
+                        <avatar is-square="true" member-name="item.student.firstName + ' ' + item.student.lastName" class="pull-left col-sm-2"></avatar>
+                        <div class="pull-right col-sm-10" style="padding-top:15px; padding-bottom:15px;">                    
+                            <span class="bold">{{item.student.firstName}} {{item.student.lastName}}</span>
+                            <span class="small"> {{item.title}}</span>
+                            <span class="disp-b smaller gray truncate" ng-if="item.description"> {{item.description}} </span>
+                        </div>
+                </li>
+                
+                <li class="divider"></li>
+            </div>
+            
+            <li >
+                <span  style="padding-left:19px;"> EARLIER </span>
+            </li>
+            <li class="item" ng-repeat="item in vm.earlierActivities " >
+                    <avatar is-square="true" member-name="item.student.firstName + ' ' + item.student.lastName" class="pull-left col-sm-2"></avatar>
+                    <div class="pull-right col-sm-10" style="padding-top:15px; padding-bottom:15px;">                    
+                        <span class="bold">{{item.student.firstName}} {{item.student.lastName}}</span>
+                        <span class="small"> {{item.title}}</span>
+                        <span class="disp-b smaller gray truncate" ng-if="item.description"> {{item.description}} </span>
+                    </div>
+            </li>
+            <li class="divider"></li>
+            
+        </ul>
+    </li>
+</ul>
